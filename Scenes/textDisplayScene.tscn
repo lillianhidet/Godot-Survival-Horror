@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://biqxqmaaftq2x"]
+
+[ext_resource type="PackedScene" uid="uid://pkloy387l3nc" path="res://Scenes/button.tscn" id="1_5u6ks"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ImageCont" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 243.0
+offset_right = 926.0
+offset_bottom = 641.0
+
+[node name="TextImage" type="TextureRect" parent="ImageCont"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TextCont" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = -3.0
+offset_top = 497.0
+offset_right = 1154.0
+offset_bottom = 649.0
+
+[node name="Text" type="RichTextLabel" parent="TextCont"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]Lorem Ipsum[/center]"
+
+[node name="ButtonsCont" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 598.0
+offset_right = 771.0
+offset_bottom = 645.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ButtonsCont"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" parent="ButtonsCont/HBoxContainer" instance=ExtResource("1_5u6ks")]
+layout_mode = 2
+text = "Exit"
