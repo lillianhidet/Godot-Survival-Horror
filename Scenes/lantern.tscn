@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://dw0oivbjcfa8c"]
+
+[ext_resource type="PackedScene" uid="uid://c1g47vbipj4bw" path="res://Scenes/lanternTest.glb" id="2_wdrxn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_stufw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ed803"]
+size = Vector3(0.1985, 0.184186, 0.640514)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_36b4u"]
+size = Vector3(0.339569, 0.795795, 0.470933)
+
+[node name="Lantern" type="Node3D"]
+
+[node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="."]
+limit_enabled = true
+limit_upper = 1.5708
+limit_lower = -1.5708
+limit_spring_frequency = 1.0
+limit_spring_damping = 2.0
+node_a = NodePath("../Handle")
+node_b = NodePath("../Light")
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.00755364, -0.133869, 0)
+
+[node name="Handle" type="StaticBody3D" parent="."]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Handle"]
+transform = Transform3D(0.165395, 0, 0, 0, 0.115961, 0, 0, 0, 0.6246, 0, 0, 0)
+mesh = SubResource("BoxMesh_stufw")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Handle"]
+shape = SubResource("BoxShape3D_ed803")
+
+[node name="Light" type="RigidBody3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.259296, 0)
+collision_layer = 11
+collision_mask = 15
+mass = 2.0
+linear_damp = 0.2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Light"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.399892, 0)
+shape = SubResource("BoxShape3D_36b4u")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Light"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.196464, -0.399892, 0)
+light_color = Color(0.968627, 0.866667, 0.403922, 1)
+spot_range = 6.06146
+spot_angle = 25.6193
+
+[node name="lanternTest" parent="Light" instance=ExtResource("2_wdrxn")]
+transform = Transform3D(0.281089, 0, 0, 0, 0.383251, 0, 0, 0, 0.377434, 0, -0.399892, 0)

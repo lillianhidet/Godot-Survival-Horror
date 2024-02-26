@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://noilk88c8r7k"]
+
+[ext_resource type="PackedScene" uid="uid://bfrgh1mtrspo" path="res://Models/cliffs.glb" id="1_crep0"]
+
+[node name="cliffs" instance=ExtResource("1_crep0")]

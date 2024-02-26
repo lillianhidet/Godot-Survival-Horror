@@ -12,6 +12,10 @@ public partial class playerController : CharacterBody3D
 	Node3D armature;
 	AnimationTree animTree;
 
+	playerState playerState;
+
+	RigidBody3D lantern;
+
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
@@ -19,10 +23,12 @@ public partial class playerController : CharacterBody3D
 
         armature = (Node3D)GetNode("Armature");
 		animTree = (AnimationTree)GetNode("AnimationTree");
+		playerState = GetNode<playerState>("/root/PlayerState");
+		lantern = GetNode<RigidBody3D>("Armature/LeftHandIkTarget/Lantern/Light");
     }
 
-    public override void _PhysicsProcess(double delta)
-	{
+
+    public override void _PhysicsProcess(double delta){
 		Vector3 velocity = Velocity;
 
 		// Add the gravity.
@@ -39,15 +45,15 @@ public partial class playerController : CharacterBody3D
 		Vector2 inputDir = Input.GetVector("Left", "Right", "Forward", "Back");
 		Vector3 direction = new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, h_rot).Normalized();
 		
-		if (direction != Vector3.Zero){
+		if (direction != Vector3.Zero && playerState.canMove){
 			
 		
 			Vector3 rot = new Vector3(0,(float)Mathf.LerpAngle(armature.Rotation.Y, Mathf.Atan2(direction.X, direction.Z), delta * angularAcc),0);
 			armature.Rotation = rot;
 
-
 			velocity.X = Mathf.Lerp(velocity.X, direction.X * Speed, lerpVal);
 			velocity.Z = Mathf.Lerp(velocity.Z, direction.Z * Speed, lerpVal);
+			lantern.ApplyCentralForce(-direction * 2);
 		}
 		else{
 			velocity.X = Mathf.Lerp(velocity.X, 0.0f, lerpVal);
@@ -59,4 +65,5 @@ public partial class playerController : CharacterBody3D
 		Velocity = velocity;
 		MoveAndSlide();
 	}
+
 }
