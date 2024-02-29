@@ -1,10 +1,12 @@
 using Godot;
 using System;
+using System.Diagnostics;
 
 
 public partial class playerController : CharacterBody3D
 {
-	public const float Speed = 5.0f;
+	[Export] public const float walkSpeed = 5.0f;
+	[Export] public const float aimSpeed = 2.5f;
 	public const float lerpVal = .15f;
 
 	int angularAcc = 7;
@@ -36,23 +38,73 @@ public partial class playerController : CharacterBody3D
 			velocity.Y -= gravity * (float)delta;
 		}
 		
+		
 		Node3D n = (Node3D)GetNode("MainCamRoot/horizontal");
-		float h_rot = n.GlobalTransform.Basis.GetEuler().Y;
+		float camRot = n.GlobalTransform.Basis.GetEuler().Y;
+		
 		
 
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 inputDir = Input.GetVector("Left", "Right", "Forward", "Back");
-		Vector3 direction = new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, h_rot).Normalized();
+		Vector2	inputDir = Input.GetVector("Left", "Right", "Forward", "Back");
+
+		//This sucks!
+		Vector3 turnDir =  new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, camRot).Normalized();
+		Vector3 facing = new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, armature.GlobalTransform.Basis.GetEuler().Y).Normalized();
+
+
+		if(!playerState.isTransitioning){
+
+			if(!playerState.IsAiming && playerState.canMove){
+				
+				Velocity = standardMove(inputDir, turnDir, delta, velocity);
+
+			}else{
+	
+				Velocity = aimMove(inputDir, -facing, delta, velocity);
+
+			}
+
+		}else{
+
+			velocity.X = Mathf.Lerp(velocity.X, 0.0f, lerpVal);
+			velocity.Z = Mathf.Lerp(velocity.Z, 0.0f, lerpVal);
+			Velocity = velocity;
+
+		}
 		
-		if (direction != Vector3.Zero && playerState.canMove){
+		
+		
+		animTree.Set("parameters/Movement/blend_position", Velocity.Length() / walkSpeed);
+		MoveAndSlide();
+	}
+
+	private Vector3 aimMove(Vector2 inputDir, Vector3 direction, double delta, Vector3 velocity){
+
+		if(inputDir != Vector2.Zero){
+
+			velocity.X = Mathf.Lerp(velocity.X, direction.X * aimSpeed, lerpVal);
+			velocity.Z = Mathf.Lerp(velocity.Z, direction.Z * aimSpeed, lerpVal);
+
+		}else{
+
+			velocity.X = Mathf.Lerp(velocity.X, 0.0f, lerpVal);
+			velocity.Z = Mathf.Lerp(velocity.Z, 0.0f, lerpVal);
+
+		}
+
+		return velocity;
+
+	}
+
+	private Vector3 standardMove(Vector2 inputDir, Vector3 direction, double delta, Vector3 velocity){
+
+		if (direction != Vector3.Zero){
 			
 		
 			Vector3 rot = new Vector3(0,(float)Mathf.LerpAngle(armature.Rotation.Y, Mathf.Atan2(direction.X, direction.Z), delta * angularAcc),0);
 			armature.Rotation = rot;
 
-			velocity.X = Mathf.Lerp(velocity.X, direction.X * Speed, lerpVal);
-			velocity.Z = Mathf.Lerp(velocity.Z, direction.Z * Speed, lerpVal);
+			velocity.X = Mathf.Lerp(velocity.X, direction.X * walkSpeed, lerpVal);
+			velocity.Z = Mathf.Lerp(velocity.Z, direction.Z * walkSpeed, lerpVal);
 			lantern.ApplyCentralForce(-direction * 2);
 		}
 		else{
@@ -60,10 +112,8 @@ public partial class playerController : CharacterBody3D
 			velocity.Z = Mathf.Lerp(velocity.Z, 0.0f, lerpVal);
 		}
 
-		animTree.Set("parameters/Movement/blend_position", velocity.Length() / Speed);
-	
-		Velocity = velocity;
-		MoveAndSlide();
+		return velocity;
+		
 	}
 
 }

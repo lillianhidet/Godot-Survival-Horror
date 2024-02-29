@@ -7,6 +7,7 @@ public partial class playerState : Node{
 	public bool canLook {get; private set;}
 
 	public bool IsAiming;
+	public bool isTransitioning;
 
 
     public override void _Ready(){
@@ -14,6 +15,7 @@ public partial class playerState : Node{
         canMove = true;
 		canLook = true;
 		IsAiming = false;
+		isTransitioning = false;
     }
     public void openMenu(){
 		Input.MouseMode = Input.MouseModeEnum.Confined;
