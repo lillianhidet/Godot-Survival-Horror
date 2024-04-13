@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://xm1b72s7k3kc"]
+
+[ext_resource type="Texture2D" uid="uid://oo2seajag581" path="res://textures/stump_process.png" id="1_1fg2w"]
+
+[resource]
+resource_name = "Stump"
+cull_mode = 2
+albedo_texture = ExtResource("1_1fg2w")
+metallic_specular = 0.0
+texture_filter = 2

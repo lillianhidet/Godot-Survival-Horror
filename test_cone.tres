@@ -1,0 +1,115 @@
+[gd_resource type="VisualShader" load_steps=10 format=3 uid="uid://bvvpejlbr5x3i"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_t04no"]
+expanded_output_ports = [0]
+source = 5
+
+[sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_whfyb"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_1r7i5"]
+parameter_name = "Opacity"
+default_value_enabled = true
+default_value = 0.5
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_l0d11"]
+expanded_output_ports = [0]
+parameter_name = "Color"
+default_value_enabled = true
+default_value = Color(1, 1, 0, 1)
+
+[sub_resource type="VisualShaderNodeFresnel" id="VisualShaderNodeFresnel_pybjv"]
+
+[sub_resource type="VisualShaderNodeClamp" id="VisualShaderNodeClamp_1hjki"]
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_tf2kw"]
+default_input_values = [0, 0.0, 1, 0.0, 2, 0.5]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_568v7"]
+parameter_name = "Fresnel"
+default_value_enabled = true
+default_value = 0.5
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_twdnu"]
+parameter_name = "Gradient"
+texture_type = 1
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_disabled, unshaded, shadows_disabled;
+
+uniform vec4 Color : source_color = vec4(1.000000, 1.000000, 0.000000, 1.000000);
+uniform sampler2D Gradient : source_color;
+uniform float Opacity = 0.5;
+uniform float Fresnel = 0.5;
+
+
+
+void fragment() {
+// ColorParameter:3
+	vec4 n_out3p0 = Color;
+
+
+	vec4 n_out10p0;
+// Texture2D:10
+	n_out10p0 = texture(Gradient, UV);
+	float n_out10p4 = n_out10p0.a;
+
+
+// FloatParameter:2
+	float n_out2p0 = Opacity;
+
+
+// FloatParameter:8
+	float n_out8p0 = Fresnel;
+
+
+// Fresnel:4
+	float n_out4p0 = pow(1.0 - clamp(dot(NORMAL, VIEW), 0.0, 1.0), n_out8p0);
+
+
+// Clamp:6
+	float n_in6p1 = 0.00000;
+	float n_in6p2 = 1.00000;
+	float n_out6p0 = clamp(n_out4p0, n_in6p1, n_in6p2);
+
+
+// Mix:7
+	float n_in7p1 = 0.00000;
+	float n_out7p0 = mix(n_out2p0, n_in7p1, n_out6p0);
+
+
+// FloatOp:11
+	float n_out11p0 = n_out10p4 * n_out7p0;
+
+
+// Output:0
+	ALBEDO = vec3(n_out3p0.xyz);
+	ALPHA = n_out11p0;
+
+
+}
+"
+modes/specular = 2
+flags/unshaded = true
+flags/shadows_disabled = true
+nodes/fragment/0/position = Vector2(760, -280)
+nodes/fragment/2/node = SubResource("VisualShaderNodeFloatParameter_1r7i5")
+nodes/fragment/2/position = Vector2(-700, -480)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_l0d11")
+nodes/fragment/3/position = Vector2(-80, -620)
+nodes/fragment/4/node = SubResource("VisualShaderNodeFresnel_pybjv")
+nodes/fragment/4/position = Vector2(-760, -240)
+nodes/fragment/6/node = SubResource("VisualShaderNodeClamp_1hjki")
+nodes/fragment/6/position = Vector2(-440, -240)
+nodes/fragment/7/node = SubResource("VisualShaderNodeMix_tf2kw")
+nodes/fragment/7/position = Vector2(-200, -280)
+nodes/fragment/8/node = SubResource("VisualShaderNodeFloatParameter_568v7")
+nodes/fragment/8/position = Vector2(-1160, -180)
+nodes/fragment/9/node = SubResource("VisualShaderNodeTexture2DParameter_twdnu")
+nodes/fragment/9/position = Vector2(-660, 140)
+nodes/fragment/10/node = SubResource("VisualShaderNodeTexture_t04no")
+nodes/fragment/10/position = Vector2(-280, 60)
+nodes/fragment/11/node = SubResource("VisualShaderNodeFloatOp_whfyb")
+nodes/fragment/11/position = Vector2(166.631, -83.7681)
+nodes/fragment/connections = PackedInt32Array(4, 0, 6, 0, 6, 0, 7, 2, 2, 0, 7, 0, 8, 0, 4, 3, 9, 0, 10, 2, 3, 0, 0, 0, 10, 4, 11, 0, 7, 0, 11, 1, 11, 0, 0, 1)

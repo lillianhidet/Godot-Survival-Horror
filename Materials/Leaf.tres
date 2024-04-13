@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cxmtn2pp6gmu4"]
+
+[ext_resource type="Texture2D" uid="uid://kjh305egi0sl" path="res://textures/leaf_proces.png" id="1_q3bse"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 2
+diffuse_mode = 1
+albedo_texture = ExtResource("1_q3bse")
+metallic_specular = 0.0
+texture_filter = 0
+disable_receive_shadows = true

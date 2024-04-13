@@ -125,7 +125,6 @@ public partial class CamController : Node3D{
 			if(lerpVal < 1){
 				
 				lerpVal += transitionSpeed * (float)delta;
-				GD.Print(lerpVal);
 
 				mainCam.GlobalTransform = aimCamPos.GlobalTransform.InterpolateWith(mainCamPos.GlobalTransform, lerpVal);
 

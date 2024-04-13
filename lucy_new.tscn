@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://b0key5olebl7v"]
 
 [ext_resource type="Script" path="res://Scripts/testController.cs" id="1_dvvx7"]
-[ext_resource type="Texture2D" uid="uid://cisgym6a7l1pp" path="res://Models/lucy_LucyMainTex.png" id="2_5juhv"]
+[ext_resource type="Texture2D" uid="uid://cisgym6a7l1pp" path="res://textures/lucy_LucyMainTex.png" id="2_5juhv"]
 [ext_resource type="Script" path="res://Scripts/InteractionHandler.cs" id="3_snqpw"]
 [ext_resource type="Script" path="res://Scripts/CamController.cs" id="4_nm8g8"]
 [ext_resource type="Script" path="res://Scripts/InputHandler.cs" id="5_vwj15"]

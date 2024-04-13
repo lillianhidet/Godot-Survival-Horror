@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2a7oft8jee20"]
+
+[ext_resource type="PackedScene" uid="uid://o80vltsotqvb" path="res://Models/lightCone.glb" id="1_kuaxi"]
+
+[node name="lightCone" instance=ExtResource("1_kuaxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62882, 0)
+
+[node name="Cone" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111952, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0.130482, 0)
+light_color = Color(0.764706, 0.760784, 0, 1)
+light_energy = 16.0
+light_indirect_energy = 16.0
+light_volumetric_fog_energy = 16.0
+light_size = 1.0
+distance_fade_begin = 4096.0
+distance_fade_length = 4096.0
+spot_range = 5.28921
+spot_angle = 69.8456

@@ -1,0 +1,81 @@
+[gd_scene load_steps=8 format=3 uid="uid://oclfkwfv0fqt"]
+
+[ext_resource type="Shader" path="res://shaders/newSway.gdshader" id="1_r52la"]
+[ext_resource type="Texture2D" uid="uid://c857ukfjb4i03" path="res://textures/grass1_process.png" id="2_f0ejr"]
+[ext_resource type="Texture2D" uid="uid://bjk4ntw28ekvl" path="res://shaders/windNoise.tres" id="2_j3b2s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lfarn"]
+resource_name = "Material"
+transparency = 2
+alpha_scissor_threshold = 0.0
+alpha_antialiasing_mode = 0
+cull_mode = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_msyn3"]
+_surfaces = [{
+"aabb": AABB(-0.0103679, -0.077265, -1, 9.99961e-06, 2, 2.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 158, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 158, 0, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_obctw"]
+resource_name = "bush1_Plane_001"
+_surfaces = [{
+"aabb": AABB(-0.0103679, -0.077265, -1, 9.99961e-06, 2, 2.00001),
+"attribute_data": PackedByteArray(98, 255, 255, 255, 255, 255, 75, 131, 177, 127, 98, 255, 77, 128, 175, 130),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_lfarn"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(2.00476, 2.00476, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 191, 158, 0, 255, 255, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 158, 0, 255, 255, 0, 0, 255, 191, 158, 128, 175, 255, 158, 128, 175, 255, 158, 128, 175, 255, 158, 128, 175, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_msyn3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h81ht"]
+render_priority = 0
+shader = ExtResource("1_r52la")
+shader_parameter/albedo = Color(0.537255, 0.537255, 0.537255, 1)
+shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.0
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/texture_albedo = ExtResource("2_f0ejr")
+shader_parameter/wind_speed = 0.3
+shader_parameter/wind_strength = 0.1
+shader_parameter/noise_tex = ExtResource("2_j3b2s")
+
+[node name="Bush1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.072996, 0, 0)
+
+[node name="bush1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0742462, 1.19209e-07, -0.154974)
+
+[node name="Plane_001" type="MeshInstance3D" parent="bush1"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
+mesh = SubResource("ArrayMesh_obctw")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_h81ht")
+
+[node name="Plane_002" type="MeshInstance3D" parent="bush1"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_obctw")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("ShaderMaterial_h81ht")

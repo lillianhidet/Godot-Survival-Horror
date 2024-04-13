@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cthmp6f848ps1"]
+
+[ext_resource type="Texture2D" uid="uid://cwxljp6sjya2d" path="res://textures/lucyEyeClosed.png" id="1_8a7pn"]
+
+[resource]
+albedo_texture = ExtResource("1_8a7pn")
+metallic_specular = 0.0

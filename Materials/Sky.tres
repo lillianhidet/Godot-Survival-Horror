@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dt4u4af8secgf"]
+
+[ext_resource type="Texture2D" uid="uid://d3vtbspbdkjxd" path="res://textures/skybox_clouds.png" id="1_u3p77"]
+
+[resource]
+resource_name = "Sky"
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_u3p77")
+uv1_scale = Vector3(0.01, 0.01, 0.01)
+uv1_triplanar = true
+uv1_world_triplanar = true
