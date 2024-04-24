@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://ci5nnqh4mgs7m"]
+
+[ext_resource type="Material" uid="uid://db4codlxwwnpn" path="res://Materials/bush1.tres" id="1_5bstt"]
+[ext_resource type="Texture2D" uid="uid://c857ukfjb4i03" path="res://textures/grass1_process.png" id="3_mxdla"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_msyn3"]
+_surfaces = [{
+"aabb": AABB(-0.0103679, -0.077265, -1, 9.99961e-06, 2, 2.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 158, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 158, 0, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_obctw"]
+resource_name = "bush1_Plane_001"
+_surfaces = [{
+"aabb": AABB(-0.0103679, -0.077265, -1, 9.99961e-06, 2, 2.00001),
+"attribute_data": PackedByteArray(98, 255, 255, 255, 255, 255, 75, 131, 177, 127, 98, 255, 77, 128, 175, 130),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": ExtResource("1_5bstt"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(2.00476, 2.00476, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 191, 158, 0, 255, 255, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 158, 0, 255, 255, 0, 0, 255, 191, 158, 128, 175, 255, 158, 128, 175, 255, 158, 128, 175, 255, 158, 128, 175, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_msyn3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qivb4"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.556863, 0.556863, 0.556863, 1)
+albedo_texture = ExtResource("3_mxdla")
+metallic_specular = 0.0
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5ria7"]
+resource_name = "bush1_Plane_001"
+_surfaces = [{
+"aabb": AABB(-0.0103679, -0.077265, -1, 9.99961e-06, 2, 2.00001),
+"attribute_data": PackedByteArray(98, 255, 255, 255, 255, 255, 75, 131, 177, 127, 98, 255, 77, 128, 175, 130),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_qivb4"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(2.00476, 2.00476, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 191, 158, 0, 255, 255, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 158, 0, 255, 255, 0, 0, 255, 191, 158, 128, 175, 255, 158, 128, 175, 255, 158, 128, 175, 255, 158, 128, 175, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_msyn3")
+
+[node name="Bush1" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.072996, 0, 0)
+
+[node name="bush1" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0742462, 1.19209e-07, -0.154974)
+
+[node name="Plane_001" type="MeshInstance3D" parent="bush1"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
+mesh = SubResource("ArrayMesh_obctw")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_qivb4")
+
+[node name="Plane_002" type="MeshInstance3D" parent="bush1"]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_5ria7")
+skeleton = NodePath("")

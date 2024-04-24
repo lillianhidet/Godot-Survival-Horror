@@ -1,0 +1,26 @@
+[remap]
+
+importer="2d_array_texture"
+type="CompressedTexture2DArray"
+uid="uid://brmrphflkihf5"
+path="res://.godot/imported/world.exr-2019d079d88e1e7d5216d8d9a9f7f104.ctexarray"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://world.exr"
+dest_files=["res://.godot/imported/world.exr-2019d079d88e1e7d5216d8d9a9f7f104.ctexarray"]
+
+[params]
+
+compress/mode=3
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/channel_pack=1
+mipmaps/generate=false
+mipmaps/limit=-1
+slices/horizontal=1
+slices/vertical=16

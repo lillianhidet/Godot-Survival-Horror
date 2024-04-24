@@ -1,22 +1,27 @@
 using Godot;
 using System;
-using System.Reflection.Emit;
 
 public partial class lantern : RigidBody3D
 {
+	[Export] Node3D position;
+    // Called when the node enters the scene tree for the first time.
 
-	Vector3 pos;
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready(){
+    // Called every frame. 'delta' is the elapsed time since the previous frame.
 
-		pos = Position;
 
-	}
-
-    public override void _IntegrateForces(PhysicsDirectBodyState3D state){
-		//state.LinearVelocity = new Vector3(0,0,0);
-		GD.Print(state.Transform);
-
+    public override void _IntegrateForces(PhysicsDirectBodyState3D state)
+    {
+        Transform3D t = state.Transform;
+        
+        t.Origin.X = position.Position.X;
+        t.Origin.Y = position.Position.Y;
+        t.Origin.Z = position.Position.Z;
+        state.Transform = t;
+        
+        
     }
+
+
+
 
 }

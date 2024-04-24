@@ -3,11 +3,11 @@ using System;
 
 public partial class playerState : Node{
 
-	public bool canMove {get; private set;}
-	public bool canLook {get; private set;}
+	public static bool canMove {get; private set;}
+	public static bool canLook {get; private set;}
 
-	public bool IsAiming;
-	public bool isTransitioning;
+	public static bool IsAiming;
+	public static bool isTransitioning;
 
 
     public override void _Ready(){
@@ -17,20 +17,20 @@ public partial class playerState : Node{
 		IsAiming = false;
 		isTransitioning = false;
     }
-    public void openMenu(){
+    public static void openMenu(){
 		Input.MouseMode = Input.MouseModeEnum.Confined;
 		canMove = false;
 		canLook = false;
 	}
 
-	public void closeMenu(){
+	public static void closeMenu(){
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		canMove = true;
 		canLook = true;
 
 	}
 
-	public void toggleAim(){
+	public static void toggleAim(){
 		IsAiming = !IsAiming;
 	}
 }

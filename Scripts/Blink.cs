@@ -6,6 +6,7 @@ public partial class Blink : MeshInstance3D
 
 	[Export] Material open;
 	[Export] Material close;
+	[Export] int texSlot = 2;
 	[Export] float minTimeBeforeBlink = 1.5f;
 	[Export] float maxTimeBeforeBlink = 4f;
 
@@ -35,7 +36,7 @@ public partial class Blink : MeshInstance3D
 
 	public void closeEyes(){
 		
-		SetSurfaceOverrideMaterial(1,close);
+		SetSurfaceOverrideMaterial(texSlot,close);
 		GetTree().CreateTimer(timeToOpenEyes).Timeout += () => openEyes();
 
 
@@ -43,7 +44,7 @@ public partial class Blink : MeshInstance3D
 
 	private void openEyes(){
 		
-		SetSurfaceOverrideMaterial(1,open);
+		SetSurfaceOverrideMaterial(texSlot,open);
 		blinking = false;
 	}
 }

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://104bq0qxkr0j"]
+
+[ext_resource type="Script" path="res://Scripts/Items (Inventory)/keyItem.cs" id="1_ivy1c"]
+
+[node name="LighthouseKey" type="Node"]
+script = ExtResource("1_ivy1c")

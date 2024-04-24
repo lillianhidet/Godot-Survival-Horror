@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://daoclgx8eybqr"]
+
+[ext_resource type="Script" path="res://Scripts/Items (Inventory)/Ammo.cs" id="1_8atqa"]
+
+[node name="PistolAmmo" type="Node"]
+script = ExtResource("1_8atqa")
+amount = 15
