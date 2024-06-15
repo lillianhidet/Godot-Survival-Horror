@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://chu650mf8x30i"]
+
+[ext_resource type="Script" path="res://Scripts/Weapons/heldItem.cs" id="1_ba7lg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jqli5"]
+
+[node name="testHandgun" type="Node3D" node_paths=PackedStringArray("rightHandLocation")]
+transform = Transform3D(1.75653, 0, 0, 0, 1.75653, 0, 0, 0, 1.75653, 0, 0, 0)
+script = ExtResource("1_ba7lg")
+itemStyle = 1
+rightHandLocation = NodePath("HandSpot")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.101493, 0, 0, 0, 0.291485, 0, 0, 0, 0.0950153, 0, 0, 0)
+mesh = SubResource("BoxMesh_jqli5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.43642e-09, -0.558513, 0, 0.101493, -2.44134e-08, 0, 0, 0, 0.0950153, -0.241883, 0.0929152, 0)
+mesh = SubResource("BoxMesh_jqli5")
+
+[node name="HandSpot" type="Node3D" parent="."]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh6kl732oyqwx"]
+
+[ext_resource type="Script" path="res://Scenes/UI/hudManager.cs" id="1_7rx46"]
+[ext_resource type="Theme" uid="uid://dtgdfjqb3uf0" path="res://Fonts/textDisplayScene.tres" id="1_rdy64"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7rx46")
+
+[node name="HUDText" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -175.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme = ExtResource("1_rdy64")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+
+[node name="Timer" type="Timer" parent="HUDText"]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="HUDText/Timer" to="." method="timerEnd"]

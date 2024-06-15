@@ -6,7 +6,8 @@ public partial class InventoryItem : Node{
 	public enum ItemType {
     	KeyItem, 
     	Ammo, 
-    	Consumable
+    	Consumable,
+		Held
     }
 
 	public ItemType type;

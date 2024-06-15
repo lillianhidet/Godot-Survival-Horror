@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dy2pacgkcrwqf"]
+
+[ext_resource type="Texture2D" uid="uid://dqki50xjj22xu" path="res://textures/LucyRemake_lucyClothes.png" id="1_3gyit"]
+
+[resource]
+resource_name = "BodyTex"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_3gyit")
+metallic_specular = 0.0
+texture_filter = 2

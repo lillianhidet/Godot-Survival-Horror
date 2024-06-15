@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dxynbiivhns8h"]
+
+[ext_resource type="Texture2D" uid="uid://dal8d206mtw5x" path="res://textures/LucyRemake_LucyNewEyesOpen.png" id="1_eg3ba"]
+
+[resource]
+resource_name = "EyeRegion"
+cull_mode = 2
+albedo_texture = ExtResource("1_eg3ba")
+metallic_specular = 0.0
+texture_filter = 2

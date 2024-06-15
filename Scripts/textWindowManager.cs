@@ -5,7 +5,7 @@ public partial class textWindowManager : Node
 {
 	static PackedScene textDisplayScene;
 
-
+	static PackedScene button;
 	public static bool textLoaded;
 	static Node loaded;
 	static RichTextLabel textLbl;
@@ -13,6 +13,7 @@ public partial class textWindowManager : Node
 
     public override void _Ready(){
         textDisplayScene = GD.Load<PackedScene>("uid://biqxqmaaftq2x");
+		button = GD.Load<PackedScene>("uid://pkloy387l3nc");
 		textLoaded = false;
     }
 
@@ -22,8 +23,8 @@ public partial class textWindowManager : Node
 		textLbl = (RichTextLabel)loaded.GetNode("%Text");
 		imgLbl = (TextureRect)loaded.GetNode("%TextImage");
 
-		Button b = (Button) loaded.GetNode("%ExitBtn");
-		b.Pressed += close;
+		//Button b = (Button) loaded.GetNode("%ExitBtn");
+		//b.Pressed += close;
 
 		playerState.openMenu();
 
@@ -66,10 +67,11 @@ public partial class textWindowManager : Node
         imgLbl.Texture = v.GetTexture();
 
 	}
-	public static void addButton(Func<int> action, string text){
-		//Placeholder
-
-
+	public static void addButton(Action action, string text){
+		Button b = (Button) button.Instantiate();
+		b.Pressed += action;
+		b.Text = text;
+		loaded.GetNode("%ButtonCont").AddChild(b);
 
 	}
 

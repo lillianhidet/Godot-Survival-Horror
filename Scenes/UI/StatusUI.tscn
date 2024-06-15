@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlstnxmeoeraf"]
+
+[ext_resource type="PackedScene" uid="uid://cs5orfiohwqdl" path="res://Scenes/UI/itemSelect.tscn" id="1_ayc8g"]
+
+[node name="StatusUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 5.0
+offset_right = 5.0
+offset_bottom = 153.0
+grow_horizontal = 2
+theme_override_constants/separation = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Items"
+icon_alignment = 1
+
+[node name="Button2" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Weapons"
+
+[node name="Button3" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Supplies"
+
+[node name="ItemSelect" parent="HBoxContainer" instance=ExtResource("1_ayc8g")]
+layout_mode = 2

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://8r2a3cdcxnef"]
+
+[ext_resource type="Script" path="res://Scenes/utilities/textPopup.cs" id="1_cu3xm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pdt0g"]
+size = Vector3(4.23657, 3.89258, 3.36609)
+
+[node name="textPopupVolume" type="Node3D"]
+script = ExtResource("1_cu3xm")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11853, 1.93207, 0.0210407)
+shape = SubResource("BoxShape3D_pdt0g")
+
+[connection signal="area_entered" from="Area3D" to="." method="entered"]

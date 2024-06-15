@@ -6,7 +6,7 @@ public partial class InteractionHandler : Node{
 
 	Node currentTarget;
 	void areaEntered(Area3D area){
-
+		
 		if(area.GetTree().HasGroup("Interactable")){
 
 			currentTarget = area.GetParent();

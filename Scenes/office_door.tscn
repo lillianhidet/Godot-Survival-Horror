@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhq2bp0duvprw"]
+
+[ext_resource type="PackedScene" uid="uid://c118a62w28unj" path="res://Models/doortest.glb" id="1_u24dx"]
+
+[node name="OfficeDoor" type="Node3D"]
+
+[node name="doortest" parent="." instance=ExtResource("1_u24dx")]

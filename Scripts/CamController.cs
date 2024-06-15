@@ -15,7 +15,7 @@ public partial class CamController : Node3D{
 	private float lerpVal = 0;
 	[Export] public float transitionSpeed = 0.8f;
 	[Export] public float mainSens = .1f;
-	[Export] float aimSens = .01f;
+	
 
 	private float sens;
 
@@ -23,11 +23,11 @@ public partial class CamController : Node3D{
 	Node3D Mvertical;
 	Camera3D mainCam;
 
-	Node3D aimCamPos;
 	Node3D mainCamPos;
 
 	Node3D armature;
 
+	Node3D aimTarget;
 	playerState playerState;
 	HUDcontroller hud;
 
@@ -38,12 +38,13 @@ public partial class CamController : Node3D{
 	public override void _Ready(){
 		Mhorizontal = (Node3D) GetNode("horizontal");
 		Mvertical = (Node3D) GetNode("horizontal/vertical");
-		mainCam = (Camera3D) GetNode("horizontal/vertical/mainCamPos/Camera3D");
+		mainCam = (Camera3D) GetNode("%Camera3D");
 		playerState = GetNode<playerState>("/root/PlayerState");
 		armature = GetNode<Node3D>("%Armature");
-		aimCamPos = GetNode<Node3D>("%aimCamPos");
-		mainCamPos = GetNode<Node3D>("horizontal/vertical/mainCamPos");
-		hud = GetNode<HUDcontroller>("/root/World/%HUD");
+
+		mainCamPos = GetNode<Node3D>("%mainCamPos");
+
+		//hud = GetNode<HUDcontroller>("/root/World/%HUD");
 
 		sens = mainSens;
 
@@ -51,7 +52,7 @@ public partial class CamController : Node3D{
 
     public override void _Input(InputEvent @event){
         
-		if(@event is InputEventMouseMotion){
+		/*if(@event is InputEventMouseMotion){
 			if(playerState.canLook && !playerState.isTransitioning){
 
 				InputEventMouseMotion m = (InputEventMouseMotion) @event;
@@ -63,8 +64,17 @@ public partial class CamController : Node3D{
 
 
 			}
-		}
+		}*/
+		if(@event is InputEventMouseMotion){
+			if(playerState.canLook && !playerState.IsAiming){
 
+				InputEventMouseMotion m = (InputEventMouseMotion) @event;
+				
+				camrot_h += - m.Relative.X * sens;
+				camrot_v += - m.Relative.Y * sens;
+			}
+
+		}
 	}
 
     public override void _PhysicsProcess(double delta){
@@ -73,12 +83,12 @@ public partial class CamController : Node3D{
 			if(!playerState.IsAiming){
 				processMainCam();
 			}else{
-				processAimCam();
+				//processAimCam();
 			}
 
 		}else{
 			
-			transitionAim(delta);
+			//transitionAim(delta);
 		}
 
     }
@@ -90,7 +100,7 @@ public partial class CamController : Node3D{
 	}
 
 	//TODO - Refactor!!!!
-	public void transitionAim(double delta){
+	/*public void transitionAim(double delta){
 
 		if(!playerState.IsAiming){
 			//This transition should be its own function
@@ -109,7 +119,7 @@ public partial class CamController : Node3D{
 				playerState.IsAiming = true;
 				lerpVal = 0;
 
-				sens = aimSens;
+				sens = InputHandler.aimSens;
 				//Refactor
 				camrot_h = aimCamPos.Position.X;
 				camrot_v = aimCamPos.Position.Y;
@@ -149,10 +159,10 @@ public partial class CamController : Node3D{
 
 
 
-	}
+	}*/
 
 	void processMainCam(){
-		camrot_v = Mathf.Clamp(camrot_v, -25, 10);
+		camrot_v = Mathf.Clamp(camrot_v, -15, 20);
 
 		Vector3 hor = new Vector3(Mhorizontal.RotationDegrees.X, camrot_h, Mhorizontal.RotationDegrees.Z);
 		Mhorizontal.RotationDegrees = hor;
@@ -163,14 +173,14 @@ public partial class CamController : Node3D{
 
 	}
 
-	void processAimCam(){
+	/*void processAimCam(){
 		
 
 		camrot_h = Mathf.Clamp(camrot_h, -2, 2);
 		camrot_v = Mathf.Clamp(camrot_v, 3, 4);
 
 
-		hud.adjustReticle(new Vector2((horLast - camrot_h) * 20, 0));
+		//hud.adjustReticle(new Vector2((horLast - camrot_h) * 20, 0));
 
 		Vector3 pos = new Vector3(camrot_h, camrot_v, aimCamPos.Position.Z);
 
@@ -179,7 +189,7 @@ public partial class CamController : Node3D{
 		horLast = camrot_h;
 
 
-	}
+	}*/
 
 
 }

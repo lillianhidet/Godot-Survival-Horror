@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6irf1551v4e2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kgyw2"]
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0cpny"]
+metallic_specular = 0.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7gj7q"]
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2.00001),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 255, 255, 0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nex5y"]
+resource_name = "plane_Plane"
+_surfaces = [{
+"aabb": AABB(-1, 0, -1, 2, 1e-05, 2.00001),
+"attribute_data": PackedByteArray(0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_0cpny"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 191, 255, 255, 0, 0, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7gj7q")
+
+[node name="plane" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, -0.25, 0)
+shape = SubResource("BoxShape3D_kgyw2")
+
+[node name="Plane" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_nex5y")
+skeleton = NodePath("")

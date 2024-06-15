@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6i5jwn1meaci"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kx51q"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vw5ab"]
+
+[node name="testTwoHanded" type="Node3D"]
+
+[node name="rightHandPos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.23194, -0.245885, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="rightHandPos"]
+transform = Transform3D(2.93084, 0, 0, 0, 0.209577, 0, 0, 0, 0.182979, -1.23194, 0.245885, 0)
+mesh = SubResource("BoxMesh_kx51q")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="rightHandPos"]
+transform = Transform3D(0.341315, 0, 0, 0, 0.2794, 0, 0, 0, 0.110437, 0.0128707, 0.0545555, 0)
+mesh = SubResource("BoxMesh_vw5ab")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="rightHandPos"]
+transform = Transform3D(0.341315, 0, 0, 0, 0.2794, 0, 0, 0, 0.110437, -1.56878, 0.0545555, 0)
+mesh = SubResource("BoxMesh_vw5ab")
+skeleton = NodePath("../..")
+
+[node name="leftHandPos" type="Node3D" parent="rightHandPos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55961, 0, 0)

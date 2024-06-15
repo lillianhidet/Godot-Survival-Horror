@@ -6,6 +6,8 @@ public partial class playerState : Node{
 	public static bool canMove {get; private set;}
 	public static bool canLook {get; private set;}
 
+	public static bool animBusy {get; set;}
+
 	public static bool IsAiming;
 	public static bool isTransitioning;
 
@@ -28,6 +30,18 @@ public partial class playerState : Node{
 		canMove = true;
 		canLook = true;
 
+	}
+
+	public static void lockAnim(){
+
+		canMove = false;
+		animBusy = true;
+	}
+
+	public static void unlockAnim(){
+
+		canMove=true;
+		animBusy = false;
 	}
 
 	public static void toggleAim(){

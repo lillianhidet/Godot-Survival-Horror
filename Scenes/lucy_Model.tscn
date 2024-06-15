@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://be4s64o7rg143"]
+
+[ext_resource type="PackedScene" uid="uid://dhi3yill0uil1" path="res://Models/lucyAnim.glb" id="1_os857"]
+
+[node name="lucyNew" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="lucyAnim" parent="." instance=ExtResource("1_os857")]

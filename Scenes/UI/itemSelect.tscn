@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://cs5orfiohwqdl"]
+
+[node name="ItemSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 1036.0
+offset_bottom = 200.0
+grow_horizontal = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="buttonPrev" type="ColorRect" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Prev2" type="TextureRect" parent="HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Prev1" type="TextureRect" parent="HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Selected" type="TextureRect" parent="HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+
+[node name="Next1" type="TextureRect" parent="HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(180, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Next2" type="TextureRect" parent="HBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="buttonNext" type="ColorRect" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2

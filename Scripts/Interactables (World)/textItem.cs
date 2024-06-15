@@ -14,6 +14,7 @@ public partial class textItem : interactable{
 
       textWindowManager.loadText(text);
       textWindowManager.setImage(image);
+      textWindowManager.addButton(textWindowManager.close, "Exit");
 
     }
 }

@@ -9,26 +9,30 @@ public partial class playerController : CharacterBody3D
 	[Export] public const float aimSpeed = 2.5f;
 	public const float lerpVal = .15f;
 
+	Vector2 inputDir;
+
 	int angularAcc = 7;
 
 	Node3D armature;
 	AnimationTree animTree;
 
+	AnimationManager animManager;
 	playerState playerState;
-
-	RigidBody3D lantern;
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
     public override void _Ready(){
-
+		animManager = (AnimationManager)GetNode("%AnimationManager");
         armature = (Node3D)GetNode("Armature");
 		animTree = (AnimationTree)GetNode("AnimationTree");
 		playerState = GetNode<playerState>("/root/PlayerState");
-		lantern = GetNode<RigidBody3D>("%Lantern/Light");
+	
     }
 
+	public void setInputDir(Vector2 dir){
+		inputDir = dir;
+	}
 
     public override void _PhysicsProcess(double delta){
 		Vector3 velocity = Velocity;
@@ -41,17 +45,13 @@ public partial class playerController : CharacterBody3D
 		
 		Node3D n = (Node3D)GetNode("MainCamRoot/horizontal");
 		float camRot = n.GlobalTransform.Basis.GetEuler().Y;
-		
-		
 
-		Vector2	inputDir = Input.GetVector("Left", "Right", "Forward", "Back");
+		
 
 		//This sucks!
 		Vector3 turnDir =  new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, camRot).Normalized();
 		Vector3 facing = new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, armature.GlobalTransform.Basis.GetEuler().Y).Normalized();
 
-
-		if(!playerState.isTransitioning){
 
 			if(!playerState.IsAiming && playerState.canMove){
 				
@@ -63,17 +63,9 @@ public partial class playerController : CharacterBody3D
 
 			}
 
-		}else{
+		
+		animManager.walk(Velocity.Length() / walkSpeed);
 
-			velocity.X = Mathf.Lerp(velocity.X, 0.0f, lerpVal);
-			velocity.Z = Mathf.Lerp(velocity.Z, 0.0f, lerpVal);
-			Velocity = velocity;
-
-		}
-		
-		
-		
-		animTree.Set("parameters/Movement/blend_position", Velocity.Length() / walkSpeed);
 		MoveAndSlide();
 	}
 
@@ -105,7 +97,7 @@ public partial class playerController : CharacterBody3D
 
 			velocity.X = Mathf.Lerp(velocity.X, direction.X * walkSpeed, lerpVal);
 			velocity.Z = Mathf.Lerp(velocity.Z, direction.Z * walkSpeed, lerpVal);
-			lantern.ApplyCentralForce(-direction * 2);
+			//lantern.ApplyCentralForce(-direction * 2);
 		}
 		else{
 			velocity.X = Mathf.Lerp(velocity.X, 0.0f, lerpVal);
