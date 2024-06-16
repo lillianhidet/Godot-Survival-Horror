@@ -22,10 +22,10 @@ public partial class AnimationManager : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
 		player = GetNode<AnimationTree>("%AnimationTree");
-		leftArmIK = GetNode<SkeletonIK3D>("%LeftArmIK");
-		rightArmHalfIK = GetNode<SkeletonIK3D>("%RightArmHalfIK");
-		leftArmIKTarget = GetNode<Node3D>("%LeftArmTarget");
-		rightArmIKTarget = GetNode<Node3D>("%RightArmTarget");
+		//leftArmIK = GetNode<SkeletonIK3D>("%LeftArmIK");
+		//rightArmHalfIK = GetNode<SkeletonIK3D>("%RightArmHalfIK");
+		//leftArmIKTarget = GetNode<Node3D>("%LeftArmTarget");
+		//rightArmIKTarget = GetNode<Node3D>("%RightArmTarget");
 
 	}
 
@@ -97,7 +97,8 @@ public partial class AnimationManager : Node
 			if(!playerInventory.holdingLantern){
 				Rlerper = new animationLerper(4f, player, true,"parameters/twoHandPistolBlend/blend_amount");
 			}else{
-				Rlerper = new animationLerper(4f, player, true, null, rightArmHalfIK);
+				//Rlerper = new animationLerper(4f, player, true, null, rightArmHalfIK);
+				Rlerper = new animationLerper(4f, player, true,"parameters/oneHandPistolBlend/blend_amount");
 			}
 
 			this.AddChild(Rlerper);
@@ -113,7 +114,8 @@ public partial class AnimationManager : Node
 		if(!playerInventory.holdingLantern){
 			Rlerper = new animationLerper(4f, player, false, "parameters/twoHandPistolBlend/blend_amount");
 		}else{
-			Rlerper = new animationLerper(4f, player, false, null, rightArmHalfIK);
+			//Rlerper = new animationLerper(4f, player, false, null, rightArmHalfIK);
+			Rlerper = new animationLerper(4f, player, false, "parameters/oneHandPistolBlend/blend_amount");
 		}
 
 		this.AddChild(Rlerper);

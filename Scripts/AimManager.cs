@@ -24,7 +24,7 @@ public partial class AimManager : Node3D
 	[Export] Node3D headTarget;
 
 	[Export] Node3D player;
-	[Export] Node3D rotation;
+	//[Export] Node3D rotation;
 
 	[Export] Node3D spineTarget;
 
@@ -103,7 +103,7 @@ public partial class AimManager : Node3D
 
     public override void _Process(double delta){
 
-		rotation.LookAt(player.GlobalPosition);
+		//rotation.LookAt(player.GlobalPosition);
 		
         if(!playerState.IsAiming && spineTarget.RotationDegrees != Vector3.Zero){
 

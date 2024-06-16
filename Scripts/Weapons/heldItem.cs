@@ -21,4 +21,8 @@ public partial class heldItem : Node3D{
 	[Export] Node3D leftHandLocation;
 	[Export] Node3D rightHandLocation;
 
+        
+
 }
+
+
