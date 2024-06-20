@@ -35,7 +35,9 @@ public partial class animationLerper : Node{
 	public override void _Process(double delta){
 			//Extremely messy
 		if(lerping){
-				float l;
+			float l;
+
+			i +=(float)delta*increment;
 
 			if(lerpUp){
 				l = 0 + (1 - 0) * i;
@@ -43,7 +45,8 @@ public partial class animationLerper : Node{
 				l = 1 + (0 - 1) * i;
 			}
 
-			i +=(float)delta*increment;
+			l = Math.Clamp(l, 0, 1);
+			
 
 			if(paramPath!=""){
 				player.Set(paramPath, l);

@@ -58,5 +58,20 @@ public partial class playerInventory : Node{
 
 	public static void add(keyItem k){}
 
+	public static void attack(){
+		if(currentlyHeld != null){
+				if(currentlyHeld.itemType == heldItem.type.ranged){
+					((rangedWeapon)currentlyHeld).use();
+				}
+			}
+	}
 
+	public static void reload(){
+		//get the relevant ammo type, use it to reload, return unused to inventory
+
+		//Temp, for testing only
+		if(currentlyHeld.itemType == heldItem.type.ranged){
+					((rangedWeapon)currentlyHeld).reload(8);
+				}
+		}
 }

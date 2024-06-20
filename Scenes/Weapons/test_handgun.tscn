@@ -1,15 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://chu650mf8x30i"]
+[gd_scene load_steps=5 format=3 uid="uid://chu650mf8x30i"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons/heldItem.cs" id="1_ba7lg"]
+[ext_resource type="Script" path="res://Scenes/Weapons/rangedWeapon.cs" id="1_8qu73"]
+[ext_resource type="Script" path="res://Scenes/Weapons/muzzleFlash.cs" id="2_mudhv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jqli5"]
 
-[node name="testHandgun" type="Node3D" node_paths=PackedStringArray("rightHandLocation", "firePoint")]
+[sub_resource type="QuadMesh" id="QuadMesh_3xrir"]
+
+[node name="testHandgun" type="Node3D" node_paths=PackedStringArray("flash", "raycast", "aimingAt")]
 transform = Transform3D(1.75653, 0, 0, 0, 1.75653, 0, 0, 0, 1.75653, 0, 0, 0)
-script = ExtResource("1_ba7lg")
+script = ExtResource("1_8qu73")
+flash = NodePath("muzzleFlash")
+ammoCapacity = 8
+fireRate = 0.5
+raycast = NodePath("RayCast3D")
+aimingAt = NodePath("Marker3D")
 itemStyle = 1
-rightHandLocation = NodePath("HandSpot")
-firePoint = NodePath("")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.101493, 0, 0, 0, 0.291485, 0, 0, 0, 0.0950153, 0, 0, 0)
@@ -25,3 +31,23 @@ mesh = SubResource("BoxMesh_jqli5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.551497, 0.0894916, 0)
 target_position = Vector3(-40, 0, 0)
 debug_shape_custom_color = Color(0.686275, 0, 0, 1)
+
+[node name="muzzleFlash" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.570197, 0.0903703, 0)
+visible = false
+script = ExtResource("2_mudhv")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="muzzleFlash"]
+light_color = Color(0.431373, 0.427451, 0, 1)
+light_energy = 5.0
+light_indirect_energy = 5.0
+light_size = 0.5
+light_specular = 0.0
+omni_range = 8.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="muzzleFlash"]
+transform = Transform3D(-8.76965e-09, 0, 0.200626, 0, 0.200626, 0, -0.200626, 0, -8.76965e-09, 0.0302551, -0.00191512, 0)
+mesh = SubResource("QuadMesh_3xrir")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54178, 0.0692728, 0)

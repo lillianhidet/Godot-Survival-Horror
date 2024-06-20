@@ -52,6 +52,16 @@ public partial class InputHandler : Node{
 
 		}
 
+		if(@event.IsActionPressed("Left Click")){
+			if(playerState.IsAiming && !playerState.inMenu){
+				playerInventory.attack();
+
+			}
+		}
+
+		if(@event.IsActionPressed("Reload")){
+			playerInventory.reload();
+		}
 		
     }
 

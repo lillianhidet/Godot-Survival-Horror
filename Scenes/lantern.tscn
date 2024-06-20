@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dw0oivbjcfa8c"]
 
-[ext_resource type="Script" path="res://Scripts/Weapons/heldItem.cs" id="1_m1geo"]
+[ext_resource type="Script" path="res://Scenes/Weapons/heldItem.cs" id="1_m1geo"]
 [ext_resource type="PackedScene" uid="uid://dn4cqtvi267ca" path="res://Scenes/test_cone.tscn" id="2_6dqtw"]
 [ext_resource type="PackedScene" uid="uid://c75sfawmc2hu5" path="res://Scenes/circle_gradient.tscn" id="3_7q2gf"]
 
