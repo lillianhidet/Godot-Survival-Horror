@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdu77jopkdx80"]
+
+[ext_resource type="PackedScene" uid="uid://dl8mxcw81bu4k" path="res://Scenes/WorldItems/worldItem.tscn" id="1_hvax4"]
+[ext_resource type="PackedScene" uid="uid://daoclgx8eybqr" path="res://Scenes/InventoryItems/pistolAmmo.tscn" id="2_laedh"]
+[ext_resource type="PackedScene" uid="uid://cwprawoeym6e3" path="res://Scenes/WorldItems/Ammo/pistolAmmoModel.tscn" id="3_8nh4l"]
+
+[node name="pistolAmmo_WI" type="Node3D" groups=["Interactable"]]
+
+[node name="Node3D" parent="." node_paths=PackedStringArray("ammo") instance=ExtResource("1_hvax4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+ammo = NodePath("../PistolAmmo")
+description = "Pistol Bullets (Make sure the amount can be displayed here)"
+DisplayScene = ExtResource("3_8nh4l")
+
+[node name="PistolAmmo" parent="." instance=ExtResource("2_laedh")]
+capacity = 15
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("3_8nh4l")]
+
+[editable path="Node3D"]

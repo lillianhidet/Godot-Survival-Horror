@@ -2272,7 +2272,7 @@ shape = SubResource("BoxShape3D_x60ai")
 script = ExtResource("10_bog3k")
 
 [node name="LeftHandBoneAttachment" type="BoneAttachment3D" parent="Armature/BoneAttachments"]
-transform = Transform3D(-0.366906, -0.0367373, -0.0406358, 0.0346162, -0.368766, 0.0208339, -0.0424573, 0.0168137, 0.368152, 0.433947, 1.99397, -0.0475464)
+transform = Transform3D(-0.989037, -0.0990293, -0.109538, 0.0933117, -0.994051, 0.0561597, -0.114448, 0.0453227, 0.992394, 1.16975, -3.72326, -0.128167)
 bone_name = "hand.L"
 bone_idx = 10
 use_external_skeleton = true
@@ -2283,7 +2283,7 @@ unique_name_in_owner = true
 transform = Transform3D(0.209766, -0.973345, -0.0929336, -0.049705, -0.105542, 0.993174, -0.976496, -0.203717, -0.0705175, 0.189454, 0.522842, 0.0763054)
 
 [node name="RightHandBoneAttachment" type="BoneAttachment3D" parent="Armature/BoneAttachments"]
-transform = Transform3D(-0.366906, 0.036736, 0.0406361, -0.0346141, -0.368766, 0.0208396, 0.042458, 0.0168195, 0.368151, -0.433933, 1.99397, -0.0475334)
+transform = Transform3D(-0.989038, 0.0990255, 0.109539, -0.0933058, -0.994051, 0.0561755, 0.11445, 0.0453391, 0.992394, -1.16972, -3.72326, -0.128132)
 bone_name = "hand.R"
 bone_idx = 28
 use_external_skeleton = true
@@ -2294,7 +2294,7 @@ unique_name_in_owner = true
 transform = Transform3D(-0.170408, 0.115202, -0.978634, -0.979826, -0.12506, 0.155879, -0.104433, 0.985418, 0.134233, -0.162364, 0.574596, 0.0820599)
 
 [node name="ChestBoneAttachment" type="BoneAttachment3D" parent="Armature/BoneAttachments"]
-transform = Transform3D(0.370973, 1.02142e-14, 8.84466e-08, -8.4918e-09, 0.369259, 0.0356173, -8.8038e-08, -0.0356173, 0.369259, 0, 2.89218, -0.131711)
+transform = Transform3D(1, 2.75335e-14, 2.38418e-07, -2.28905e-08, 0.99538, 0.0960101, -2.37316e-07, -0.09601, 0.99538, 0, -1.30203, -0.355042)
 bone_name = "spine.003"
 bone_idx = 3
 use_external_skeleton = true
@@ -2304,7 +2304,7 @@ external_skeleton = NodePath("../../lucyNew/lucyAnim/Skeleton/Skeleton3D")
 transform = Transform3D(2.69561, 1.53156e-13, -2.47575e-14, -1.54176e-13, 2.69246, -0.1306, 1.73079e-14, 0.1306, 2.69246, 6.83459e-13, 2.94689, 0.603428)
 
 [node name="FaceBoneAttachment" type="BoneAttachment3D" parent="Armature/BoneAttachments"]
-transform = Transform3D(0.370973, 0.000248116, -3.0712e-06, -0.000247971, 0.370533, -0.0180496, -9.00456e-06, 0.0180496, 0.370534, -0.000281816, 3.5002, -0.125278)
+transform = Transform3D(1, 0.000668829, -8.27771e-06, -0.000668439, 0.998815, -0.0486543, -2.42736e-05, 0.0486544, 0.998815, -0.000759668, 0.336961, -0.337699)
 bone_name = "spine.006"
 bone_idx = 6
 use_external_skeleton = true

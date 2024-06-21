@@ -1,9 +1,9 @@
 using Godot;
 using System;
 
-public partial class rangedWeapon : heldItem
-{
+public partial class rangedWeapon : heldItem{
 
+	[Export] Ammo.ammoType ammoType;
 	[Export] muzzleFlash flash;
 	[Export] int ammoCapacity;
 	int ammoLoaded = 8;
@@ -51,6 +51,11 @@ public partial class rangedWeapon : heldItem
 
 		return newAmount;
 	}
+
+	public Ammo.ammoType ammoUsed(){return ammoType;}
+
+	public int getLoaded(){return ammoLoaded;}
+	public int getCapacity(){return ammoCapacity;}
 
     public override void _Process(double delta){
 		//This logic should be handled elsewhere
