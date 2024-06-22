@@ -8,10 +8,17 @@ public partial class Ammo : InventoryItem{
         rifle
     }
 
-    [Export] ammoType aType;
+    [Export] public ammoType aType;
 
-    [Export] int capacity;
-    [Export] int amount;
+    [Export] public int capacity;
+    [Export] public int amount;
+
+   /* public Ammo(ammoType type, int capacity, int amount){
+        this.aType = type;
+        this.capacity = capacity;
+        this.amount = amount;
+
+    }*/
 
     public override void _Ready(){
         type = ItemType.Ammo;

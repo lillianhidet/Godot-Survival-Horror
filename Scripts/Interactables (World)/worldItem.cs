@@ -44,12 +44,22 @@ public partial class worldItem: interactable{
 
         //Likely much better ways to do this, but this is better than my previous way - maintains types
         if(heldItem!= null){playerInventory.add(heldItem);}
-        if(ammo!=null){playerInventory.add(ammo);}
+
+        //Temporary Fix - need to duplicate the item
+        if(ammo!=null){
+            Ammo a = new Ammo();
+            a.capacity = ammo.capacity;
+            a.amount = ammo.amount;
+            a.type = ammo.type;
+            playerInventory.add(a);
+        }
+
         if(keyItem!=null){playerInventory.add(keyItem);}
+        //new Ammo(ammo.getType(), ammo.getCapacity(), ammo.getAmount())
+        this.QueueFree();
         
 
-
-        this.QueueFree();
+        
         
     }
 

@@ -6,7 +6,7 @@ public partial class rangedWeapon : heldItem{
 	[Export] Ammo.ammoType ammoType;
 	[Export] muzzleFlash flash;
 	[Export] int ammoCapacity;
-	int ammoLoaded = 8;
+	int ammoLoaded = 0;
 	[Export] float fireRate;
 
 	//For testing
@@ -34,22 +34,8 @@ public partial class rangedWeapon : heldItem{
 		}
 	}
 
-	public int reload(int maxAmount){
-		int newAmount;
-
-		if(maxAmount >= ammoCapacity){
-
-			newAmount = maxAmount - ammoCapacity;
-			ammoLoaded = ammoCapacity;
-
-		}else{
-
-			newAmount = 0;
-			ammoLoaded = maxAmount;
-
-		}
-
-		return newAmount;
+	public void reload(int maxAmount){
+		ammoLoaded = maxAmount;
 	}
 
 	public Ammo.ammoType ammoUsed(){return ammoType;}

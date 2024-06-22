@@ -1,7 +1,6 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.Net;
 
 //Tracks the items the player has, and dispatches equip requests to the equipManager
 public partial class playerInventory : Node{
@@ -98,30 +97,41 @@ public partial class playerInventory : Node{
 		//If we do, subtract the amount we need, keeping leftovers
 		//If we don't, take as much as we can
 		if(currentlyHeld.itemType == heldItem.type.ranged){
+
 					rangedWeapon wep = (rangedWeapon)currentlyHeld;
 
 					Ammo.ammoType typeUsed = wep.ammoUsed();
+					List<Ammo> toRemove = new List<Ammo>();
+
 					int toLoad = 0;
 
 					foreach(Ammo a in ammo){
+
 						if(a.getType() == typeUsed){
-							GD.Print(a.getAmount());
 							//If the amount in the ammobox is less than or exactly enough to refill the weapon
 							if(a.getAmount() + wep.getLoaded() + toLoad <= wep.getCapacity()){
 								toLoad+=a.getAmount();
-								ammo.Remove(a);
-								if(ammo.Count == 0){break;}
+								toRemove.Add(a);
+
+								//if(ammo.Count == 0){break;}
 								//If a box has more than enough to reload 
 							}else{
 								//Get the difference, take it from the box
 								//Need to factor in toLoad
-								a.reduceAmount((a.getAmount()+wep.getLoaded()+toLoad+1) - wep.getCapacity());
+								GD.Print("reduced");
+								a.reduceAmount(wep.getCapacity() - (wep.getLoaded() + toLoad));
 								toLoad = wep.getCapacity() - wep.getLoaded();
 								break;
+								
 							}
 
 						}
 					}
+
+					foreach(Ammo a in toRemove){
+						ammo.Remove(a);
+					}
+
 					wep.reload(toLoad);
 			}
 		}
