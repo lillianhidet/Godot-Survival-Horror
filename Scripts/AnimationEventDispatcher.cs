@@ -31,7 +31,7 @@ public partial class AnimationEventDispatcher : Node{
 	}
 
 //Stop the IK on the hand holding the lantern so it can be put back down
-	void startPickupLantern(){
+	/*void startPickupLantern(){
 		startLockedAnim();
 		if(playerInventory.holdingLantern){
 
@@ -43,7 +43,7 @@ public partial class AnimationEventDispatcher : Node{
 			
 		}
 	}
-
+*/
 //Start the IK on the lantern so that it is held out infront again
 	void stopPickupLantern(){
 		endLockedAnim();

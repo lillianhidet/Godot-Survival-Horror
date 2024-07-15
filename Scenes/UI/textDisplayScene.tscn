@@ -26,10 +26,14 @@ color = Color(0.184314, 0.184314, 0.184314, 0.513726)
 
 [node name="ImageCont" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-offset_left = 243.0
-offset_right = 1026.0
-offset_bottom = 717.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -391.5
+offset_right = 408.5
+offset_bottom = 800.0
+grow_horizontal = 2
 
 [node name="TextImage" type="TextureRect" parent="ImageCont"]
 unique_name_in_owner = true

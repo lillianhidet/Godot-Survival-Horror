@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b6rmjg73tkaa0"]
+
+[ext_resource type="Texture2D" uid="uid://dqouv8b81ikn0" path="res://Models/Characters/Janus/janusTestExport_coat.png" id="1_akmqy"]
+
+[resource]
+resource_name = "Coat"
+cull_mode = 2
+albedo_texture = ExtResource("1_akmqy")
+metallic_specular = 0.0
+texture_filter = 2

@@ -8,8 +8,10 @@
 layout_mode = 3
 anchor_right = 1.333
 anchor_bottom = 1.333
-offset_right = -479.52
-offset_bottom = -269.73
+offset_left = 145.0
+offset_top = -1.0
+offset_right = -334.52
+offset_bottom = -270.73
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -45,5 +47,45 @@ offset_bottom = 0.349999
 pivot_offset = Vector2(6.25, 6.25)
 texture = ExtResource("3_kl7ac")
 expand_mode = 1
+
+[node name="ammo" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1707.0
+offset_top = 5.0
+offset_right = 1707.0
+offset_bottom = 26.0
+scale = Vector2(2, 2)
+theme = ExtResource("1_rdy64")
+
+[node name="inMag" type="Label" parent="ammo"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -9.0
+offset_right = -38.0
+offset_bottom = 14.0
+theme_override_font_sizes/font_size = 32
+text = "00
+"
+
+[node name="Label2" type="Label" parent="ammo"]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -9.0
+offset_right = -7.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 32
+text = "/
+
+"
+
+[node name="inInv" type="Label" parent="ammo"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -8.5
+offset_right = 11.0
+offset_bottom = 35.5
+theme_override_font_sizes/font_size = 32
+text = "00
+"
 
 [connection signal="timeout" from="HUDText/Timer" to="." method="timerEnd"]

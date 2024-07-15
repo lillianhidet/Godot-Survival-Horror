@@ -82,16 +82,49 @@ public partial class AnimationManager : Node
 		player.Set("parameters/LeftArmBlend/blend_amount", 1);
 	}
 
-	public void stopHoldLantern(){
+	//public void stopHoldLantern(){
 		
-		animationLerper lerper = new animationLerper(1.2f, player, false,"parameters/LeftArmBlend/blend_amount");
-		this.AddChild(lerper);
-	}
+		
+	//}
 
 	
 
-	public void pickupDropLantern(){
-			player.Set("parameters/CrouchDown/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+	public void takeHolsterLanter(){
+		if(playerInventory.holdingLantern){
+
+			animationLerper lerper = new animationLerper(1.2f, player, false,"parameters/LeftArmBlend/blend_amount");
+			this.AddChild(lerper);
+
+			animationLerper lerper2 = new animationLerper(1.2f, player, true,"parameters/LanternHolsterBlend/blend_amount");
+			this.AddChild(lerper2);
+			lerper2.LerpFinished += EquipManager.attachLanternToBody;
+
+		}else{
+
+			animationLerper lerper = new animationLerper(1.2f, player, true,"parameters/LanternHolsterBlend/blend_amount");
+			this.AddChild(lerper);
+			lerper.LerpFinished += EquipManager.attachLanternToHand;
+
+
+		}
+
+	}
+
+	public void returnHand(){
+		if(!playerInventory.holdingLantern){
+
+			animationLerper lerper = new animationLerper(1.2f, player, false,"parameters/LanternHolsterBlend/blend_amount");
+			this.AddChild(lerper);
+			
+		}else{
+
+			animationLerper lerper = new animationLerper(1.2f, player, false,"parameters/LanternHolsterBlend/blend_amount");
+			this.AddChild(lerper);
+
+			animationLerper lerper2 = new animationLerper(1.2f, player, true,"parameters/LeftArmBlend/blend_amount");
+			this.AddChild(lerper2);
+		}
+
 	}
 
 	public void walk(float speed){

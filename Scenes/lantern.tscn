@@ -117,7 +117,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k8o5u")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_36b4u"]
-size = Vector3(0.339569, 0.795795, 0.470933)
+size = Vector3(0.339569, 0.456652, 0.470933)
 
 [node name="Lantern" type="Node3D"]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
@@ -125,10 +125,7 @@ script = ExtResource("1_m1geo")
 itemStyle = 1
 itemType = 3
 
-[node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
-
-[node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="Node3D"]
+[node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="."]
 limit_enabled = true
 limit_upper = 1.0472
 limit_lower = -1.0472
@@ -136,36 +133,36 @@ limit_spring_frequency = 1.0
 limit_spring_damping = 2.0
 node_a = NodePath("../Handle")
 node_b = NodePath("../Light")
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.00755364, -0.133869, 0)
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 3.3018e-10, -0.133869, -0.00755364)
 
-[node name="Handle" type="StaticBody3D" parent="Node3D"]
-transform = Transform3D(1, 7.52316e-37, 0, 0, 1, -2.11758e-22, 0, -2.1608e-22, 1, 8.66597e-25, 0, 1.98254e-17)
+[node name="Handle" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 2.1608e-22, -1, 0, 1, -2.11758e-22, 1, 9.44516e-30, -4.37114e-08, -1.98254e-17, 0, 1.06193e-30)
 collision_layer = 0
 collision_mask = 0
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 axis_lock_linear_z = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Handle"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Handle"]
 shape = SubResource("BoxShape3D_ed803")
 
-[node name="Handle" type="MeshInstance3D" parent="Node3D/Handle"]
+[node name="Handle" type="MeshInstance3D" parent="Handle"]
 transform = Transform3D(0.404555, 0, 0, 0, 0.404555, 0, 0, 0, 0.404555, -0.416193, 0.133315, -0.352124)
 mesh = SubResource("ArrayMesh_7adwe")
 skeleton = NodePath("")
 
-[node name="Light" type="RigidBody3D" parent="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0234733, -0.221897, -0.0067469)
+[node name="Light" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0067469, -0.221897, -0.0234733)
 collision_layer = 0
 collision_mask = 0
 mass = 2.0
 lock_rotation = true
 freeze = true
 
-[node name="Node3D" type="Node3D" parent="Node3D/Light"]
+[node name="Node3D" type="Node3D" parent="Light"]
 transform = Transform3D(1, -4.93038e-30, -9.31322e-09, 4.93038e-30, 1, -9.61115e-29, 9.31322e-09, 9.61115e-29, 1, -0.0161107, -0.293814, -0.0174274)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Light/Node3D"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Light/Node3D"]
 transform = Transform3D(-4.37114e-08, 1.93158e-31, -1, -5.81785e-30, 1, 1.93159e-31, 1, 5.81785e-30, -4.37114e-08, 0.201905, -0.300341, 0)
 light_color = Color(0.968627, 0.866667, 0.403922, 1)
 light_energy = 10.0
@@ -174,27 +171,27 @@ light_specular = 0.0
 spot_range = 13.384
 spot_angle = 25.6193
 
-[node name="TestCone" parent="Node3D/Light/Node3D" instance=ExtResource("2_6dqtw")]
+[node name="TestCone" parent="Light/Node3D" instance=ExtResource("2_6dqtw")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, -2.15951e-28, 0, 0, 1, 0.204479, 0.0112846, 0.00267075)
 
-[node name="TestCone2" parent="Node3D/Light/Node3D" instance=ExtResource("2_6dqtw")]
+[node name="TestCone2" parent="Light/Node3D" instance=ExtResource("2_6dqtw")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, -2.15951e-28, 0, 0, 1, 0.20448, 0.0112846, 0.00267074)
 
-[node name="circleGradient" parent="Node3D/Light/Node3D" instance=ExtResource("3_7q2gf")]
+[node name="circleGradient" parent="Light/Node3D" instance=ExtResource("3_7q2gf")]
 transform = Transform3D(1, 2.36658e-30, 0, 1.18329e-30, 1, -1.90707e-28, 0, -1.42981e-29, 1, 0.402282, 0.0223176, 0.00267074)
 
-[node name="circleGradient2" parent="Node3D/Light/Node3D" instance=ExtResource("3_7q2gf")]
+[node name="circleGradient2" parent="Light/Node3D" instance=ExtResource("3_7q2gf")]
 transform = Transform3D(1, 1.18329e-30, 0, 1.57772e-30, 1, -1.90707e-28, 0, -1.43351e-29, 1, 0.367541, 0.0223176, 0.00267074)
 
-[node name="Lantern" type="MeshInstance3D" parent="Node3D/Light/Node3D"]
+[node name="Lantern" type="MeshInstance3D" parent="Light/Node3D"]
 transform = Transform3D(0.4, 3.9443e-31, 9.31323e-10, 3.9443e-31, 0.4, -4.34798e-29, -9.31323e-10, 1.95243e-29, 0.4, 0.000205096, -0.168537, 0.0092815)
 mesh = SubResource("ArrayMesh_8roex")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Light"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Light"]
 unique_name_in_owner = true
 transform = Transform3D(1, -1.18329e-30, -9.31323e-09, 4.73317e-30, 1, -8.95973e-29, 9.31323e-09, 1.11994e-28, 1, 0, -0.443831, 0)
 shape = SubResource("BoxShape3D_36b4u")
 
-[editable path="Node3D/Light/Node3D/TestCone"]
-[editable path="Node3D/Light/Node3D/TestCone2"]
+[editable path="Light/Node3D/TestCone"]
+[editable path="Light/Node3D/TestCone2"]

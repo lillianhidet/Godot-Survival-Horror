@@ -6,7 +6,7 @@ public partial class Blink : MeshInstance3D
 
 	[Export] Material open;
 	[Export] Material close;
-	[Export] int texSlot = 2;
+	[Export] int texSlot = 1;
 	[Export] float minTimeBeforeBlink = 1.5f;
 	[Export] float maxTimeBeforeBlink = 4f;
 

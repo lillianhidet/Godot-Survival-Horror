@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://2p11j32dpuuc"]
+
+[ext_resource type="Texture2D" uid="uid://bc0osn4duc7rd" path="res://Models/Characters/Janus/janusTestExport_janusTex.png" id="1_5afx1"]
+
+[resource]
+resource_name = "Face.001"
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_5afx1")
+texture_filter = 2
+texture_repeat = false

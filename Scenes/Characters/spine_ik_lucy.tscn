@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvmqu50a8b8yx"]
+
+[ext_resource type="Script" path="res://Scripts/IK.cs" id="1_bm6qa"]
+
+[node name="SpineIK" type="SkeletonIK3D"]
+process_priority = 1
+root_bone = &"spine.002"
+tip_bone = &"spine.003"
+target_node = NodePath("../../../../../aimRoot/SpineTarget")
+script = ExtResource("1_bm6qa")

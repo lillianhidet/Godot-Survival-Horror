@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://1lgbjqe43m18"]
+
+[ext_resource type="Texture2D" uid="uid://dtoie057svhqj" path="res://Models/Characters/Janus/janusTestExport_FaceTex.png" id="1_l01kr"]
+
+[resource]
+resource_name = "FaceTex"
+cull_mode = 2
+albedo_texture = ExtResource("1_l01kr")
+metallic_specular = 0.0
+texture_filter = 2

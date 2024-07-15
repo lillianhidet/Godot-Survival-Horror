@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://qdh0qt1q7kuj"]
+
+[ext_resource type="Texture2D" uid="uid://byauwlde5ocxt" path="res://Models/Characters/Janus/janusTestExport_swordTex.png" id="1_bpi6c"]
+
+[resource]
+resource_name = "SwordTex"
+cull_mode = 2
+albedo_texture = ExtResource("1_bpi6c")
+metallic = 0.9
+metallic_specular = 0.0
+texture_filter = 2

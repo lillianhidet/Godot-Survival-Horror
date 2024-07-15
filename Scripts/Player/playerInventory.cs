@@ -29,7 +29,7 @@ public partial class playerInventory : Node{
 		holdingLantern = false;
     }
     public static void add(heldItem h){
-		//This will only be called once, is this how this should be done?
+		//This will only be called once, is this how this should be done? Definitely Not!
 		if(h.itemType == heldItem.type.lantern){
 			EquipManager.equipLantern(h);
 			holdingLantern = true;
@@ -73,6 +73,15 @@ public partial class playerInventory : Node{
 
 		if(a.getAmount()>0){
 			ammo.Add(a);
+		}
+
+		//Pretty bad, come back to this
+		if(currentlyHeld!= null){
+			if(currentlyHeld.itemType == heldItem.type.ranged){
+				rangedWeapon held = (rangedWeapon) currentlyHeld;
+				hudManager.updateInvAmmoLabel(getTotalAmmoOfType(held.ammoUsed()));
+
+			}
 		}
 		
 	}
@@ -133,6 +142,24 @@ public partial class playerInventory : Node{
 					}
 
 					wep.reload(toLoad);
+					hudManager.updateInvAmmoLabel(getTotalAmmoOfType(typeUsed));
+					hudManager.updateLoadedAmmoLabel(wep.getLoaded());
 			}
 		}
+
+		static int getTotalAmmoOfType(Ammo.ammoType type) {
+			int total = 0;
+
+			foreach(Ammo a in ammo){
+				if(a.getType() == type){
+					total += a.getAmount();
+				}
+			
+			}
+
+		return total;
+		}
+
+		//Should probably be on some kind of UI class
+		
 }

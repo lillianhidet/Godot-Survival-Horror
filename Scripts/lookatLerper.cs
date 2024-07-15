@@ -8,6 +8,8 @@ public partial class lookatLerper : Node{
 
     Node3D helper;
 
+    Vector3 start;
+
     float t = 0;
     float speed;
 
@@ -25,6 +27,7 @@ public partial class lookatLerper : Node{
             Math.Clamp(helper.RotationDegrees.Y, -yAxisLimit, yAxisLimit), 
             helper.RotationDegrees.Z);
 
+        start = looker.RotationDegrees;
         this.target = target;
         this.looker = looker;
         this.speed = speed;
@@ -33,7 +36,8 @@ public partial class lookatLerper : Node{
 	}
 
     public override void _Process(double delta){
-        looker.RotationDegrees = looker.RotationDegrees.Lerp(helper.RotationDegrees, t);
+        //looker.RotationDegrees = looker.RotationDegrees.Lerp(helper.RotationDegrees, t);
+        looker.RotationDegrees = start.Lerp(helper.RotationDegrees, t);
         t+=(float)delta * speed;
 
         if(t >= 1 || looker.RotationDegrees == helper.RotationDegrees || deathScheduled){

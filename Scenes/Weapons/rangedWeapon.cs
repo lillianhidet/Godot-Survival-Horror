@@ -23,6 +23,7 @@ public partial class rangedWeapon : heldItem{
 			flash.flash(0.15f);
 
 			ammoLoaded--;
+			hudManager.updateLoadedAmmoLabel(ammoLoaded);
 			
 			if(raycast.IsColliding()){
 				

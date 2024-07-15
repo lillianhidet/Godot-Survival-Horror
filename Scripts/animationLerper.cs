@@ -11,9 +11,7 @@ public partial class animationLerper : Node{
 
 	float i = 0;
 
-    public override void _Ready(){
-		
-    }
+	[Signal] public delegate void LerpFinishedEventHandler();
 
     public animationLerper(float increment, AnimationTree player, bool lerpUp, string paramPath = "", SkeletonIK3D ik = null){
 
@@ -52,14 +50,15 @@ public partial class animationLerper : Node{
 				player.Set(paramPath, l);
 			}if(ik != null){
 				ik.Interpolation = l;
-				//if(ik.Interpolation <= 0){ik.Stop();}
 			}
+			
 			//Really bad
 			if((lerpUp && l >= 1) || (!lerpUp && l <= 0)){
 				lerping = false;
 				paramPath = "";
 				ik = null;
 				i = 0;
+				EmitSignal(SignalName.LerpFinished);
 				this.QueueFree();
 			}
 		}

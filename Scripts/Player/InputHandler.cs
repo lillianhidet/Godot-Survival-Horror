@@ -34,20 +34,29 @@ public partial class InputHandler : Node{
 			if(playerState.canMove && playerState.canLook){
 				playerState.IsAiming = true;
 				aimManager.setAim();
+				camController.camOut();
 			}
+			
 		}
 
 		if(@event.IsActionReleased("Right Click")){
 			if(playerState.canMove && playerState.canLook){
 				playerState.IsAiming = false;
+				aimManager.stopAim();
+				camController.camIn();
 				//aimManager.reset();
 			}
+			
+
 		}
 
-		//Should animations be directly launched from here? or have some kind of animation launcher class?
+	
+
+		
 		if(@event.IsActionPressed("Drop Lantern")){
 			if(playerState.canMove && !playerState.animBusy){
-				animManager.pickupDropLantern();
+				animManager.takeHolsterLanter();
+				
 			}
 
 		}

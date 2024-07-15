@@ -1,9 +1,8 @@
 using Godot;
 using System;
 
-//Todo - reset positions after transitioning out of state,
-//Aim cam pos not rotating to remain behind player (done)
-//Refactor!! This design stinks!!!!!!!!
+
+//Still very messy, needs another refactor pass (a lot better than what it was!)
 
 
 public partial class CamController : Node3D{
@@ -11,26 +10,34 @@ public partial class CamController : Node3D{
 	private float camrot_h = 0f;
 	private float camrot_v = 0f;
 
-	private float horLast = 0f;
 	private float lerpVal = 0;
-	[Export] public float transitionSpeed = 0.8f;
+	[Export] public float transitionSpeed = 2f;
 	[Export] public float mainSens = .1f;
-	
+	[Export] public int maxRot = 15;
+	[Export] public int minRot = -10;
 
+ 
 	private float sens;
 
 	Node3D Mhorizontal;
 	Node3D Mvertical;
 	Camera3D mainCam;
 
-	Node3D mainCamPos;
+	[Export] Node3D rightAimTarget;
+	[Export] Node3D leftAimTarget;
+	[Export] Node3D mainTarget;
 
-	Node3D armature;
+	[Export] SpringArm3D springArm;
 
-	Node3D aimTarget;
-	playerState playerState;
-	HUDcontroller hud;
+	[Export] Node3D Armature;
 
+	Vector3 mainCamCurrent;
+
+	Node3D targetNode;
+
+	bool goingOut = false;
+
+	bool atDestination = true;
 	
 
 
@@ -38,33 +45,15 @@ public partial class CamController : Node3D{
 	public override void _Ready(){
 		Mhorizontal = (Node3D) GetNode("horizontal");
 		Mvertical = (Node3D) GetNode("horizontal/vertical");
-		mainCam = (Camera3D) GetNode("%Camera3D");
-		playerState = GetNode<playerState>("/root/PlayerState");
-		armature = GetNode<Node3D>("%Armature");
 
-		mainCamPos = GetNode<Node3D>("%mainCamPos");
-
-		//hud = GetNode<HUDcontroller>("/root/World/%HUD");
+		springArm.GlobalPosition = mainTarget.GlobalPosition;
 
 		sens = mainSens;
 
 	}
 
     public override void _Input(InputEvent @event){
-        
-		/*if(@event is InputEventMouseMotion){
-			if(playerState.canLook && !playerState.isTransitioning){
-
-				InputEventMouseMotion m = (InputEventMouseMotion) @event;
-				
-				camrot_h += - m.Relative.X * sens;
-				camrot_v += - m.Relative.Y * sens;
-
-				
-
-
-			}
-		}*/
+ 
 		if(@event is InputEventMouseMotion){
 			if(playerState.canLook && !playerState.IsAiming){
 
@@ -77,95 +66,85 @@ public partial class CamController : Node3D{
 		}
 	}
 
-    public override void _PhysicsProcess(double delta){
-		if(!playerState.isTransitioning){
+    public override void _Process(double delta){
+		transitionAim(delta);
+		processMainCam();
 
-			if(!playerState.IsAiming){
-				processMainCam();
-			}else{
-				//processAimCam();
-			}
-
-		}else{
-			
-			//transitionAim(delta);
-		}
 
     }
 
-	public void toggleAim(){
-		if(!playerState.isTransitioning){
-			playerState.isTransitioning = true;
+
+	public void camOut(){
+		mainCamCurrent = springArm.GlobalPosition;
+		lerpVal = 0;
+		goingOut = true;
+		atDestination = false;
+		
+		//Ugh, this needs to be based relative to the rotation of the armature
+		float rot = Mhorizontal.RotationDegrees.Y % 360;
+		rot = rot - (Armature.RotationDegrees.Y % 360);
+
+		GD.Print(rot);
+		//mess of an if
+		if((rot > 180 && rot < 360 ) || (rot < 0 && rot > -180) || (rot < -360)){
+			targetNode = leftAimTarget;
+		}else{
+			targetNode = rightAimTarget;
 		}
+		
 	}
 
-	//TODO - Refactor!!!!
-	/*public void transitionAim(double delta){
+	public  void camIn(){
+		mainCamCurrent = springArm.GlobalPosition;
+		lerpVal = 0;
+		goingOut = false;
+		atDestination = false;
+		
+		
+	}
 
-		if(!playerState.IsAiming){
+
+	public void transitionAim(double delta){
+	if(!atDestination){
+		if(goingOut){
 			//This transition should be its own function
 			//Transition to aiming state
+			lerpVal += transitionSpeed * (float)delta;
+
 			if(lerpVal < 1){
+				
+				springArm.GlobalPosition = mainCamCurrent.Lerp(targetNode.GlobalPosition, lerpVal);
+
+			}else{
+				atDestination = true;
+				
+			}
+				
+			}else{
 
 				lerpVal += transitionSpeed * (float)delta;
 
-				mainCam.GlobalTransform = mainCamPos.GlobalTransform.InterpolateWith(aimCamPos.GlobalTransform, lerpVal);
+				if(lerpVal < 1){
 
-			}else{
-				mainCam.Reparent(aimCamPos);
-				playerState.isTransitioning = false;
-				
-				//Don't like this
-				playerState.IsAiming = true;
-				lerpVal = 0;
+					springArm.GlobalPosition = mainCamCurrent.Lerp(mainTarget.GlobalPosition, lerpVal);
 
-				sens = InputHandler.aimSens;
-				//Refactor
-				camrot_h = aimCamPos.Position.X;
-				camrot_v = aimCamPos.Position.Y;
+				}else{
+					atDestination = true;
+					
+				}
 
 			}
 
-		}else{
-			//Transition to regular state
+	}
 
-			Mhorizontal.Rotation = armature.Rotation;
-			Mvertical.Rotation = new Vector3(0,0,0);
-			
-			if(lerpVal < 1){
-				
-				lerpVal += transitionSpeed * (float)delta;
-
-				mainCam.GlobalTransform = aimCamPos.GlobalTransform.InterpolateWith(mainCamPos.GlobalTransform, lerpVal);
-
-			}else{
-
-				mainCam.Reparent(mainCamPos);
-				playerState.isTransitioning = false;
-				sens = mainSens;
-
-				playerState.IsAiming = false;
-				lerpVal = 0;
-
-				//Refactor
-				camrot_h = armature.RotationDegrees.Y;
-				camrot_v = 0;
-
-				
-
-			}
-
-		}
-
-
-
-	}*/
+	}
 
 	void processMainCam(){
-		camrot_v = Mathf.Clamp(camrot_v, -15, 20);
+		camrot_v = Mathf.Clamp(camrot_v, minRot, maxRot);
 
 		Vector3 hor = new Vector3(Mhorizontal.RotationDegrees.X, camrot_h, Mhorizontal.RotationDegrees.Z);
 		Mhorizontal.RotationDegrees = hor;
+
 		
 
 		Vector3 vert = new Vector3(camrot_v, Mvertical.RotationDegrees.Y, Mvertical.RotationDegrees.Z);
@@ -173,23 +152,6 @@ public partial class CamController : Node3D{
 
 	}
 
-	/*void processAimCam(){
-		
-
-		camrot_h = Mathf.Clamp(camrot_h, -2, 2);
-		camrot_v = Mathf.Clamp(camrot_v, 3, 4);
-
-
-		//hud.adjustReticle(new Vector2((horLast - camrot_h) * 20, 0));
-
-		Vector3 pos = new Vector3(camrot_h, camrot_v, aimCamPos.Position.Z);
-
-		aimCamPos.Position = pos;
-
-		horLast = camrot_h;
-
-
-	}*/
 
 
 }

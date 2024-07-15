@@ -1,0 +1,9 @@
+[gd_resource type="Shader" format=3 uid="uid://dt1bb80u6jfch"]
+
+[resource]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+
+
+"

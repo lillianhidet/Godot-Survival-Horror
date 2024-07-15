@@ -17,7 +17,7 @@ transparent_bg = true
 environment = SubResource("Environment_iae1k")
 
 [node name="ObjectPosition" type="Node3D" parent="ObjectViewerViewport/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00267047, -4.22548)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00267047, -2.22548)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ObjectViewerViewport/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.77533, 0)
