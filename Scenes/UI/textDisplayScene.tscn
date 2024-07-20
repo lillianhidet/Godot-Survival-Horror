@@ -47,17 +47,18 @@ anchors_preset = -1
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -259.0
-offset_bottom = -103.0
+offset_top = -443.0
+offset_bottom = -287.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("1_vieuc")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6niu7")
 
 [node name="Text" type="RichTextLabel" parent="TextCont"]
 unique_name_in_owner = true
 layout_mode = 2
+theme = ExtResource("1_vieuc")
 theme_override_fonts/normal_font = ExtResource("2_65uln")
-theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "[center]You are a worm though time. The thunder song distorts you. Happiness comes. White pearls, but yellow and red in the eye. Through a mirror, inverted is made right. Leave your insides by the door. Push the fingers through the surface into the wet. You’ve always been the new you. You want this to be true. We stand around while you dream. You can almost hear our words but you forget. This happens more and more now. You gave us the permission in your regulations. We wait in the stains. The word that describes this is redacted. Repeat the word. The name of the sound. It resonates in your house. After the song, time for applause. We build you till nothing remains. The egg cracks and the truth will emerge out of you. You are home. You remind us of home. You’ve taken your boss with your boss with you. All hair must be eaten. Under the conceptual reality behind this reality you must want these waves to drag you away.  [/center]"
 fit_content = true
@@ -72,9 +73,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -200.0
-offset_top = -105.0
+offset_top = -276.0
 offset_right = 200.0
-offset_bottom = -74.0
+offset_bottom = -245.0
 grow_horizontal = 2
 grow_vertical = 0
 

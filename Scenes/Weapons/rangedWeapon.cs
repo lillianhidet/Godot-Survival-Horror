@@ -14,6 +14,8 @@ public partial class rangedWeapon : heldItem{
 
 	[Export] Node3D aimingAt;
 
+	[Export] AnimationPlayer anim;
+
 	bool readyToFire = true;
 	public new void use(){
 		if(readyToFire && ammoLoaded != 0){
@@ -23,6 +25,15 @@ public partial class rangedWeapon : heldItem{
 			flash.flash(0.15f);
 
 			ammoLoaded--;
+			if(playerInventory.holdingLantern){
+				AnimationManager.firePistol1H();
+			}else{
+				AnimationManager.firePistol2H();
+			}
+			
+
+			if(anim != null){playFireAnimation();}
+			
 			hudManager.updateLoadedAmmoLabel(ammoLoaded);
 			
 			if(raycast.IsColliding()){
@@ -36,7 +47,7 @@ public partial class rangedWeapon : heldItem{
 	}
 
 	public void reload(int maxAmount){
-		ammoLoaded = maxAmount;
+		ammoLoaded += maxAmount;
 	}
 
 	public Ammo.ammoType ammoUsed(){return ammoType;}
@@ -53,6 +64,10 @@ public partial class rangedWeapon : heldItem{
 			hudManager.hideReticule();
 		}
     }
+
+	public void playFireAnimation(){
+		anim.CurrentAnimation = "fire";
+	}
 
     //GetTree().CreateTimer(timeToOpenEyes).Timeout += () => openEyes();
 

@@ -100,11 +100,7 @@ public partial class playerInventory : Node{
 
 	//This really needs a second pass, did this while extremely tired
 	public static void reload(){
-		//get the relevant ammo type, use it to reload, return unused to inventory
-
-		//Check if we have enough ammo to reload fully (up to the weapons capacity)
-		//If we do, subtract the amount we need, keeping leftovers
-		//If we don't, take as much as we can
+		//Doesn't seem like we're taking into account the ammo currently loaded
 		if(currentlyHeld.itemType == heldItem.type.ranged){
 
 					rangedWeapon wep = (rangedWeapon)currentlyHeld;
@@ -118,16 +114,12 @@ public partial class playerInventory : Node{
 
 						if(a.getType() == typeUsed){
 							//If the amount in the ammobox is less than or exactly enough to refill the weapon
-							if(a.getAmount() + wep.getLoaded() + toLoad <= wep.getCapacity()){
+							if(a.getAmount() + wep.getLoaded() + toLoad < wep.getCapacity()){
 								toLoad+=a.getAmount();
 								toRemove.Add(a);
 
-								//if(ammo.Count == 0){break;}
-								//If a box has more than enough to reload 
 							}else{
-								//Get the difference, take it from the box
-								//Need to factor in toLoad
-								GD.Print("reduced");
+
 								a.reduceAmount(wep.getCapacity() - (wep.getLoaded() + toLoad));
 								toLoad = wep.getCapacity() - wep.getLoaded();
 								break;

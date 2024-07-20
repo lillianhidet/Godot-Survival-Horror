@@ -33,6 +33,11 @@ public partial class AnimationManager : Node
     }
 
     void lerpAimUp(){
+
+		if(playerInventory.holdingLantern){
+			animationLerper lanternLerper = new animationLerper(4f, player, true, "parameters/aimLanternBlend/blend_amount");
+			this.AddChild(lanternLerper);
+		}
 		
 		if(playerInventory.holdingOneHanded){
 			animationLerper Rlerper;
@@ -47,9 +52,16 @@ public partial class AnimationManager : Node
 			lerpedToAim = true;
 			lerpedFromAim = false;
 		}
+
+		
 	}
 
 	void lerpAimDown(){
+
+		if(playerInventory.holdingLantern){
+			animationLerper lanternLerper = new animationLerper(4f, player, false, "parameters/aimLanternBlend/blend_amount");
+			this.AddChild(lanternLerper);
+		}
 
 		animationLerper Rlerper;
 
@@ -81,6 +93,8 @@ public partial class AnimationManager : Node
 		//leftArmIK.Start();
 		player.Set("parameters/LeftArmBlend/blend_amount", 1);
 	}
+
+
 
 	//public void stopHoldLantern(){
 		
@@ -131,6 +145,14 @@ public partial class AnimationManager : Node
 
 		player.Set("parameters/Movement/blend_position", speed);
 
+	}
+
+	public static void firePistol2H(){
+		player.Set("parameters/firePistol2HOneshot/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+	}
+
+	public static void firePistol1H(){
+		player.Set("parameters/firePistol1HOneshot/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
 	}
 
 	
