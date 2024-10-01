@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://brg4r76nvspwj"]
+
+[ext_resource type="Texture2D" uid="uid://blt8lg7374cc" path="res://Models/coastMid_coastTexAtlasProcess.png" id="1_m3n20"]
+
+[resource]
+resource_name = "Material"
+albedo_texture = ExtResource("1_m3n20")
+metallic_specular = 0.0
+texture_filter = 0

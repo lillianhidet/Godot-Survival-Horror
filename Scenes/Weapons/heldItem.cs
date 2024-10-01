@@ -20,6 +20,8 @@ public partial class heldItem : Node3D{
 	[Export] public type itemType;
 	[Export] Node3D leftHandLocation;
 	[Export] Node3D rightHandLocation;
+
+	public bool held;
 	
 
 

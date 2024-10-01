@@ -22,6 +22,7 @@ public partial class playerInventory : Node{
 
     public override void _Ready()
     {
+		 //hellish
         weapons = new List<heldItem>();
 		consumables = new List<InventoryItem>();
 		keyItems = new List<keyItem>();
@@ -39,9 +40,11 @@ public partial class playerInventory : Node{
 			if(currentlyHeld == null){
 				if(h.itemStyle == heldItem.equipStyle.twoHanded && !holdingLantern){
 					EquipManager.equipitemBoth(h);
+					h.held = true;
 					currentlyHeld = h;
 				}else if(h.itemStyle == heldItem.equipStyle.oneHanded){
 					EquipManager.equipItemRight(h);
+					h.held = true;
 					currentlyHeld = h;
 
 				}
@@ -102,40 +105,43 @@ public partial class playerInventory : Node{
 	public static void reload(){
 		//Doesn't seem like we're taking into account the ammo currently loaded
 		if(currentlyHeld.itemType == heldItem.type.ranged){
+					
+			rangedWeapon wep = (rangedWeapon)currentlyHeld;
+				
+			Ammo.ammoType typeUsed = wep.ammoUsed();
+				
+			List<Ammo> toRemove = new List<Ammo>();
 
-					rangedWeapon wep = (rangedWeapon)currentlyHeld;
+			int toLoad = 0;
 
-					Ammo.ammoType typeUsed = wep.ammoUsed();
-					List<Ammo> toRemove = new List<Ammo>();
+			foreach(Ammo a in ammo){
 
-					int toLoad = 0;
+				if(a.getType() == typeUsed){
+					//If the amount in the ammobox is less than or exactly enough to refill the weapon
+					if(a.getAmount() + wep.getLoaded() + toLoad < wep.getCapacity()){
+						toLoad+=a.getAmount();
+						toRemove.Add(a);
 
-					foreach(Ammo a in ammo){
+					}else{
 
-						if(a.getType() == typeUsed){
-							//If the amount in the ammobox is less than or exactly enough to refill the weapon
-							if(a.getAmount() + wep.getLoaded() + toLoad < wep.getCapacity()){
-								toLoad+=a.getAmount();
-								toRemove.Add(a);
-
-							}else{
-
-								a.reduceAmount(wep.getCapacity() - (wep.getLoaded() + toLoad));
-								toLoad = wep.getCapacity() - wep.getLoaded();
-								break;
-								
-							}
-
-						}
+						a.reduceAmount(wep.getCapacity() - (wep.getLoaded() + toLoad));
+						toLoad = wep.getCapacity() - wep.getLoaded();
+						break;
+						
 					}
 
-					foreach(Ammo a in toRemove){
-						ammo.Remove(a);
-					}
+				}
+			}
 
-					wep.reload(toLoad);
-					hudManager.updateInvAmmoLabel(getTotalAmmoOfType(typeUsed));
-					hudManager.updateLoadedAmmoLabel(wep.getLoaded());
+			foreach(Ammo a in toRemove){
+				ammo.Remove(a);
+			}
+
+			wep.reload(toLoad);
+
+
+			hudManager.updateInvAmmoLabel(getTotalAmmoOfType(typeUsed));
+			hudManager.updateLoadedAmmoLabel(wep.getLoaded());
 			}
 		}
 

@@ -29,6 +29,8 @@ public partial class worldItem: interactable{
         
         Node n = textWindowManager.loadScene();
         GetTree().Root.AddChild(n);
+
+        formatDescription();
         
         textWindowManager.loadText(description);
         textWindowManager.addButton(take,"Take");
@@ -52,15 +54,19 @@ public partial class worldItem: interactable{
             a.amount = ammo.amount;
             a.type = ammo.type;
             playerInventory.add(a);
+            
         }
 
         if(keyItem!=null){playerInventory.add(keyItem);}
         //new Ammo(ammo.getType(), ammo.getCapacity(), ammo.getAmount())
         this.QueueFree();
-        
-
-        
-        
+           
+    }
+    public void formatDescription(){
+        if(ammo!=null){
+            description = description.Replace("{a}",ammo.amount.ToString());
+            description = description.Replace("{t}", ammo.aType.ToString().Capitalize());
+        }
     }
 
     public void close(){

@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5f5ayufxh7c"]
+[gd_scene load_steps=5 format=3 uid="uid://c5f5ayufxh7c"]
 
-[ext_resource type="PackedScene" uid="uid://dg7n5o6jbaeoh" path="res://Models/lantern.glb" id="1_1m0ym"]
 [ext_resource type="Script" path="res://Scripts/Interactables (World)/worldItem.cs" id="1_e2h8f"]
+[ext_resource type="PackedScene" uid="uid://cpwth8xm4j8bw" path="res://Scenes/lanternNoLight.tscn" id="2_0ea8t"]
+[ext_resource type="PackedScene" uid="uid://dw0oivbjcfa8c" path="res://Scenes/lantern.tscn" id="3_6d1wn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f61da"]
 
-[node name="Node3D" type="Node3D" groups=["Interactable"]]
+[node name="lanternFirstPickup" type="Node3D" node_paths=PackedStringArray("heldItem") groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 script = ExtResource("1_e2h8f")
+heldItem = NodePath("Lantern")
 description = "It's your old lantern, it's heavy in your hands"
-
-[node name="lantern" parent="." groups=["Interactable"] instance=ExtResource("1_1m0ym")]
-transform = Transform3D(0.452208, 0, 0, 0, 0.452208, 0, 0, 0, 0.452208, 0.0457358, 0, 0.0971124)
+DisplayScene = ExtResource("2_0ea8t")
 
 [node name="Area3D" type="Area3D" parent="." groups=["Interactable"]]
 collision_layer = 2
@@ -20,3 +20,8 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.647958, 0)
 shape = SubResource("BoxShape3D_f61da")
+
+[node name="lanternNoLight" parent="." instance=ExtResource("2_0ea8t")]
+
+[node name="Lantern" parent="." instance=ExtResource("3_6d1wn")]
+visible = false

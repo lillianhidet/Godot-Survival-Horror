@@ -1,38 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://oclfkwfv0fqt"]
+[gd_scene load_steps=3 format=3 uid="uid://oclfkwfv0fqt"]
 
-[ext_resource type="Material" uid="uid://db4codlxwwnpn" path="res://Materials/bush1.tres" id="1_2lmda"]
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_msyn3"]
-_surfaces = [{
-"aabb": AABB(-0.0103679, -0.077265, -1, 9.99961e-06, 2, 2.00001),
-"format": 34896613377,
-"index_count": 6,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
-"name": "Material",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 0, 0, 158, 0, 255, 255, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 158, 0, 255, 255, 0, 0, 0, 0)
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_obctw"]
-resource_name = "bush1_Plane_001"
-_surfaces = [{
-"aabb": AABB(-0.0103679, -0.077265, -1, 9.99961e-06, 2, 2.00001),
-"attribute_data": PackedByteArray(98, 255, 255, 255, 255, 255, 75, 131, 177, 127, 98, 255, 77, 128, 175, 130),
-"format": 34896613399,
-"index_count": 6,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
-"material": ExtResource("1_2lmda"),
-"name": "Material",
-"primitive": 3,
-"uv_scale": Vector4(2.00476, 2.00476, 0, 0),
-"vertex_count": 4,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 254, 255, 255, 191, 158, 0, 255, 255, 254, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 158, 0, 255, 255, 0, 0, 255, 191, 158, 128, 175, 255, 158, 128, 175, 255, 158, 128, 175, 255, 158, 128, 175, 255)
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_msyn3")
+[ext_resource type="PackedScene" uid="uid://gfxs6dgpetgw" path="res://Models/Foliage/bush_1_mesh_1.tscn" id="1_iqc2m"]
+[ext_resource type="PackedScene" uid="uid://jm3qkhn5fpe4" path="res://Models/Foliage/bush_1_mesh_2.tscn" id="2_7kx84"]
 
 [node name="Bush1" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.072996, 0, 0)
@@ -40,12 +9,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.072996, 0, 0)
 [node name="bush1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0742462, 1.19209e-07, -0.154974)
 
-[node name="Plane_001" type="MeshInstance3D" parent="bush1"]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0, 0, 0)
-mesh = SubResource("ArrayMesh_obctw")
-skeleton = NodePath("")
+[node name="Plane_001" parent="bush1" instance=ExtResource("1_iqc2m")]
 
-[node name="Plane_002" type="MeshInstance3D" parent="bush1"]
-transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0, 0, 0)
-mesh = SubResource("ArrayMesh_obctw")
-skeleton = NodePath("")
+[node name="Plane_002" parent="bush1" instance=ExtResource("2_7kx84")]

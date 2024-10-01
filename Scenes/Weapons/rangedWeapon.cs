@@ -16,6 +16,7 @@ public partial class rangedWeapon : heldItem{
 
 	[Export] AnimationPlayer anim;
 
+
 	bool readyToFire = true;
 	public new void use(){
 		if(readyToFire && ammoLoaded != 0){
@@ -57,7 +58,7 @@ public partial class rangedWeapon : heldItem{
 
     public override void _Process(double delta){
 		//This logic should be handled elsewhere
-		if(playerState.IsAiming){
+		if(playerState.IsAiming && held){
         	Vector2 screen = GetViewport().GetCamera3D().UnprojectPosition(aimingAt.GlobalTransform.Origin);
 			hudManager.setreticulePos(screen);
 		}else{

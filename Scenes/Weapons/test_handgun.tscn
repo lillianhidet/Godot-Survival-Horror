@@ -51,7 +51,7 @@ material_override = SubResource("StandardMaterial3D_afc8n")
 mesh = SubResource("QuadMesh_3xrir")
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.54178, 0.0692728, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1959, 0.0692728, 0)
 
 [node name="m1911" parent="." instance=ExtResource("4_oyou7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.67572, -0.544201, -0.0115241)

@@ -14,7 +14,7 @@ public partial class animationLerper : Node{
 	[Signal] public delegate void LerpFinishedEventHandler();
 
     public animationLerper(float increment, AnimationTree player, bool lerpUp, string paramPath = "", SkeletonIK3D ik = null){
-
+		
 		if(paramPath == "" && ik == null){
 			GD.PushWarning("Tried to start an animation lerp without a IK or Parampath.");
 		}else{
@@ -27,6 +27,10 @@ public partial class animationLerper : Node{
 			lerping = true;
 			
 		}
+	}
+
+	public void addToTree(){
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

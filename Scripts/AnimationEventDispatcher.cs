@@ -18,6 +18,7 @@ public partial class AnimationEventDispatcher : Node{
 	
 
     public override void _Ready(){
+
         playerState = GetNode<playerState>("/root/PlayerState");
 		leftHand = GetNode<Node3D>("%LeftHandPos");
 		animManager = GetNode<AnimationManager>("%AnimationManager");
@@ -49,7 +50,7 @@ public partial class AnimationEventDispatcher : Node{
 		endLockedAnim();
 	}
 
-	void pickupdropLantern(){
+	/*void pickupdropLantern(){
 		if(playerInventory.holdingLantern){
 			Lantern = (Node3D) leftHand.GetChild(0);
 			Lantern.Reparent(GetTree().Root);
@@ -72,6 +73,11 @@ public partial class AnimationEventDispatcher : Node{
 
 
 		}
+	}*/
+
+	public void reloadWeapon(){
+		playerInventory.reload();
+		animManager.endPistolReload();
 	}
 
 }

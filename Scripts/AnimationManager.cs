@@ -4,6 +4,7 @@ using System;
 public partial class AnimationManager : Node
 {
 	static AnimationTree player;
+
 	private static SkeletonIK3D leftArmIK;
 	private static SkeletonIK3D rightArmHalfIK;
 
@@ -17,11 +18,6 @@ public partial class AnimationManager : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
 		player = GetNode<AnimationTree>("%AnimationTree");
-		//leftArmIK = GetNode<SkeletonIK3D>("%LeftArmIK");
-		//rightArmHalfIK = GetNode<SkeletonIK3D>("%RightArmHalfIK");
-		//leftArmIKTarget = GetNode<Node3D>("%LeftArmTarget");
-		//rightArmIKTarget = GetNode<Node3D>("%RightArmTarget");
-
 	}
 
     public override void _Process(double delta){
@@ -32,49 +28,69 @@ public partial class AnimationManager : Node
 		}
     }
 
+	public void startHoldLantern(){
+		animationLerper lanternLerper;
+
+		lanternLerper = new animationLerper(4f, player, true, "parameters/LeftArmBlend/blend_amount");
+		this.AddChild(lanternLerper);
+	}
+
     void lerpAimUp(){
 
-		if(playerInventory.holdingLantern){
-			animationLerper lanternLerper = new animationLerper(4f, player, true, "parameters/aimLanternBlend/blend_amount");
-			this.AddChild(lanternLerper);
-		}
-		
+		animationLerper Rlerper;
+	
+
+		/*if(playerInventory.holdingLantern){
+			lanternLerper = new animationLerper(4f, player, true, "parameters/LeftArmBlend/blend_amount");
+				this.AddChild(lanternLerper);
+		}*/
+
 		if(playerInventory.holdingOneHanded){
-			animationLerper Rlerper;
 			
 			if(!playerInventory.holdingLantern){
 				Rlerper = new animationLerper(4f, player, true,"parameters/twoHandPistolBlend/blend_amount");
 			}else{
 				Rlerper = new animationLerper(4f, player, true,"parameters/oneHandPistolBlend/blend_amount");
+
+				
 			}
 
 			this.AddChild(Rlerper);
-			lerpedToAim = true;
-			lerpedFromAim = false;
+			
 		}
 
-		
+		lerpedToAim = true;
+		lerpedFromAim = false;
 	}
 
 	void lerpAimDown(){
-
-		if(playerInventory.holdingLantern){
-			animationLerper lanternLerper = new animationLerper(4f, player, false, "parameters/aimLanternBlend/blend_amount");
-			this.AddChild(lanternLerper);
-		}
+	
+		
 
 		animationLerper Rlerper;
+		
 
-		if(!playerInventory.holdingLantern){
-			Rlerper = new animationLerper(4f, player, false, "parameters/twoHandPistolBlend/blend_amount");
-		}else{
-			Rlerper = new animationLerper(4f, player, false, "parameters/oneHandPistolBlend/blend_amount");
+		/*if(playerInventory.holdingLantern){
+			lanternLerper = new animationLerper(4f, player, false, "parameters/LeftArmBlend/blend_amount");
+			this.AddChild(lanternLerper);
+		}*/
+
+		if(playerInventory.holdingOneHanded){
+
+			if(!playerInventory.holdingLantern){
+				Rlerper = new animationLerper(4f, player, false, "parameters/twoHandPistolBlend/blend_amount");
+			}else{
+				Rlerper = new animationLerper(4f, player, false, "parameters/oneHandPistolBlend/blend_amount");
+			}
+
+			this.AddChild(Rlerper);
+			
 		}
 
-		this.AddChild(Rlerper);
-		lerpedFromAim = true;
-		lerpedToAim = false;
 		
+		
+		lerpedToAim = false;
+		lerpedFromAim = true;
 
 	}
 
@@ -84,15 +100,15 @@ public partial class AnimationManager : Node
 
 	}
 
-	public void startHoldLantern(){
+	/*public void startHoldLantern(){
 		animationLerper lerper = new animationLerper(1.2f, player, true,"parameters/LeftArmBlend/blend_amount");
 		this.AddChild(lerper);
-	}
+	}*/
 
-	public void collectLanternFirstTime(){
-		//leftArmIK.Start();
+	/*public void collectLanternFirstTime(){
+		leftArmIK.Start();
 		player.Set("parameters/LeftArmBlend/blend_amount", 1);
-	}
+	}*/
 
 
 
@@ -103,7 +119,8 @@ public partial class AnimationManager : Node
 
 	
 
-	public void takeHolsterLanter(){
+	public void takeHolsterLantern(){
+
 		if(playerInventory.holdingLantern){
 
 			animationLerper lerper = new animationLerper(1.2f, player, false,"parameters/LeftArmBlend/blend_amount");
@@ -125,6 +142,7 @@ public partial class AnimationManager : Node
 	}
 
 	public void returnHand(){
+
 		if(!playerInventory.holdingLantern){
 
 			animationLerper lerper = new animationLerper(1.2f, player, false,"parameters/LanternHolsterBlend/blend_amount");
@@ -153,6 +171,17 @@ public partial class AnimationManager : Node
 
 	public static void firePistol1H(){
 		player.Set("parameters/firePistol1HOneshot/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+	}
+
+	public void startPistolReload(){
+		animationLerper lerper = new animationLerper(4f, player, true,"parameters/pistolReloadStart/blend_amount");
+		this.AddChild(lerper);
+		lerper.LerpFinished += () => player.Set("parameters/pistolReload/request", (int)AnimationNodeOneShot.OneShotRequest.Fire);
+	}
+
+	public void endPistolReload(){
+		animationLerper lerper = new animationLerper(4f, player, false,"parameters/pistolReloadStart/blend_amount");
+		this.AddChild(lerper);
 	}
 
 	

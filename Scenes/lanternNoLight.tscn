@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dg7n5o6jbaeoh" path="res://Models/lantern.glb" id="1_jlhak"]
 
-[node name="Node3D" type="Node3D"]
+[node name="lanternNoLight" type="Node3D"]
 transform = Transform3D(0.588048, 0, 0, 0, 0.588048, 0, 0, 0, 0.588048, 0, -0.949126, -0.105216)
 
 [node name="lantern" parent="." instance=ExtResource("1_jlhak")]

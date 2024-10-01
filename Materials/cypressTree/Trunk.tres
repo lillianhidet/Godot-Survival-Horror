@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cmnedhnhv8jx0"]
+
+[ext_resource type="Texture2D" uid="uid://kpvuf41a220j" path="res://Models/cypresstree_cypress.png" id="1_uv73o"]
+
+[resource]
+resource_name = "Trunk"
+cull_mode = 2
+albedo_texture = ExtResource("1_uv73o")
+metallic_specular = 0.0
+texture_filter = 2

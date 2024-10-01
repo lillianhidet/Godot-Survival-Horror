@@ -55,7 +55,7 @@ public partial class InputHandler : Node{
 		
 		if(@event.IsActionPressed("Drop Lantern")){
 			if(playerState.canMove && !playerState.animBusy){
-				animManager.takeHolsterLanter();
+				animManager.takeHolsterLantern();
 				
 			}
 
@@ -68,8 +68,22 @@ public partial class InputHandler : Node{
 			}
 		}
 
+		//Definitely move some of this, how to best determine what type of animation to play?
+		//haha this is soo bad
 		if(@event.IsActionPressed("Reload")){
-			playerInventory.reload();
+			if(playerState.canLook && playerState.canMove && !playerInventory.holdingLantern 
+			&& playerInventory.currentlyHeld.itemType == heldItem.type.ranged){
+				
+				rangedWeapon wep = (rangedWeapon) playerInventory.currentlyHeld;
+
+				if(wep.getLoaded() < wep.getCapacity()){
+					//For now pistol is the only animaion
+					animManager.startPistolReload();
+				}
+
+				
+				//playerInventory.reload();
+			}
 		}
 		
     }

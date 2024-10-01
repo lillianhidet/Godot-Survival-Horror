@@ -23,7 +23,7 @@ public partial class EquipManager : Node3D{
 		//leftHandSlot.AddChild(i);
 		lantern.Reparent(leftHandSlot, false);
 		lantern.Visible = true;
-		animManager.collectLanternFirstTime();
+		animManager.startHoldLantern();
 		playerInventory.holdingLantern = true;
 	}
 

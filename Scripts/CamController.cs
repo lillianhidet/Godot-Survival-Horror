@@ -84,7 +84,6 @@ public partial class CamController : Node3D{
 		float rot = Mhorizontal.RotationDegrees.Y % 360;
 		rot = rot - (Armature.RotationDegrees.Y % 360);
 
-		GD.Print(rot);
 		//mess of an if
 		if((rot > 180 && rot < 360 ) || (rot < 0 && rot > -180) || (rot < -360)){
 			targetNode = leftAimTarget;

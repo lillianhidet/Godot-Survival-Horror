@@ -7,8 +7,8 @@
 [resource]
 render_priority = 0
 shader = ExtResource("1_ymcvc")
-shader_parameter/albedo = Color(0.537255, 0.537255, 0.537255, 1)
-shader_parameter/alpha_scissor_threshold = 0.5
+shader_parameter/albedo = Color(0.611765, 0.611765, 0.611765, 1)
+shader_parameter/alpha_scissor_threshold = 0.1
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
 shader_parameter/metallic_texture_channel = null

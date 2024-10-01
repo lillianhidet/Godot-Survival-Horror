@@ -10,4 +10,5 @@ alpha_antialiasing_mode = 0
 cull_mode = 2
 albedo_texture = ExtResource("1_3gyit")
 metallic_specular = 0.0
+roughness = 0.5
 texture_filter = 2

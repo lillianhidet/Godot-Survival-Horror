@@ -18,7 +18,7 @@ public partial class itemModelViewerManager : Node
     public static itemModelViewer newViewer(PackedScene obj){
 
 		itemModelViewer v = (itemModelViewer) viewerScene.Instantiate();
-		v.getCamera().Position = new Vector3(2000 * (viewers.Count+1), 2000 * (viewers.Count+1), 2000 * (viewers.Count + 1));
+		v.getCamera().Position = new Vector3(3000 * (viewers.Count+1), 3000 * (viewers.Count+1), 3000 * (viewers.Count + 1));
 		v.spawnItem(obj);
 		viewers.Add(v);
 

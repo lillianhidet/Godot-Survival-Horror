@@ -7,7 +7,7 @@
 [node name="pistolAmmo_WI" type="Node3D" groups=["Interactable"]]
 
 [node name="Node3D" parent="." node_paths=PackedStringArray("ammo") instance=ExtResource("1_hvax4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
 ammo = NodePath("../PistolAmmo")
 description = "Pistol Bullets (Make sure the amount can be displayed here)"
 DisplayScene = ExtResource("3_8nh4l")
@@ -16,5 +16,6 @@ DisplayScene = ExtResource("3_8nh4l")
 capacity = 15
 
 [node name="MeshInstance3D" parent="." instance=ExtResource("3_8nh4l")]
+transform = Transform3D(0.668077, 0, 0, 0, 0.302264, 0, 0, 0, 0.324961, 0, 0, 0)
 
 [editable path="Node3D"]
