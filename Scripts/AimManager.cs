@@ -5,8 +5,9 @@ using System.Collections.Generic;
 
 
 //TODO REFACTOR!!!!!!!!!!!
-public partial class AimManager : Node3D
-{
+public partial class AimManager : Node3D{
+
+	private static AimManager instance;
 
 	[Export] Node3D camPos;
 	[Export] float xMoveLimit;
@@ -27,12 +28,26 @@ public partial class AimManager : Node3D
 	Vector3 armCurrent;
 
 
-	//This should likely be handeled by the InputHandler
-	public override void _Input(InputEvent @event){
+    public override void _Ready(){
+        if(instance==null){
+			instance = this;
+		}else {GD.PushError("Attempted to create second instance of singleton");}
+    }
+
+	public static AimManager getInstance(){
+		return instance;
+	}
+
+    //This should likely be handeled by the InputHandler
+    public override void _Input(InputEvent @event){
+
+
 		if(playerState.IsAiming){
 
 			if(@event is InputEventMouseMotion){
 				InputEventMouseMotion m = (InputEventMouseMotion) @event;
+
+				
 
 				clearLerpers();
 
@@ -43,9 +58,11 @@ public partial class AimManager : Node3D
 				spineTarget.RotationDegrees = new Vector3(SrotX,SrotY, spineTarget.RotationDegrees.Z);
 
 
+
 				float ArotY = Math.Clamp(armTargets.RotationDegrees.Y + -(m.Relative.X * 0.12f), -yMoveLimit, yMoveLimit);
 				float ArotX = Math.Clamp(armTargets.RotationDegrees.X + (m.Relative.Y * 0.12f), -xMoveLimit, xMoveLimit);
 				armTargets.RotationDegrees = new Vector3(ArotX,ArotY,armTargets.RotationDegrees.Z);
+
 
 				
 			}
@@ -74,24 +91,23 @@ public partial class AimManager : Node3D
 	}
 
 
-    public override void _Process(double delta){
+	public override void _Process(double delta){
 
-        if(!playerState.IsAiming && (t < 1) && (spineTarget.RotationDegrees != Vector3.Zero)){
+		if(!playerState.IsAiming && (t < 1) && (spineTarget.RotationDegrees != Vector3.Zero)){
 
 			clearLerpers();
 
 			spineTarget.RotationDegrees = spineCurrent.Lerp(Vector3.Zero, t);
 			armTargets.RotationDegrees = armCurrent.Lerp(Vector3.Zero, t);
 			
-
 			t += (float)delta * 3f;
 
 		}
 
 		
-    }
+	}
 	
-    void clearLerpers(){
+	void clearLerpers(){
 		//This prevents enum errors
 		if(lookatLerpers.Count > 0){
 			foreach(lookatLerper l in lookatLerpers){

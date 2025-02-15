@@ -1,10 +1,10 @@
 using Godot;
 using System;
 
-public partial class interactable : Node{
+public partial class interactable : Node3D{
 
 
-	[Export] string name;
+	//[Export] string name;
 	/*private Action interactionTarget;
 
 	public void setInteractionTarget(Action action){

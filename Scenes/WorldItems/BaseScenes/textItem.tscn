@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnt510j3rcew1"]
+
+[ext_resource type="Script" path="res://Scripts/Interactables (World)/textItem.cs" id="1_nkakw"]
+[ext_resource type="Texture2D" uid="uid://sucvixmjfmhg" path="res://icon.svg" id="2_pq07c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ayf2i"]
+
+[node name="Interactable" type="Node3D" groups=["Interactable"]]
+script = ExtResource("1_nkakw")
+text = "Placeholder"
+image = ExtResource("2_pq07c")
+
+[node name="Area3D" type="Area3D" parent="." groups=["Interactable"]]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["Interactable"]]
+shape = SubResource("BoxShape3D_ayf2i")

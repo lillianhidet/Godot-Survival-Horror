@@ -1,10 +1,10 @@
 [gd_resource type="Resource" load_steps=13 format=3 uid="uid://0lmxkxe75tl2"]
 
-[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_LOD_variant.gd" id="1_c1e8m"]
-[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse.gd" id="1_hlm4q"]
+[ext_resource type="Script" uid="uid://ce2uvmhu4vi6r" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_LOD_variant.gd" id="1_c1e8m"]
+[ext_resource type="Script" uid="uid://dxwxbqlhw1cm" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse.gd" id="1_hlm4q"]
 [ext_resource type="ArrayMesh" uid="uid://b3fj8hhcy1vtp" path="res://meshes/cypresswindmesh.tres" id="1_iiy6i"]
-[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant.gd" id="3_51m5a"]
-[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant_state.gd" id="4_cqgbf"]
+[ext_resource type="Script" uid="uid://dnqdim46qnfne" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant.gd" id="3_51m5a"]
+[ext_resource type="Script" uid="uid://qhuqts70y0nh" path="res://addons/dreadpon.spatial_gardener/greenhouse/greenhouse_plant_state.gd" id="4_cqgbf"]
 [ext_resource type="ArrayMesh" uid="uid://bhugu2tmfh1xk" path="res://meshes/bush.mesh" id="5_tnse0"]
 
 [sub_resource type="Resource" id="Resource_w42d5"]

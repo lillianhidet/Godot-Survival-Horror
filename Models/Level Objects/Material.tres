@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://d2ittg58cxihi"]
+
+[ext_resource type="Texture2D" uid="uid://di63ipsf314s" path="res://Models/Level Objects/trainCar_traincouch.png" id="1_5t4io"]
+
+[resource]
+resource_name = "Material"
+cull_mode = 2
+albedo_texture = ExtResource("1_5t4io")
+metallic_specular = 0.0

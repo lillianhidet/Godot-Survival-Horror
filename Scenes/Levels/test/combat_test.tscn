@@ -1,11 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://bushh12sfm1wg"]
+[gd_scene load_steps=18 format=3 uid="uid://bushh12sfm1wg"]
 
 [ext_resource type="PackedScene" uid="uid://c1cw0ff85ubh5" path="res://Scenes/Characters/lucy_player.tscn" id="1_gc8ls"]
 [ext_resource type="PackedScene" uid="uid://bswuuil5xk2by" path="res://shaders/screenspaceshaders.tscn" id="1_xs10b"]
+[ext_resource type="Shader" path="res://shaders/dither.gdshader" id="2_4yq5y"]
 [ext_resource type="PackedScene" uid="uid://cdu77jopkdx80" path="res://Scenes/WorldItems/Ammo/pistol_ammo_wi.tscn" id="3_4duet"]
 [ext_resource type="PackedScene" uid="uid://lk1oah54k2kh" path="res://Scenes/WorldItems/pistol_wi.tscn" id="4_umdoy"]
 [ext_resource type="PackedScene" uid="uid://dh6kl732oyqwx" path="res://Scenes/UI/HUD.tscn" id="5_27egc"]
 [ext_resource type="PackedScene" uid="uid://c5f5ayufxh7c" path="res://Scenes/WorldItems/lanternFirstPickup.tscn" id="6_2uaos"]
+[ext_resource type="PackedScene" uid="uid://cpwth8xm4j8bw" path="res://Scenes/lanternNoLight.tscn" id="8_llajs"]
+[ext_resource type="PackedScene" uid="uid://bqru6s0gnvke0" path="res://Scenes/WorldItems/smalloil_wi.tscn" id="9_iljb1"]
+[ext_resource type="PackedScene" uid="uid://bnt510j3rcew1" path="res://Scenes/WorldItems/BaseScenes/textItem.tscn" id="10_fcqel"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vsojh"]
+shader = ExtResource("2_4yq5y")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 32
+shader_parameter/dither_size = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cct57"]
 
@@ -15,9 +26,17 @@ albedo_color = Color(0.341176, 0.341176, 0.341176, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dyp1u"]
 size = Vector3(20, 1, 20)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uxbi2"]
+size = Vector3(1, 3.1, 4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cqqfa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nxcxs"]
+
 [node name="CombatTest" type="Node3D"]
 
 [node name="SubViewportContainer" parent="." instance=ExtResource("1_xs10b")]
+material = SubResource("ShaderMaterial_vsojh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="0"]
 transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, 0, 0, 0)
@@ -38,9 +57,6 @@ shape = SubResource("BoxShape3D_dyp1u")
 [node name="lucy" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="1" instance=ExtResource("1_gc8ls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3419, 0.127944, 0.752734)
 
-[node name="lanternFirstPickup" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="2" instance=ExtResource("6_2uaos")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, 7)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.177737, 0.984078, 0, -0.984078, -0.177737, 0, 9.28876, 0)
 light_color = Color(0.65098, 0.65098, 0.65098, 1)
@@ -50,16 +66,46 @@ sky_mode = 1
 [node name="pistolAmmo_WI" parent="." instance=ExtResource("3_4duet")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61463, 0.875944, 0)
 
-[node name="Node3D" parent="pistolAmmo_WI" index="0"]
-description = "a box of {a} {t} bullets"
-
-[node name="wordItem" parent="." instance=ExtResource("4_umdoy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.85221, 1.75878, -3.39047)
-
 [node name="Hud" parent="." instance=ExtResource("5_27egc")]
+
+[node name="lanternFirstPickup" parent="." node_paths=PackedStringArray("item") instance=ExtResource("6_2uaos")]
+transform = Transform3D(0.387708, 0, 0, 0, 0.387708, 0, 0, 0, 0.387708, -0.2, 2.94555, 0)
+item = NodePath("Lantern")
+
+[node name="Lantern" parent="lanternFirstPickup" index="2"]
+type = 3
+name = "Lantern"
+description = "It's your old lantern, it feels heavy in your hands"
+DisplayScene = ExtResource("8_llajs")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 1.5)
+shape = SubResource("BoxShape3D_uxbi2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 4.1, 0, 0, 0, 3.9, 0, 0.5, 1.5)
+mesh = SubResource("BoxMesh_cqqfa")
+
+[node name="small_oil_wi" parent="." instance=ExtResource("9_iljb1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 1.5)
+
+[node name="pistol_wi" parent="." instance=ExtResource("4_umdoy")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.4, 2.6, 3)
+
+[node name="TextItem" parent="." instance=ExtResource("10_fcqel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TextItem"]
+transform = Transform3D(0.7, 0, 0, 0, 0.2, 0, 0, 0, 0.7, 0, -0.3, 0)
+mesh = SubResource("BoxMesh_nxcxs")
 
 [editable path="SubViewportContainer"]
 [editable path="pistolAmmo_WI"]
 [editable path="pistolAmmo_WI/Node3D"]
-[editable path="wordItem"]
 [editable path="Hud"]
+[editable path="lanternFirstPickup"]
+[editable path="small_oil_wi"]

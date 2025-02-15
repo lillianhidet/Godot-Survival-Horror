@@ -5,10 +5,13 @@ using System.Diagnostics;
 
 public partial class playerController : CharacterBody3D
 {
-	[Export] public const float walkSpeed = 5.0f;
-	[Export] public const float aimSpeed = 2.5f;
+	[Export] public float walkSpeed = 5.0f;
+	[Export] public float aimSpeed = 2.5f;
+
+	private static playerController instance;
 	public const float lerpVal = .15f;
 
+	RigidBody3D lanternLight;
 	Vector2 inputDir;
 
 	int angularAcc = 7;
@@ -19,14 +22,30 @@ public partial class playerController : CharacterBody3D
 	AnimationManager animManager;
 	playerState playerState;
 
+	Node3D leftHandPos;
+
+	Node3D parent;
+
+	
+	public static playerController getInstance(){
+		return instance;
+	}
+
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
 
     public override void _Ready(){
+		leftHandPos = (Node3D) GetNode("%LeftHandPos");
 		animManager = (AnimationManager)GetNode("%AnimationManager");
         armature = (Node3D)GetNode("Armature");
 		animTree = (AnimationTree)GetNode("AnimationTree");
 		playerState = GetNode<playerState>("/root/PlayerState");
+
+		if(instance==null){
+			instance = this;
+		}else {GD.PushError("Attempted to create second instance of singleton");}
+
+		//parent = GetNode("%lanternParent") as Node3D;
 	
     }
 
@@ -35,6 +54,8 @@ public partial class playerController : CharacterBody3D
 	}
 
     public override void _PhysicsProcess(double delta){
+
+
 		Vector3 velocity = Velocity;
 
 		// Add the gravity.
@@ -66,10 +87,26 @@ public partial class playerController : CharacterBody3D
 		
 		animManager.walk(Velocity.Length() / walkSpeed);
 
+		//Move this
+		
+		//parent.GlobalPosition = leftHandPos.GlobalPosition;
+		//parent.GlobalRotation = leftHandPos.GlobalRotation;
+		
+
+
+		//lanternLight.ApplyForce(new Vector3(0,0,Math.Abs(velocity.Z) * 5));
+		
+
+
 		MoveAndSlide();
+
+		
+
+		
 	}
 
-	private Vector3 aimMove(Vector2 inputDir, Vector3 direction, double delta, Vector3 velocity){
+
+    private Vector3 aimMove(Vector2 inputDir, Vector3 direction, double delta, Vector3 velocity){
 
 		if(inputDir != Vector2.Zero){
 

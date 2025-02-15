@@ -7,6 +7,8 @@ using System;
 
 public partial class CamController : Node3D{
 
+
+	private static CamController instance;
 	private float camrot_h = 0f;
 	private float camrot_v = 0f;
 
@@ -50,6 +52,14 @@ public partial class CamController : Node3D{
 
 		sens = mainSens;
 
+		if(instance==null){
+			instance = this;
+		}else {GD.PushError("Attempted to create second instance of singleton");}
+
+	}
+
+	public static CamController getInstance(){
+		return instance;
 	}
 
     public override void _Input(InputEvent @event){

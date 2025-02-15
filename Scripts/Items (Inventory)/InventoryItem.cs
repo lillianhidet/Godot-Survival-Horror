@@ -10,9 +10,14 @@ public partial class InventoryItem : Node{
 		Held
     }
 
-	public ItemType type;
+	[Export] public ItemType type;
 
-	[Export] Texture2D image;
+	[Export] public string name;
+	[Export] public string description;
+
+	//[Export] public Texture2D image;
+
+	[Export] public PackedScene DisplayScene;
 
 
 

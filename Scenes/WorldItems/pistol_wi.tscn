@@ -1,14 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://lk1oah54k2kh"]
 
-[ext_resource type="PackedScene" uid="uid://dl8mxcw81bu4k" path="res://Scenes/WorldItems/worldItem.tscn" id="1_7f66g"]
+[ext_resource type="PackedScene" uid="uid://dl8mxcw81bu4k" path="res://Scenes/WorldItems/BaseScenes/worldItem.tscn" id="1_7f66g"]
 [ext_resource type="PackedScene" uid="uid://chu650mf8x30i" path="res://Scenes/Weapons/test_handgun.tscn" id="2_it3sa"]
 
-[node name="wordItem" node_paths=PackedStringArray("heldItem") instance=ExtResource("1_7f66g")]
-heldItem = NodePath("testHandgun")
-description = "Pistol"
-DisplayScene = ExtResource("2_it3sa")
+[node name="pistol_wi" node_paths=PackedStringArray("item") instance=ExtResource("1_7f66g")]
+item = NodePath("testHandgun")
 
 [node name="Area3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.464002, -0.530911, 0)
 
 [node name="testHandgun" parent="." index="1" instance=ExtResource("2_it3sa")]
+transform = Transform3D(0.807262, 0, 0, 0, 0.807262, 0, 0, 0, 0.807262, -0.648561, 0.15699, 0)
+type = 3
+name = "Pistol"
+description = "Test Pistol"

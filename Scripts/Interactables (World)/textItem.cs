@@ -12,7 +12,7 @@ public partial class textItem : interactable{
       Node n = textWindowManager.loadScene();
       GetTree().Root.AddChild(n);
 
-      textWindowManager.loadText(text);
+      textWindowManager.loadText(false, text);
       textWindowManager.setImage(image);
       textWindowManager.addButton(textWindowManager.close, "Exit");
 

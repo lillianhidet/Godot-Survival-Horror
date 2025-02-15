@@ -8,6 +8,8 @@ public partial class itemModelViewer : Node3D
 	[Export] public Node3D spawnpoint {get; private set;}
 
 	[Export] public Node3D camera {get; private set;}
+
+	[Export] public float rotationSpeed = 2f;
 	
 	private Vector2 lastMousePos;
 
@@ -22,7 +24,7 @@ public partial class itemModelViewer : Node3D
 
 	public void spawnItem(PackedScene item){
 	
-		Node3D model = (Node3D) item.Instantiate();
+		Node model = item.Instantiate();
 		spawnpoint.AddChild(model);
 		
 	}
@@ -52,7 +54,8 @@ public partial class itemModelViewer : Node3D
 			if(rotationMode == rotateMode.mouse){
 				mouseRotate(delta);
 			}else{
-				//auto rotate
+				//spawnpoint.Rotate(new Vector3(0,1,0), spawnpoint.Rotation.Y + (rotationSpeed * (float) delta));
+				spawnpoint.RotateY(rotationSpeed * (float) delta);
 			}
 
 		}
@@ -72,6 +75,10 @@ public partial class itemModelViewer : Node3D
 		lastMousePos = newMousePos;
 
 
+	}
+
+	public void resetRotation(){
+		spawnpoint.Rotation = Vector3.Zero;
 	}
 
 

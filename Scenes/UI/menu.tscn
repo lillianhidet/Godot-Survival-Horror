@@ -1,0 +1,257 @@
+[gd_scene load_steps=8 format=3 uid="uid://bll86seophh8q"]
+
+[ext_resource type="Script" path="res://Inventory_UI.cs" id="1_k50k4"]
+[ext_resource type="PackedScene" uid="uid://do3230f7geapn" path="res://Scenes/UI/inv_ui_item.tscn" id="2_4wbqk"]
+[ext_resource type="Texture2D" uid="uid://cisvnw4vcghg3" path="res://Scenes/UI/Images/selection.png" id="3_3crn6"]
+[ext_resource type="Script" path="res://Scenes/UI/Scripts/invSlot.cs" id="3_n0g0e"]
+[ext_resource type="FontFile" uid="uid://dnt7jbcoc38sl" path="res://Fonts/PlayfairDisplay-VariableFont_wght.ttf" id="5_1rgpt"]
+[ext_resource type="Theme" uid="uid://dtgdfjqb3uf0" path="res://Fonts/textDisplayScene.tres" id="5_4606b"]
+[ext_resource type="Texture2D" uid="uid://sucvixmjfmhg" path="res://icon.svg" id="7_n1s1q"]
+
+[node name="Menu" type="Control" node_paths=PackedStringArray("itemName", "itemDesc", "wepButton", "consumButton", "keyButton", "slots")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k50k4")
+itemName = NodePath("canvas/Control/TabContainer/Status/ItemDisplay/itemNameLbl")
+itemDesc = NodePath("canvas/Control/TabContainer/Status/ItemDisplay/itemDescLbl")
+wepButton = NodePath("canvas/Control/TabContainer/Status/VBoxContainer/wepButton")
+consumButton = NodePath("canvas/Control/TabContainer/Status/VBoxContainer/consumButton")
+keyButton = NodePath("canvas/Control/TabContainer/Status/VBoxContainer/keyButton")
+inv_item = ExtResource("2_4wbqk")
+slots = [NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot0"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot1"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot2"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot3"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot4"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot5"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot6")]
+
+[node name="canvas" type="CanvasLayer" parent="."]
+
+[node name="BG" type="ColorRect" parent="canvas"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.277528, 0.277528, 0.277528, 1)
+
+[node name="Control" type="Control" parent="canvas"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="canvas/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -956.0
+offset_right = 956.0
+offset_bottom = 40.0
+grow_horizontal = 2
+tab_alignment = 1
+current_tab = 0
+
+[node name="Status" type="Control" parent="canvas/Control/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ItemDisplay" type="Control" parent="canvas/Control/TabContainer/Status"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 435.0
+offset_top = 135.5
+offset_right = 435.0
+offset_bottom = 135.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.36989, 1.36989)
+
+[node name="slots" type="Control" parent="canvas/Control/TabContainer/Status/ItemDisplay"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="canvas/Control/TabContainer/Status/ItemDisplay/slots"]
+layout_mode = 0
+offset_left = -207.0
+offset_top = -13.0
+offset_right = 343.0
+offset_bottom = 147.0
+color = Color(0.410032, 0.389529, 0.369595, 1)
+
+[node name="slot0" type="Control" parent="canvas/Control/TabContainer/Status/ItemDisplay/slots"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = -198.0
+offset_top = 14.0
+offset_right = -198.0
+offset_bottom = 14.0
+pivot_offset = Vector2(32, 32)
+script = ExtResource("3_n0g0e")
+
+[node name="slot1" type="Control" parent="canvas/Control/TabContainer/Status/ItemDisplay/slots"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = -180.0
+offset_top = 14.0
+offset_right = -116.0
+offset_bottom = 78.0
+pivot_offset = Vector2(32, 32)
+script = ExtResource("3_n0g0e")
+targetOpacity = 0.5
+
+[node name="slot2" type="Control" parent="canvas/Control/TabContainer/Status/ItemDisplay/slots"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = -105.0
+offset_top = 8.0
+offset_right = -15.4
+offset_bottom = 97.6
+pivot_offset = Vector2(44.8, 44.8)
+script = ExtResource("3_n0g0e")
+targetOpacity = 0.8
+
+[node name="slot3" type="Control" parent="canvas/Control/TabContainer/Status/ItemDisplay/slots"]
+anchors_preset = 0
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
+script = ExtResource("3_n0g0e")
+targetOpacity = 1.0
+
+[node name="slot4" type="Control" parent="canvas/Control/TabContainer/Status/ItemDisplay/slots"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 147.0
+offset_top = 8.0
+offset_right = 236.6
+offset_bottom = 97.6
+pivot_offset = Vector2(44.8, 44.8)
+script = ExtResource("3_n0g0e")
+targetOpacity = 0.8
+
+[node name="slot5" type="Control" parent="canvas/Control/TabContainer/Status/ItemDisplay/slots"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 250.0
+offset_top = 14.0
+offset_right = 314.0
+offset_bottom = 78.0
+pivot_offset = Vector2(32, 32)
+script = ExtResource("3_n0g0e")
+targetOpacity = 0.5
+
+[node name="slot6" type="Control" parent="canvas/Control/TabContainer/Status/ItemDisplay/slots"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 279.0
+offset_top = 14.0
+offset_right = 279.0
+offset_bottom = 14.0
+pivot_offset = Vector2(32, 32)
+script = ExtResource("3_n0g0e")
+
+[node name="TextureRect" type="TextureRect" parent="canvas/Control/TabContainer/Status/ItemDisplay/slots"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = -5.0
+offset_right = 136.0
+offset_bottom = 135.0
+texture = ExtResource("3_3crn6")
+
+[node name="item" parent="canvas/Control/TabContainer/Status/ItemDisplay/slots/TextureRect" instance=ExtResource("2_4wbqk")]
+visible = false
+layout_mode = 2
+offset_left = -329.0
+offset_top = 5.0
+offset_right = -201.0
+offset_bottom = 133.0
+
+[node name="itemTypeLbl" type="RichTextLabel" parent="canvas/Control/TabContainer/Status/ItemDisplay"]
+layout_mode = 0
+offset_left = -208.0
+offset_top = -46.0
+offset_right = -128.0
+offset_bottom = -6.0
+theme = ExtResource("5_4606b")
+theme_override_fonts/normal_font = ExtResource("5_1rgpt")
+theme_override_font_sizes/normal_font_size = 28
+text = "Items"
+
+[node name="itemNameLbl" type="RichTextLabel" parent="canvas/Control/TabContainer/Status/ItemDisplay"]
+layout_mode = 0
+offset_left = -203.0
+offset_top = 139.0
+offset_right = 342.0
+offset_bottom = 199.0
+theme = ExtResource("5_4606b")
+text = "Item Name"
+scroll_active = false
+
+[node name="itemDescLbl" type="RichTextLabel" parent="canvas/Control/TabContainer/Status/ItemDisplay"]
+layout_mode = 0
+offset_left = -200.0
+offset_top = 193.0
+offset_right = 300.0
+offset_bottom = 393.0
+theme = ExtResource("5_4606b")
+theme_override_font_sizes/normal_font_size = 20
+text = "Item Description"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="canvas/Control/TabContainer/Status"]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 129.0
+offset_right = 968.0
+offset_bottom = 230.0
+scale = Vector2(1.97108, 1.97108)
+
+[node name="wepButton" type="Button" parent="canvas/Control/TabContainer/Status/VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "Weapons"
+
+[node name="consumButton" type="Button" parent="canvas/Control/TabContainer/Status/VBoxContainer"]
+layout_mode = 2
+text = "Consumables"
+
+[node name="keyButton" type="Button" parent="canvas/Control/TabContainer/Status/VBoxContainer"]
+layout_mode = 2
+text = "Key Items"
+
+[node name="TextureRect" type="TextureRect" parent="canvas/Control/TabContainer/Status"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 117.0
+offset_right = 144.0
+offset_bottom = 245.0
+scale = Vector2(3.89454, 3.89454)
+texture = ExtResource("7_n1s1q")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="canvas/Control/TabContainer/Status/TextureRect"]
+layout_mode = 0
+offset_left = 5.39217
+offset_top = -23.6228
+offset_right = 105.392
+offset_bottom = 26.3772
+theme = ExtResource("5_4606b")
+theme_override_font_sizes/normal_font_size = 20
+text = "Status"
+
+[node name="Logs" type="Control" parent="canvas/Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Settings" type="Control" parent="canvas/Control/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2

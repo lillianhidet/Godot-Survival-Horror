@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 //Tracks the items the player has, and dispatches equip requests to the equipManager
 public partial class playerInventory : Node{
-
+	//Unify inventory items to be a single type
 	public static List<heldItem> weapons;
+	//Why is this no its own type?
 	public static List<InventoryItem> consumables;
 	public static List<keyItem> keyItems;
 	public static List<Ammo> ammo;
@@ -90,6 +91,10 @@ public partial class playerInventory : Node{
 	}
 
 	public static void add(keyItem k){}
+
+	public static void add(consumable c){
+		consumables.Add(c);
+	}
 
 
 //Really this class should be entirely bypassed and the interaction class should just talk directly to the weapon for these two functions (maybe)

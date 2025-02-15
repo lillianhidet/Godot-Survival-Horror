@@ -26,9 +26,9 @@ uniform float wind_strength = .01;
 void vertex() {
 	ROUGHNESS=roughness;
 	UV=UV*uv1_scale.xy+uv1_offset.xy;
-	
+
 	vec3 GLOBAL_VERTEX = (MODEL_MATRIX * vec4(VERTEX, 1.)).xyz;
- 
+
 	float offset = TIME * wind_speed;
 	float noise = texture(noise_tex, vec2(GLOBAL_VERTEX.y-offset)).r;
 	noise -= .5;

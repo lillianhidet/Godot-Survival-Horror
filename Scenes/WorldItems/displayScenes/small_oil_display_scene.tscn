@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://clwu1wvjc2bx5"]
+
+[ext_resource type="PackedScene" uid="uid://3epi71f2j8dk" path="res://Models/items/smallLanternOil.glb" id="1_byh0t"]
+
+[node name="SmallOilDisplayScene" type="Node3D"]
+
+[node name="smallLanternOil" parent="." instance=ExtResource("1_byh0t")]
+transform = Transform3D(-2.04715e-08, 0, 0.468333, 0, 0.468333, 0, -0.468333, 0, -2.04715e-08, 0, -0.629234, 0)

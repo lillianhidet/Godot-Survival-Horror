@@ -2,29 +2,31 @@ using Godot;
 using System;
 
 public partial class InputHandler : Node{
-
-
+/*
+	//This should be a singleton and decoupled from the player
 	InteractionHandler interactionHandler;
 	playerState playerState;
 	CamController camController;
 	AimManager aimManager;
 	AnimationManager animManager;
 
-	//AnimationManager animationManager;
-	[Export] playerController playerController;
-	[Export] public static float aimSens = .01f;
+	Inventory_UI ui;
 
-    public override void _Ready(){
+	[Export] playerController playerController;
+	[Export] public float aimSens = .01f;
+
+	public override void _Ready(){
 		interactionHandler = (InteractionHandler)GetNode("%InteractionBox");
 		playerState = GetNode<playerState>("/root/PlayerState");
 		camController = GetNode<CamController>("%MainCamRoot");
 		aimManager = GetNode<AimManager>("%aimRoot");
 		animManager = GetNode<AnimationManager>("%AnimationManager");
-    }
-    public override void _Input(InputEvent @event){
+		//ui = GetTree().Root.GetNode<Inventory_UI>("%Menu");
+	}
+	public override void _Input(InputEvent @event){
 
 		MoveInput();
-        
+		
 		if(@event.IsActionPressed("Interact")){
 			
 			interactionHandler.interact();
@@ -48,6 +50,13 @@ public partial class InputHandler : Node{
 			}
 			
 
+		}
+
+		if(@event.IsActionPressed("Menu")){
+			if(!playerState.inMenu){
+
+			}
+			
 		}
 
 	
@@ -86,7 +95,7 @@ public partial class InputHandler : Node{
 			}
 		}
 		
-    }
+	}
 
 	void MoveInput(){
 		if(playerState.canMove){
@@ -96,5 +105,5 @@ public partial class InputHandler : Node{
 			playerController.setInputDir(Vector2.Zero);
 		}
 	}
-
+*/
 }

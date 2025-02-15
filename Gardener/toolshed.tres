@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=7 format=3 uid="uid://bbtrb2gkkp1km"]
 
-[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/toolshed/toolshed_brush.gd" id="1_t34xo"]
-[ext_resource type="Script" path="res://addons/dreadpon.spatial_gardener/toolshed/toolshed.gd" id="2_ii71k"]
+[ext_resource type="Script" uid="uid://bifnh8v4nxaxv" path="res://addons/dreadpon.spatial_gardener/toolshed/toolshed_brush.gd" id="1_t34xo"]
+[ext_resource type="Script" uid="uid://db57nrywi6hyq" path="res://addons/dreadpon.spatial_gardener/toolshed/toolshed.gd" id="2_ii71k"]
 
 [sub_resource type="Resource" id="Resource_0yf54"]
 resource_name = "Toolshed_Brush"

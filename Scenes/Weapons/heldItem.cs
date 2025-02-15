@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class heldItem : Node3D{
+public partial class heldItem : InventoryItem{
 	//Think I should honestly just have a class for ranged weapon, and class for melee weapon, which inherrit from this
 	public enum equipStyle{
 		twoHanded,
@@ -18,8 +18,8 @@ public partial class heldItem : Node3D{
 
 	[Export] public equipStyle itemStyle;
 	[Export] public type itemType;
-	[Export] Node3D leftHandLocation;
-	[Export] Node3D rightHandLocation;
+	//[Export] Node3D leftHandLocation;
+	//[Export] Node3D rightHandLocation;
 
 	public bool held;
 	

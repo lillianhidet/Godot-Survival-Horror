@@ -1,0 +1,4 @@
+	-Refactor Worlditem to be type agnostic in regards to item
+	items also now store their own displayScene
+	
+	-Look into the 'TextWindowManager scene' - why is it like that??

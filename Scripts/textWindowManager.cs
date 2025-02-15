@@ -4,11 +4,13 @@ using System;
 public partial class textWindowManager : Node
 {
 	static PackedScene textDisplayScene;
+	static PackedScene objectDisplayScene;
 
 	static PackedScene button;
 	public static bool textLoaded;
 	static Node loaded;
-	static RichTextLabel textLbl;
+	static RichTextLabel imgTextLbl;
+	static RichTextLabel objTextLbl;
 	static TextureRect imgLbl;
 
     public override void _Ready(){
@@ -20,7 +22,8 @@ public partial class textWindowManager : Node
 	public static Node loadScene(){
 
 		loaded = textDisplayScene.Instantiate();
-		textLbl = (RichTextLabel)loaded.GetNode("%Text");
+		imgTextLbl = (RichTextLabel)loaded.GetNode("%ImageText");
+		objTextLbl = (RichTextLabel)loaded.GetNode("%ObjectText");
 		imgLbl = (TextureRect)loaded.GetNode("%TextImage");
 
 		//Button b = (Button) loaded.GetNode("%ExitBtn");
@@ -32,12 +35,18 @@ public partial class textWindowManager : Node
 
 	}
 
-	public static void loadText(String text){
+	public static void loadText(bool obj, String text){
 		if(loaded!=null){
 
 			if(text!=""){
+				if(!obj){
+					imgTextLbl.Text = text;
+					objTextLbl.Visible = false;
+				}else{
+					objTextLbl.Text = "[center]"+text+"[/center]";
+					imgTextLbl.Visible = false;
 
-				textLbl.Text = "[center]"+text+"[/center]";
+				}
 			
       		}else{GD.PushWarning("Unnassigned Text");}
 
@@ -62,7 +71,7 @@ public partial class textWindowManager : Node
 	public static void setViewportTexture(Viewport v){
 		
 		
-        ViewportTexture t = new ViewportTexture{ViewportPath = v.GetPath()};
+       // ViewportTexture t = new ViewportTexture{ViewportPath = v.GetPath()};
 
         imgLbl.Texture = v.GetTexture();
 

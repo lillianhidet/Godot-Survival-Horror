@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://do3230f7geapn"]
+
+[ext_resource type="Texture2D" uid="uid://sucvixmjfmhg" path="res://icon.svg" id="1_fscs7"]
+[ext_resource type="Script" path="res://Scenes/UI/Scripts/invSlotItem.cs" id="1_hl3dd"]
+
+[node name="item" type="TextureRect"]
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
+texture = ExtResource("1_fscs7")
+expand_mode = 1
+script = ExtResource("1_hl3dd")

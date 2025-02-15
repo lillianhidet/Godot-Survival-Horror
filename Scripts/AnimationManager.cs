@@ -1,8 +1,9 @@
 using Godot;
 using System;
 
-public partial class AnimationManager : Node
-{
+public partial class AnimationManager : Node{
+
+	private static AnimationManager instance;
 	static AnimationTree player;
 
 	private static SkeletonIK3D leftArmIK;
@@ -18,6 +19,15 @@ public partial class AnimationManager : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
 		player = GetNode<AnimationTree>("%AnimationTree");
+
+		if(instance==null){
+			instance = this;
+		}else {GD.PushError("Attempted to create second instance of singleton");}
+
+	}
+
+	public static AnimationManager getInstance(){
+		return instance;
 	}
 
     public override void _Process(double delta){
@@ -122,7 +132,7 @@ public partial class AnimationManager : Node
 	public void takeHolsterLantern(){
 
 		if(playerInventory.holdingLantern){
-
+			EquipManager.startMovingToAttach();
 			animationLerper lerper = new animationLerper(1.2f, player, false,"parameters/LeftArmBlend/blend_amount");
 			this.AddChild(lerper);
 
@@ -153,8 +163,11 @@ public partial class AnimationManager : Node
 			animationLerper lerper = new animationLerper(1.2f, player, false,"parameters/LanternHolsterBlend/blend_amount");
 			this.AddChild(lerper);
 
+			lerper.LerpFinished += EquipManager.doneMovingAway;
+
 			animationLerper lerper2 = new animationLerper(1.2f, player, true,"parameters/LeftArmBlend/blend_amount");
 			this.AddChild(lerper2);
+
 		}
 
 	}

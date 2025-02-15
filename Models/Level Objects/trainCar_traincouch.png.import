@@ -2,16 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnyuw0t0hq11h"
-path="res://.godot/imported/reticule.png-9579b4911755f74e55c03e401e95e3ee.ctex"
+uid="uid://di63ipsf314s"
+path="res://.godot/imported/trainCar_traincouch.png-50c04d57e1a12836892c24e51fb41fec.ctex"
 metadata={
 "vram_texture": false
+}
+generator_parameters={
+"md5": "987fab0739fafbe14bcbbb2bab8e4ade"
 }
 
 [deps]
 
-source_file="res://images/reticule.png"
-dest_files=["res://.godot/imported/reticule.png-9579b4911755f74e55c03e401e95e3ee.ctex"]
+source_file="res://Models/Level Objects/trainCar_traincouch.png"
+dest_files=["res://.godot/imported/trainCar_traincouch.png-50c04d57e1a12836892c24e51fb41fec.ctex"]
 
 [params]
 

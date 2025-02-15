@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oneria", "Oneria.csproj", "{FD7FF4A4-5AE5-4294-9FF0-3E02CFDF1A34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Oneria", "Oneria.csproj", "{BFB08834-BAAE-4CC1-939D-5EBDA567760B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,11 +9,11 @@ Global
 	ExportRelease|Any CPU = ExportRelease|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FD7FF4A4-5AE5-4294-9FF0-3E02CFDF1A34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD7FF4A4-5AE5-4294-9FF0-3E02CFDF1A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD7FF4A4-5AE5-4294-9FF0-3E02CFDF1A34}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
-		{FD7FF4A4-5AE5-4294-9FF0-3E02CFDF1A34}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
-		{FD7FF4A4-5AE5-4294-9FF0-3E02CFDF1A34}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
-		{FD7FF4A4-5AE5-4294-9FF0-3E02CFDF1A34}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+		{BFB08834-BAAE-4CC1-939D-5EBDA567760B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFB08834-BAAE-4CC1-939D-5EBDA567760B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFB08834-BAAE-4CC1-939D-5EBDA567760B}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{BFB08834-BAAE-4CC1-939D-5EBDA567760B}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{BFB08834-BAAE-4CC1-939D-5EBDA567760B}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{BFB08834-BAAE-4CC1-939D-5EBDA567760B}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
 	EndGlobalSection
 EndGlobal
