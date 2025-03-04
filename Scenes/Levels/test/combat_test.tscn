@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bushh12sfm1wg"]
+[gd_scene load_steps=19 format=3 uid="uid://bushh12sfm1wg"]
 
 [ext_resource type="PackedScene" uid="uid://c1cw0ff85ubh5" path="res://Scenes/Characters/lucy_player.tscn" id="1_gc8ls"]
 [ext_resource type="PackedScene" uid="uid://bswuuil5xk2by" path="res://shaders/screenspaceshaders.tscn" id="1_xs10b"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cdu77jopkdx80" path="res://Scenes/WorldItems/Ammo/pistol_ammo_wi.tscn" id="3_4duet"]
 [ext_resource type="PackedScene" uid="uid://lk1oah54k2kh" path="res://Scenes/WorldItems/pistol_wi.tscn" id="4_umdoy"]
 [ext_resource type="PackedScene" uid="uid://dh6kl732oyqwx" path="res://Scenes/UI/HUD.tscn" id="5_27egc"]
+[ext_resource type="PackedScene" uid="uid://cwprawoeym6e3" path="res://Scenes/WorldItems/Ammo/pistolAmmoModel.tscn" id="5_qjcog"]
 [ext_resource type="PackedScene" uid="uid://c5f5ayufxh7c" path="res://Scenes/WorldItems/lanternFirstPickup.tscn" id="6_2uaos"]
 [ext_resource type="PackedScene" uid="uid://cpwth8xm4j8bw" path="res://Scenes/lanternNoLight.tscn" id="8_llajs"]
 [ext_resource type="PackedScene" uid="uid://bqru6s0gnvke0" path="res://Scenes/WorldItems/smalloil_wi.tscn" id="9_iljb1"]
@@ -65,6 +66,14 @@ sky_mode = 1
 
 [node name="pistolAmmo_WI" parent="." instance=ExtResource("3_4duet")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61463, 0.875944, 0)
+
+[node name="Node3D" parent="pistolAmmo_WI" index="0" node_paths=PackedStringArray("item")]
+item = NodePath("../PistolAmmo")
+
+[node name="PistolAmmo" parent="pistolAmmo_WI" index="1"]
+name = "Pistol Ammo"
+description = "{a} bullets"
+DisplayScene = ExtResource("5_qjcog")
 
 [node name="Hud" parent="." instance=ExtResource("5_27egc")]
 

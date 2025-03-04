@@ -23,7 +23,8 @@ public partial class EquipManager : Node3D{
 		leftHandSlot = GetNode<Node3D>("%LanternHold");
 		rightHandSlot = GetNode<Node3D>("%RightHandPos");
 		lanternMount = GetNode<Node3D>("%LanternMount");
-		animManager = GetNode<AnimationManager>("%AnimationManager");
+		animManager = AnimationManager.getInstance();
+		//GetNode<AnimationManager>("%AnimationManager");
 
 		handle = GetNode<RigidBody3D>("%Handle");
 		light = GetNode<LanternTest>("%Light");

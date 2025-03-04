@@ -21,7 +21,8 @@ public partial class AnimationEventDispatcher : Node{
 
         playerState = GetNode<playerState>("/root/PlayerState");
 		leftHand = GetNode<Node3D>("%LeftHandPos");
-		animManager = GetNode<AnimationManager>("%AnimationManager");
+		animManager = AnimationManager.getInstance();
+		//GetNode<AnimationManager>("%AnimationManager");
     }
     void startLockedAnim(){
 		playerState.lockAnim();

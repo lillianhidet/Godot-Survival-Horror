@@ -36,7 +36,8 @@ public partial class playerController : CharacterBody3D
 
     public override void _Ready(){
 		leftHandPos = (Node3D) GetNode("%LeftHandPos");
-		animManager = (AnimationManager)GetNode("%AnimationManager");
+		animManager = AnimationManager.getInstance();
+		//(AnimationManager)GetNode("%AnimationManager");
         armature = (Node3D)GetNode("Armature");
 		animTree = (AnimationTree)GetNode("AnimationTree");
 		playerState = GetNode<playerState>("/root/PlayerState");
