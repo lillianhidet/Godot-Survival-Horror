@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://xas3fq13fsj3"]
 
-[ext_resource type="Script" path="res://Scripts/Items (Inventory)/itemModelViewer.cs" id="1_4v6sb"]
+[ext_resource type="Script" uid="uid://cmgshqodct0if" path="res://Scripts/Items (Inventory)/itemModelViewer.cs" id="1_4v6sb"]
 
 [sub_resource type="Environment" id="Environment_iae1k"]
 

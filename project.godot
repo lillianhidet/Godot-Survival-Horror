@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Oneria"
 run/main_scene="res://world1.tscn"
-config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -119,7 +119,7 @@ Close={
 
 [physics]
 
-3d/physics_engine="JoltPhysics3D"
+3d/physics_engine="Jolt Physics"
 
 [rendering]
 

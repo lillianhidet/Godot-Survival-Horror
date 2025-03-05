@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://chu650mf8x30i"]
 
-[ext_resource type="Script" path="res://Scenes/Weapons/rangedWeapon.cs" id="1_8qu73"]
-[ext_resource type="Script" path="res://Scenes/Weapons/muzzleFlash.cs" id="2_mudhv"]
+[ext_resource type="Script" uid="uid://dcso3rfxht4lv" path="res://Scenes/Weapons/rangedWeapon.cs" id="1_8qu73"]
+[ext_resource type="Script" uid="uid://b7uxenrsrn3qe" path="res://Scenes/Weapons/muzzleFlash.cs" id="2_mudhv"]
 [ext_resource type="PackedScene" uid="uid://d1n0q3og6p7v5" path="res://Scenes/WorldItems/displayScenes/m1911_display_scene.tscn" id="2_qrn6x"]
 [ext_resource type="Texture2D" uid="uid://bhe67w0rcjthf" path="res://textures/flash.png" id="3_oy3o6"]
 [ext_resource type="PackedScene" uid="uid://deu1v8j3uuuu4" path="res://Models/m1911.glb" id="4_oyou7"]

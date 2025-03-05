@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bswuuil5xk2by"]
 
-[ext_resource type="Shader" path="res://shaders/dither.gdshader" id="1_lvu2c"]
-[ext_resource type="Shader" path="res://pixelate.gdshader" id="2_y1suc"]
+[ext_resource type="Shader" uid="uid://cq373edy4s746" path="res://shaders/dither.gdshader" id="1_lvu2c"]
+[ext_resource type="Shader" uid="uid://c45olmstx1sgr" path="res://pixelate.gdshader" id="2_y1suc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qlpub"]
 shader = ExtResource("1_lvu2c")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dw0oivbjcfa8c"]
 
-[ext_resource type="Script" path="res://Scenes/Weapons/heldItem.cs" id="1_m1geo"]
+[ext_resource type="Script" uid="uid://cxvd227um6c5h" path="res://Scenes/Weapons/heldItem.cs" id="1_m1geo"]
 [ext_resource type="PackedScene" uid="uid://gs1hvimokb41" path="res://Scenes/lantern/handle.tscn" id="2_ywuij"]
 [ext_resource type="PackedScene" uid="uid://dogvwtldqm4ux" path="res://Scenes/lantern/light.tscn" id="3_6f2di"]
 

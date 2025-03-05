@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c3ufy7uojfq5k" path="res://Models/skybox.glb" id="1_qnxb6"]
 [ext_resource type="Material" uid="uid://dt4u4af8secgf" path="res://Materials/Sky.tres" id="2_4tqvc"]
-[ext_resource type="Script" path="res://Scripts/textureScroll.cs" id="3_02315"]
+[ext_resource type="Script" uid="uid://fcks1iwmcva" path="res://Scripts/textureScroll.cs" id="3_02315"]
 
 [node name="skybox" instance=ExtResource("1_qnxb6")]
 

@@ -7,9 +7,9 @@
 render_priority = 0
 shader = ExtResource("1_jxduo")
 shader_parameter/Color = Color(0.886275, 0.509804, 0, 1)
+shader_parameter/Gradient = ExtResource("2_qxnbt")
 shader_parameter/Opacity = 0.5
 shader_parameter/Fresnel = 0.1
-shader_parameter/Gradient = ExtResource("2_qxnbt")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_11glg"]
 material = SubResource("ShaderMaterial_dvp5v")

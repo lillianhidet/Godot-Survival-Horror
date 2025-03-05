@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://6xvarlmj2wkk"]
 
-[ext_resource type="Script" path="res://addons/VPainter/vpainter_ui.gd" id="1_epro4"]
+[ext_resource type="Script" uid="uid://cxdyb74sbprtx" path="res://addons/VPainter/vpainter_ui.gd" id="1_epro4"]
 [ext_resource type="Texture2D" uid="uid://duanqmgnxdcv4" path="res://addons/VPainter/res/icons/icon_fill.svg" id="2"]
 [ext_resource type="Texture2D" uid="uid://cfmd6uoamd8f7" path="res://addons/VPainter/res/icons/icon_blur.svg" id="3"]
 [ext_resource type="Texture2D" uid="uid://xoorvy12mjeq" path="res://addons/VPainter/res/icons/icon_brush.svg" id="4"]

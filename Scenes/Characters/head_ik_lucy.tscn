@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d0mg42br28nug"]
 
-[ext_resource type="Script" path="res://Scripts/IK.cs" id="1_m7oot"]
+[ext_resource type="Script" uid="uid://1dsjya40rmc3" path="res://Scripts/IK.cs" id="1_m7oot"]
 
 [node name="HeadIK" type="SkeletonIK3D"]
 process_priority = 1

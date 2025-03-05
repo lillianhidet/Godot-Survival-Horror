@@ -1,10 +1,10 @@
 [gd_scene load_steps=19 format=4 uid="uid://b0key5olebl7v"]
 
-[ext_resource type="Script" path="res://Scripts/testController.cs" id="1_dvvx7"]
+[ext_resource type="Script" uid="uid://dpciot2rnwibp" path="res://Scripts/testController.cs" id="1_dvvx7"]
 [ext_resource type="Texture2D" uid="uid://cisgym6a7l1pp" path="res://textures/lucy_LucyMainTex.png" id="2_5juhv"]
-[ext_resource type="Script" path="res://Scripts/InteractionHandler.cs" id="3_snqpw"]
-[ext_resource type="Script" path="res://Scripts/CamController.cs" id="4_nm8g8"]
-[ext_resource type="Script" path="res://Scripts/Player/InputHandler.cs" id="5_vwj15"]
+[ext_resource type="Script" uid="uid://blx1hb4o04877" path="res://Scripts/InteractionHandler.cs" id="3_snqpw"]
+[ext_resource type="Script" uid="uid://c3vkiwg0ijcwg" path="res://Scripts/CamController.cs" id="4_nm8g8"]
+[ext_resource type="Script" uid="uid://cexv8iog7gbjf" path="res://Scripts/Player/InputHandler.cs" id="5_vwj15"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bbwc"]
 resource_name = "Material.001"
@@ -795,9 +795,9 @@ tracks/30/keys = PackedFloat32Array(0, 1, 1.75267, 1.75267, 1.75267)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1q2nt"]
 _data = {
-"Default": SubResource("Animation_syd0k"),
-"Idle": SubResource("Animation_7adnu"),
-"walk": SubResource("Animation_vu81t")
+&"Default": SubResource("Animation_syd0k"),
+&"Idle": SubResource("Animation_7adnu"),
+&"walk": SubResource("Animation_vu81t")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gv334"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c5f5ayufxh7c"]
 
-[ext_resource type="Script" path="res://Scripts/Interactables (World)/worldItem.cs" id="1_e2h8f"]
+[ext_resource type="Script" uid="uid://dirgpjmultnyr" path="res://Scripts/Interactables (World)/worldItem.cs" id="1_e2h8f"]
 [ext_resource type="PackedScene" uid="uid://cpwth8xm4j8bw" path="res://Scenes/lanternNoLight.tscn" id="2_0ea8t"]
 [ext_resource type="PackedScene" uid="uid://dw0oivbjcfa8c" path="res://Scenes/lantern.tscn" id="3_6d1wn"]
 

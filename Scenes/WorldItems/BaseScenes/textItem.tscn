@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnt510j3rcew1"]
 
-[ext_resource type="Script" path="res://Scripts/Interactables (World)/textItem.cs" id="1_nkakw"]
+[ext_resource type="Script" uid="uid://d0si7d0si5t1u" path="res://Scripts/Interactables (World)/textItem.cs" id="1_nkakw"]
 [ext_resource type="Texture2D" uid="uid://sucvixmjfmhg" path="res://icon.svg" id="2_pq07c"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ayf2i"]

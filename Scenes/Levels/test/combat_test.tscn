@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c1cw0ff85ubh5" path="res://Scenes/Characters/lucy_player.tscn" id="1_gc8ls"]
 [ext_resource type="PackedScene" uid="uid://bswuuil5xk2by" path="res://shaders/screenspaceshaders.tscn" id="1_xs10b"]
-[ext_resource type="Shader" path="res://shaders/dither.gdshader" id="2_4yq5y"]
+[ext_resource type="Shader" uid="uid://cq373edy4s746" path="res://shaders/dither.gdshader" id="2_4yq5y"]
 [ext_resource type="PackedScene" uid="uid://cdu77jopkdx80" path="res://Scenes/WorldItems/Ammo/pistol_ammo_wi.tscn" id="3_4duet"]
 [ext_resource type="PackedScene" uid="uid://lk1oah54k2kh" path="res://Scenes/WorldItems/pistol_wi.tscn" id="4_umdoy"]
 [ext_resource type="PackedScene" uid="uid://dh6kl732oyqwx" path="res://Scenes/UI/HUD.tscn" id="5_27egc"]

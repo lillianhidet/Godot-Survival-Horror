@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkbcpfac5wbnj"]
 
-[ext_resource type="Script" path="res://addons/vertex_painter/get_editor_camera.gd" id="1_6dus2"]
-[ext_resource type="Script" path="res://addons/vertex_painter/Node3D.gd" id="2_aplt7"]
+[ext_resource type="Script" uid="uid://djk1k8dwnkhxu" path="res://addons/vertex_painter/get_editor_camera.gd" id="1_6dus2"]
+[ext_resource type="Script" uid="uid://bmiuuo58xport" path="res://addons/vertex_painter/Node3D.gd" id="2_aplt7"]
 
 [node name="Vertex Painter" type="Control"]
 layout_mode = 3
