@@ -8,14 +8,18 @@ public partial class InteractionHandler : Area3D{
 	Node currentTarget;
 
 	List<interactable> targets = new List<interactable>();
+	List<interactable> nearby = new List<interactable>();
 
 	interactable closest;
 
-	private static InteractionHandler instance;
+	public static InteractionHandler instance { get; private set;}
 
 	[Export] Marker3D position;
 
 	public override void _Ready(){
+		//lol
+		hudManager.Instance.camera = GetViewport().GetCamera3D();
+
 		if(instance==null){
 			instance = this;
 		}else {GD.PushError("Attempted to create second instance of singleton");}
@@ -25,28 +29,36 @@ public partial class InteractionHandler : Area3D{
 		return instance;
 	}
 
-	void areaEntered(Area3D area){
+	void interactionAreaEntered(Area3D area){
 		
 		if(area.IsInGroup("Interactable")){
-			//currentTarget = area.GetParent();
 			targets.Add((interactable) area.GetParent());
 
 		}
 
 	}
 
-	void areaExited(Area3D area){
+	void interactionAreaExited(Area3D area){
 
 		if(area.IsInGroup("Interactable")){
-			//if(currentTarget == area.GetParent()){
-
-				//currentTarget = null;
-
-			//}
 			targets.Remove((interactable) area.GetParent());
 
 		}
 
+	}
+
+	void nearbyAreaEntered(Area3D area){
+		if(area.IsInGroup("Interactable")){
+			nearby.Add((interactable) area.GetParent());
+			hudManager.Instance.addMarkedPos(area);
+		}
+	}
+
+	void nearbyAreaExited(Area3D area){
+		if(area.IsInGroup("Interactable")){
+			nearby.Remove((interactable) area.GetParent());
+			hudManager.Instance.removeMarkedPos(area);
+		}
 	}
 
 
@@ -92,4 +104,6 @@ public partial class InteractionHandler : Area3D{
 		
 		if(targets.Count == 0){closest = null;}
 	}
+
+	
 }

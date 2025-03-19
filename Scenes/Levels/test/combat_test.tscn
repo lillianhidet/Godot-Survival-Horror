@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://bushh12sfm1wg"]
+[gd_scene load_steps=18 format=3 uid="uid://bushh12sfm1wg"]
 
 [ext_resource type="PackedScene" uid="uid://c1cw0ff85ubh5" path="res://Scenes/Characters/lucy_player.tscn" id="1_gc8ls"]
 [ext_resource type="PackedScene" uid="uid://bswuuil5xk2by" path="res://shaders/screenspaceshaders.tscn" id="1_xs10b"]
 [ext_resource type="Shader" uid="uid://cq373edy4s746" path="res://shaders/dither.gdshader" id="2_4yq5y"]
 [ext_resource type="PackedScene" uid="uid://cdu77jopkdx80" path="res://Scenes/WorldItems/Ammo/pistol_ammo_wi.tscn" id="3_4duet"]
 [ext_resource type="PackedScene" uid="uid://lk1oah54k2kh" path="res://Scenes/WorldItems/pistol_wi.tscn" id="4_umdoy"]
-[ext_resource type="PackedScene" uid="uid://dh6kl732oyqwx" path="res://Scenes/UI/HUD.tscn" id="5_27egc"]
 [ext_resource type="PackedScene" uid="uid://cwprawoeym6e3" path="res://Scenes/WorldItems/Ammo/pistolAmmoModel.tscn" id="5_qjcog"]
 [ext_resource type="PackedScene" uid="uid://c5f5ayufxh7c" path="res://Scenes/WorldItems/lanternFirstPickup.tscn" id="6_2uaos"]
 [ext_resource type="PackedScene" uid="uid://cpwth8xm4j8bw" path="res://Scenes/lanternNoLight.tscn" id="8_llajs"]
@@ -75,8 +74,6 @@ name = "Pistol Ammo"
 description = "{a} bullets"
 DisplayScene = ExtResource("5_qjcog")
 
-[node name="Hud" parent="." instance=ExtResource("5_27egc")]
-
 [node name="lanternFirstPickup" parent="." node_paths=PackedStringArray("item") instance=ExtResource("6_2uaos")]
 transform = Transform3D(0.387708, 0, 0, 0, 0.387708, 0, 0, 0, 0.387708, -0.2, 2.94555, 0)
 item = NodePath("Lantern")
@@ -88,6 +85,7 @@ description = "It's your old lantern, it feels heavy in your hands"
 DisplayScene = ExtResource("8_llajs")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 collision_layer = 3
 collision_mask = 3
 
@@ -115,6 +113,6 @@ mesh = SubResource("BoxMesh_nxcxs")
 [editable path="SubViewportContainer"]
 [editable path="pistolAmmo_WI"]
 [editable path="pistolAmmo_WI/Node3D"]
-[editable path="Hud"]
 [editable path="lanternFirstPickup"]
 [editable path="small_oil_wi"]
+[editable path="TextItem"]

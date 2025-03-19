@@ -12,11 +12,3 @@ itemType = 3
 [node name="Handle" parent="." instance=ExtResource("2_ywuij")]
 
 [node name="Light" parent="." instance=ExtResource("3_6f2di")]
-
-[node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="."]
-limit_spring_enabled = true
-limit_spring_frequency = 100.0
-limit_spring_damping = 100.0
-node_a = NodePath("../Handle")
-node_b = NodePath("../Light")
-transform = Transform3D(-4.37114e-08, 1.94472e-22, 1, -1.85125e-29, 0.9, 2.11758e-22, -1, 8.50064e-30, -4.37114e-08, 0, -0.334622, 1.88079e-36)
