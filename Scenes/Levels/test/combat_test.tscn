@@ -4,12 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://bswuuil5xk2by" path="res://shaders/screenspaceshaders.tscn" id="1_xs10b"]
 [ext_resource type="Shader" uid="uid://cq373edy4s746" path="res://shaders/dither.gdshader" id="2_4yq5y"]
 [ext_resource type="PackedScene" uid="uid://cdu77jopkdx80" path="res://Scenes/WorldItems/Ammo/pistol_ammo_wi.tscn" id="3_4duet"]
-[ext_resource type="PackedScene" uid="uid://lk1oah54k2kh" path="res://Scenes/WorldItems/pistol_wi.tscn" id="4_umdoy"]
+[ext_resource type="PackedScene" path="res://Scenes/WorldItems/pistol_wi.tscn" id="4_umdoy"]
 [ext_resource type="PackedScene" uid="uid://cwprawoeym6e3" path="res://Scenes/WorldItems/Ammo/pistolAmmoModel.tscn" id="5_qjcog"]
-[ext_resource type="PackedScene" uid="uid://c5f5ayufxh7c" path="res://Scenes/WorldItems/lanternFirstPickup.tscn" id="6_2uaos"]
+[ext_resource type="PackedScene" path="res://Scenes/WorldItems/lanternFirstPickup.tscn" id="6_2uaos"]
 [ext_resource type="PackedScene" uid="uid://cpwth8xm4j8bw" path="res://Scenes/lanternNoLight.tscn" id="8_llajs"]
-[ext_resource type="PackedScene" uid="uid://bqru6s0gnvke0" path="res://Scenes/WorldItems/smalloil_wi.tscn" id="9_iljb1"]
-[ext_resource type="PackedScene" uid="uid://bnt510j3rcew1" path="res://Scenes/WorldItems/BaseScenes/textItem.tscn" id="10_fcqel"]
+[ext_resource type="PackedScene" uid="uid://7aq0oqcjoi73" path="res://Scenes/WorldItems/smalloil_wi.tscn" id="9_iljb1"]
+[ext_resource type="PackedScene" path="res://Scenes/WorldItems/BaseScenes/textItem.tscn" id="10_fcqel"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vsojh"]
 shader = ExtResource("2_4yq5y")

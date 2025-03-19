@@ -31,7 +31,7 @@ public partial class hudManager : Control{
         text = GetNode<RichTextLabel>("%HUDText");
 		timer = GetNode<Timer>("%Timer");
 		ret = GetNode<TextureRect>("CanvasLayer/ret");
-		nearbyMarkerParent = GetNode<ItemMarkersManager>("CanvasLayer/nearbyItemMarkers");
+		nearbyMarkerParent = GetNode<ItemMarkersManager>("CanvasLayer/nearbyMarkerManager");
 		//lol
 		
     }

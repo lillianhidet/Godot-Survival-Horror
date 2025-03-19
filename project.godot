@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 PlayerState="*res://Scripts/playerState.cs"
 PlayerInventory="*res://Scripts/Player/playerInventory.cs"
-ItemModelViewerManager="*res://Scripts/Items (Inventory)/itemModelViewerManager.cs"
+ItemModelViewerManager="*res://Scenes/UI/Scripts/itemModelViewerManager.cs"
 TextWindowManager="*res://Scripts/textWindowManager.cs"
 TestInput="*res://TestInput.cs"
 Menu="*res://Scenes/UI/menu.tscn"
