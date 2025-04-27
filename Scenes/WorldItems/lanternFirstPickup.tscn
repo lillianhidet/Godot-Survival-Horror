@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bokcaqrunmxl3"]
+[gd_scene load_steps=5 format=3 uid="uid://bsnhdq21ly766"]
 
 [ext_resource type="Script" uid="uid://dirgpjmultnyr" path="res://Scripts/Interactables (World)/worldItem.cs" id="1_e2h8f"]
 [ext_resource type="PackedScene" uid="uid://cpwth8xm4j8bw" path="res://Scenes/lanternNoLight.tscn" id="2_0ea8t"]
+[ext_resource type="PackedScene" uid="uid://ckfocubew2uiy" path="res://Scenes/particle/item_particles.tscn" id="3_3y3rf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f61da"]
 size = Vector3(0.796616, 1.85504, 1.06821)
@@ -20,3 +21,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0998154, 0.391763, 0.035171
 shape = SubResource("BoxShape3D_f61da")
 
 [node name="lanternNoLight" parent="." instance=ExtResource("2_0ea8t")]
+
+[node name="itemParticles" parent="." instance=ExtResource("3_3y3rf")]
+transform = Transform3D(3.06205, 0, 0, 0, 1, 0, 0, 0, 2.17828, 0, 0, 0)

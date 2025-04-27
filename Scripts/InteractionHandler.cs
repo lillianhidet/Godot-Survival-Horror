@@ -47,19 +47,19 @@ public partial class InteractionHandler : Area3D{
 
 	}
 
-	void nearbyAreaEntered(Area3D area){
+	/*void nearbyAreaEntered(Area3D area){
 		if(area.IsInGroup("Interactable")){
 			nearby.Add((interactable) area.GetParent());
 			hudManager.Instance.addMarkedPos(area);
 		}
-	}
+	
 
 	void nearbyAreaExited(Area3D area){
 		if(area.IsInGroup("Interactable")){
 			nearby.Remove((interactable) area.GetParent());
 			hudManager.Instance.removeMarkedPos(area);
 		}
-	}
+	}*/
 
 
 	public void interact(){

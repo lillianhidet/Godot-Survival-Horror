@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl8mxcw81bu4k"]
+[gd_scene load_steps=4 format=3 uid="uid://dl8mxcw81bu4k"]
 
 [ext_resource type="Script" uid="uid://dirgpjmultnyr" path="res://Scripts/Interactables (World)/worldItem.cs" id="1_gi2dx"]
+[ext_resource type="PackedScene" uid="uid://ckfocubew2uiy" path="res://Scenes/particle/item_particles.tscn" id="2_ogqva"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f61da"]
-size = Vector3(0.279179, 0.710147, 0.360121)
 
 [node name="wordItem" type="Node3D" groups=["Interactable"]]
 script = ExtResource("1_gi2dx")
@@ -15,3 +15,5 @@ collision_mask = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["Interactable"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.647958, 0)
 shape = SubResource("BoxShape3D_f61da")
+
+[node name="itemParticles" parent="." instance=ExtResource("2_ogqva")]

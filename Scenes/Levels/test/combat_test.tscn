@@ -1,10 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://bushh12sfm1wg"]
+[gd_scene load_steps=14 format=3 uid="uid://bushh12sfm1wg"]
 
 [ext_resource type="PackedScene" uid="uid://c1cw0ff85ubh5" path="res://Scenes/Characters/lucy_player.tscn" id="1_gc8ls"]
 [ext_resource type="PackedScene" uid="uid://bswuuil5xk2by" path="res://shaders/screenspaceshaders.tscn" id="1_xs10b"]
 [ext_resource type="Shader" uid="uid://cq373edy4s746" path="res://shaders/dither.gdshader" id="2_4yq5y"]
 [ext_resource type="PackedScene" uid="uid://djuanjbn21o8g" path="res://Scenes/WorldItems/pistol_wi.tscn" id="4_umdoy"]
-[ext_resource type="PackedScene" uid="uid://bokcaqrunmxl3" path="res://Scenes/WorldItems/lanternFirstPickup.tscn" id="6_2uaos"]
+[ext_resource type="PackedScene" uid="uid://igdqxfxa2228" path="res://Scenes/lanternFirstPickup.tscn" id="6_tkr0e"]
 [ext_resource type="PackedScene" uid="uid://7aq0oqcjoi73" path="res://Scenes/WorldItems/smalloil_wi.tscn" id="9_iljb1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vsojh"]
@@ -25,7 +25,10 @@ size = Vector3(20, 1, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_uxbi2"]
 size = Vector3(1, 3.1, 4)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkr0e"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_cqqfa"]
+material = SubResource("StandardMaterial3D_tkr0e")
 
 [node name="CombatTest" type="Node3D"]
 
@@ -51,31 +54,31 @@ shape = SubResource("BoxShape3D_dyp1u")
 [node name="lucy" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="1" instance=ExtResource("1_gc8ls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3419, 0.127944, 0.752734)
 
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="2"]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 1.5)
+shape = SubResource("BoxShape3D_uxbi2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 4.1, 0, 0, 0, 3.9, 0, 0.5, 1.5)
+mesh = SubResource("BoxMesh_cqqfa")
+
+[node name="pistol_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="3" instance=ExtResource("4_umdoy")]
+transform = Transform3D(0.148997, 0.78133, 0.0855798, -0.0469003, 0.0957864, -0.792859, -0.784602, 0.14265, 0.0636457, 0.0839109, 2.60162, 2.86463)
+
+[node name="small_oil_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="4" instance=ExtResource("9_iljb1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 2.5, 1)
+
+[node name="lanternFirstPickup" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="5" instance=ExtResource("6_tkr0e")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 2.81928, 0.152972)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.177737, 0.984078, 0, -0.984078, -0.177737, 0, 9.28876, 0)
 light_color = Color(0.65098, 0.65098, 0.65098, 1)
 light_energy = 3.0
 sky_mode = 1
-
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 1.5)
-shape = SubResource("BoxShape3D_uxbi2")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 4.1, 0, 0, 0, 3.9, 0, 0.5, 1.5)
-mesh = SubResource("BoxMesh_cqqfa")
-
-[node name="pistol_wi" parent="." instance=ExtResource("4_umdoy")]
-transform = Transform3D(0.148997, 0.78133, 0.0855798, -0.0469003, 0.0957864, -0.792859, -0.784602, 0.14265, 0.0636457, 0.0839109, 2.60162, 2.86463)
-
-[node name="small_oil_wi" parent="." instance=ExtResource("9_iljb1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 2.5, 1)
-
-[node name="lanternFirstPickup" parent="." instance=ExtResource("6_2uaos")]
-transform = Transform3D(0.386118, 0, 0, 0, 0.386118, 0, 0, 0, 0.386118, 0, 2.9, 0)
 
 [editable path="SubViewportContainer"]

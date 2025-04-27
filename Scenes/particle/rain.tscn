@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://diftgyfgpjux4"]
 
-[ext_resource type="Texture2D" uid="uid://bl5lsxui30muy" path="res://textures/circleGradient.png" id="1_lgdvs"]
+[ext_resource type="Texture2D" uid="uid://bl5lsxui30muy" path="res://textures/circleGradient.png" id="1_lhrcc"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rgi3t"]
 emission_shape_scale = Vector3(5, 1, 5)
@@ -25,7 +25,7 @@ cull_mode = 2
 shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.152941, 0.152941, 0.152941, 1)
-albedo_texture = ExtResource("1_lgdvs")
+albedo_texture = ExtResource("1_lhrcc")
 use_particle_trails = true
 
 [sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_wiyky"]

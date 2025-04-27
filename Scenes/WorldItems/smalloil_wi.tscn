@@ -23,3 +23,6 @@ DisplayScene = ExtResource("3_c2ndd")
 
 [node name="smallLanternOil" parent="." index="2" instance=ExtResource("4_gqadx")]
 transform = Transform3D(0.119983, 0, 0, 0, 0.119983, 0, 0, 0, 0.119983, 0, 0.196983, 0)
+
+[node name="itemParticles" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.302387, 0)

@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dh6kl732oyqwx"]
+[gd_scene load_steps=4 format=3 uid="uid://dh6kl732oyqwx"]
 
 [ext_resource type="Script" uid="uid://ciljr67lnnpcy" path="res://Scenes/UI/Scripts/hudManager.cs" id="1_4bm6u"]
 [ext_resource type="Theme" uid="uid://dtgdfjqb3uf0" path="res://Fonts/textDisplayScene.tres" id="2_ykvyr"]
 [ext_resource type="Texture2D" uid="uid://dnyuw0t0hq11h" path="res://Scenes/UI/Images/reticule.png" id="3_lelo4"]
-[ext_resource type="Script" uid="uid://c76cipyti54mo" path="res://Scenes/UI/Scripts/ItemMarkersManager.cs" id="4_1ree7"]
-[ext_resource type="PackedScene" uid="uid://bpgwfgsm6te1m" path="res://Scenes/UI/item_marker.tscn" id="5_ykvyr"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -96,13 +94,5 @@ offset_bottom = 35.5
 theme_override_font_sizes/font_size = 32
 text = "00
 "
-
-[node name="nearbyMarkerManager" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("4_1ree7")
-itemMarker = ExtResource("5_ykvyr")
 
 [connection signal="timeout" from="CanvasLayer/HUDText/Timer" to="." method="timerEnd"]

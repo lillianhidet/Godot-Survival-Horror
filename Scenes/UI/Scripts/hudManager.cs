@@ -18,7 +18,7 @@ public partial class hudManager : Control{
 
 
 
-	static ItemMarkersManager nearbyMarkerParent;
+	//static ItemMarkersManager nearbyMarkerParent;
 	//Dictionary<Node3D, TextureRect> markedPositions = new Dictionary<Node3D, TextureRect>();
 
 
@@ -31,7 +31,7 @@ public partial class hudManager : Control{
         text = GetNode<RichTextLabel>("%HUDText");
 		timer = GetNode<Timer>("%Timer");
 		ret = GetNode<TextureRect>("CanvasLayer/ret");
-		nearbyMarkerParent = GetNode<ItemMarkersManager>("CanvasLayer/nearbyMarkerManager");
+		//nearbyMarkerParent = GetNode<ItemMarkersManager>("CanvasLayer/nearbyMarkerManager");
 		//lol
 		
     }
@@ -84,7 +84,7 @@ public partial class hudManager : Control{
 
 	}
 
-	public void addMarkedPos(Area3D pos){
+	/*public void addMarkedPos(Area3D pos){
 		if(nearbyMarkerParent.camera == null){nearbyMarkerParent.camera = camera;}
 		nearbyMarkerParent.addMarkedPos(pos);
 		/*if(!markedPositions.ContainsKey(pos)){
@@ -99,12 +99,12 @@ public partial class hudManager : Control{
 			rect.AddChild(lerper);
 
 			markedPositions.Add(pos, rect);
-		}*/
+		}
 		
 		
-	}
+	}*/
 
-	public void removeMarkedPos(Area3D pos){
+	/*public void removeMarkedPos(Area3D pos){
 		nearbyMarkerParent.removeMarkedPos(pos);
 		/*if(markedPositions.ContainsKey(pos)){
 			TextureRect rect;
@@ -115,9 +115,9 @@ public partial class hudManager : Control{
 			
 			lerper.LerpFinished += () => {deleteMarker(rect, pos);};
 
-		}*/
+		}
 		
-	}
+	}*/
 
 	/*private void deleteMarker(TextureRect rect, Node3D pos){
 			markedPositions.Remove(pos);
