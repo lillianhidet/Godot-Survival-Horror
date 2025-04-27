@@ -42,7 +42,7 @@ public partial class itemMarkerLerper : Node{
 
             rect.Modulate = opacity;
 
-
+			//hmm
 			if(l >= 1){
 				lerping = false;
 				EmitSignal(SignalName.LerpFinished);

@@ -10,11 +10,6 @@ public partial class ItemMarkersManager : Control{
 
 	public Camera3D camera;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta){
 		updateMarkers();
@@ -26,6 +21,7 @@ public partial class ItemMarkersManager : Control{
 		if(markedPositions.ContainsKey(pos)){
 
 			markedPositions.TryGetValue(pos, out marker);
+			marker.deleting = false;
 
 		}else{
 
@@ -35,33 +31,26 @@ public partial class ItemMarkersManager : Control{
 			markedPositions.Add(pos, marker);
 		}
 
-		itemMarkerLerper lerper = new itemMarkerLerper(marker, 0.6f, pos);
-		marker.addLerper(lerper);
+		fadeIn(marker, pos);
 		
 	}
 
 	public void removeMarkedPos(Area3D pos){
 
 		if(markedPositions.ContainsKey(pos)){
-			ItemMarker marker;
-			markedPositions.TryGetValue(pos, out marker);
+			
+			ItemMarker marker = markedPositions[pos];
+			marker.deleting = true;
 
-			itemMarkerLerper lerper = new itemMarkerLerper(marker, 0.0f, pos);
-			marker.addLerper(lerper);
+			itemMarkerLerper lerper = fadeOut(marker, pos);
 			
 			lerper.LerpFinished += () => {deleteMarker(marker, pos);};
 		}	
 	}
 
-	public void hideMarkers(){
-		
-	}
-
-	public void showMarkers(){
-
-	}
 
 	private void deleteMarker(ItemMarker marker, Area3D pos){
+
 			markedPositions.Remove(pos);
 			marker.QueueFree();
 	}
@@ -71,15 +60,26 @@ public partial class ItemMarkersManager : Control{
 			if(IsInstanceValid(item.Key)){
 
 				//item.Value.Visible = !camera.IsPositionBehind(item.Key.GlobalTransform.Origin);
-				if(itemVisible(item.Key)){
-					item.Value.Visible = true;
-					Node3D parent = item.Key.GetParent() as Node3D;
-					Vector2 pos = camera.UnprojectPosition(parent.GlobalTransform.Origin);
-					pos = new Vector2(pos.X - (item.Value.Size.X * 0.5f), pos.Y - (item.Value.Size.Y * 0.5f) );
-					item.Value.GlobalPosition = pos;
+				
+				if(itemVisible(item.Key) && item.Value.deleting == false){
+					
+					if(item.Value.fadingIn == false){
+						fadeIn(item.Value,item.Key);
+					}
+					
 				}else{
-					item.Value.Visible = false;
+
+					if(item.Value.fadingOut == false){
+						fadeOut(item.Value,item.Key);
+					}
+					
+					
 				}
+
+				Node3D parent = item.Key.GetParent() as Node3D;
+				Vector2 pos = camera.UnprojectPosition(parent.GlobalTransform.Origin);
+				pos = new Vector2(pos.X - (item.Value.Size.X * 0.5f), pos.Y - (item.Value.Size.Y * 0.5f) );
+				item.Value.GlobalPosition = pos;
 
 
 			}else{markedPositions.Remove(item.Key);}
@@ -88,18 +88,35 @@ public partial class ItemMarkersManager : Control{
 	}
 
 	private bool itemVisible(Area3D obj){
-
+			
+			
 		if(camera.IsPositionBehind(obj.GlobalTransform.Origin)){
 			return false;
 		}
 
-		if(!MainCamera.instance.isVisibleOnScreen(obj, 2)){
+		if(MainCamera.instance.isVisibleOnScreen(obj, 2)){
+			return true;
+		}else{
 			return false;
 		}
 
+	}
 
+	public void fadeIn(ItemMarker marker, Area3D pos){
+		marker.fadingIn = true;
+		marker.fadingOut = false;
+		itemMarkerLerper lerper = new itemMarkerLerper(marker, 0.6f, pos);
+		marker.addLerper(lerper);
 
-		return true;
+	}
+
+	public itemMarkerLerper fadeOut(ItemMarker marker, Area3D pos){
+		marker.fadingIn = false;
+		marker.fadingOut = true;
+		itemMarkerLerper lerper = new itemMarkerLerper(marker, 0.0f, pos);
+		marker.addLerper(lerper);
+
+		return lerper;
 	}
 
 }

@@ -6,6 +6,12 @@ public partial class ItemMarker : TextureRect{
 
 	public bool focus = false;
 
+	public bool fadingOut = false;
+
+	public bool fadingIn = false;
+
+	public bool deleting = false;
+
 	public itemMarkerLerper lerper;
 
 

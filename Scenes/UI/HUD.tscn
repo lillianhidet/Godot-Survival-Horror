@@ -10,10 +10,10 @@
 layout_mode = 3
 anchor_right = 1.333
 anchor_bottom = 1.333
-offset_left = 145.0
-offset_top = -1.0
-offset_right = -334.52
-offset_bottom = -270.73
+offset_left = 4.0
+offset_top = 3.0
+offset_right = -639.36
+offset_bottom = -356.64
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
