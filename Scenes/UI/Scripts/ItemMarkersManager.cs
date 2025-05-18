@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 
 public partial class ItemMarkersManager : Control{
-
+/*
 	[Export] PackedScene itemMarker;
 
 	Dictionary<Area3D, ItemMarker> markedPositions = new Dictionary<Area3D, ItemMarker>();
@@ -118,5 +118,5 @@ public partial class ItemMarkersManager : Control{
 
 		return lerper;
 	}
-
+*/
 }

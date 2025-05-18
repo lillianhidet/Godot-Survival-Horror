@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cply5uh5nw557"
-path="res://.godot/imported/treeA.gltf-9d1694ae300f743f0d19bd1bdbdb4204.scn"
+uid="uid://5wfgrdgo0k3g"
+path="res://.godot/imported/house.glb-a93a0871918db67852b3b7c38ca12a3c.scn"
 
 [deps]
 
-source_file="res://Models/treeA.gltf"
-dest_files=["res://.godot/imported/treeA.gltf-9d1694ae300f743f0d19bd1bdbdb4204.scn"]
+source_file="res://Models/house.glb"
+dest_files=["res://.godot/imported/house.glb-a93a0871918db67852b3b7c38ca12a3c.scn"]
 
 [params]
 
@@ -32,6 +32,17 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"@MATERIAL:0": {
+"use_external/enabled": true,
+"use_external/path": "uid://b8rca337otxrb"
+},
+"@MATERIAL:1": {
+"use_external/enabled": true,
+"use_external/path": "uid://b8rca337otxrb"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1

@@ -19,23 +19,23 @@ script = ExtResource("1_4bm6u")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HUDText" type="RichTextLabel" parent="CanvasLayer"]
+[node name="HUDText" type="Label" parent="CanvasLayer"]
 unique_name_in_owner = true
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 145.0
-offset_top = 88.9099
-offset_right = 145.0
-offset_bottom = 88.9099
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.544
+anchor_bottom = 0.572
+offset_left = -17.0
+offset_top = 413.0
+offset_right = -67.4801
+offset_bottom = 379.24
 grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
+grow_vertical = 2
+scale = Vector2(1.8, 1.8)
 theme = ExtResource("2_ykvyr")
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="CanvasLayer/HUDText"]
 unique_name_in_owner = true
@@ -43,6 +43,7 @@ one_shot = true
 
 [node name="ret" type="TextureRect" parent="CanvasLayer"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = -1
 anchor_right = 0.009
 anchor_bottom = 0.015
@@ -55,6 +56,7 @@ texture = ExtResource("3_lelo4")
 expand_mode = 1
 
 [node name="ammo" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1852.0

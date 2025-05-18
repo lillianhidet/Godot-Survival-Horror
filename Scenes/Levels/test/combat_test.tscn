@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bushh12sfm1wg"]
+[gd_scene load_steps=15 format=3 uid="uid://bushh12sfm1wg"]
 
 [ext_resource type="PackedScene" uid="uid://c1cw0ff85ubh5" path="res://Scenes/Characters/lucy_player.tscn" id="1_gc8ls"]
 [ext_resource type="PackedScene" uid="uid://bswuuil5xk2by" path="res://shaders/screenspaceshaders.tscn" id="1_xs10b"]
 [ext_resource type="Shader" uid="uid://cq373edy4s746" path="res://shaders/dither.gdshader" id="2_4yq5y"]
 [ext_resource type="PackedScene" uid="uid://djuanjbn21o8g" path="res://Scenes/WorldItems/pistol_wi.tscn" id="4_umdoy"]
 [ext_resource type="PackedScene" uid="uid://igdqxfxa2228" path="res://Scenes/lanternFirstPickup.tscn" id="6_tkr0e"]
+[ext_resource type="PackedScene" uid="uid://c8yf6aaa5g4io" path="res://Scenes/utilities/camera_transition.tscn" id="7_8aq73"]
 [ext_resource type="PackedScene" uid="uid://7aq0oqcjoi73" path="res://Scenes/WorldItems/smalloil_wi.tscn" id="9_iljb1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vsojh"]
@@ -20,7 +21,7 @@ shader_parameter/dither_size = 2
 albedo_color = Color(0.341176, 0.341176, 0.341176, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dyp1u"]
-size = Vector3(20, 1, 20)
+size = Vector3(28, 0.979919, 20)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uxbi2"]
 size = Vector3(1, 3.1, 4)
@@ -32,11 +33,15 @@ material = SubResource("StandardMaterial3D_tkr0e")
 
 [node name="CombatTest" type="Node3D"]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
 [node name="SubViewportContainer" parent="." instance=ExtResource("1_xs10b")]
 material = SubResource("ShaderMaterial_vsojh")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="0"]
-transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, 0, 0, 0)
+transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, -1, -1, -1)
 layers = 3
 mesh = SubResource("PlaneMesh_cct57")
 skeleton = NodePath("../../../../..")
@@ -48,11 +53,11 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.484007, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.494047, 0)
 shape = SubResource("BoxShape3D_dyp1u")
 
 [node name="lucy" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="1" instance=ExtResource("1_gc8ls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3419, 0.127944, 0.752734)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3419, -1.07206, 0.752734)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="2"]
 collision_layer = 0
@@ -70,15 +75,17 @@ mesh = SubResource("BoxMesh_cqqfa")
 transform = Transform3D(0.148997, 0.78133, 0.0855798, -0.0469003, 0.0957864, -0.792859, -0.784602, 0.14265, 0.0636457, 0.0839109, 2.60162, 2.86463)
 
 [node name="small_oil_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="4" instance=ExtResource("9_iljb1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 2.5, 1)
+transform = Transform3D(0.487322, 0.100122, 0.0499296, -0.105858, 0.48485, 0.0609452, -0.0362129, -0.0699708, 0.493754, 0.1, 2.5, 1)
 
 [node name="lanternFirstPickup" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="5" instance=ExtResource("6_tkr0e")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 2.81928, 0.152972)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.177737, 0.984078, 0, -0.984078, -0.177737, 0, 9.28876, 0)
-light_color = Color(0.65098, 0.65098, 0.65098, 1)
-light_energy = 3.0
-sky_mode = 1
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="6"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -9, 7, 9)
+
+[node name="cameraTransition" parent="." node_paths=PackedStringArray("CameraB") instance=ExtResource("7_8aq73")]
+transform = Transform3D(1.536, 0, 0, 0, 5.376, 0, 0, 0, 6.528, -11, 1, 1)
+AReturnToMain = true
+CameraB = NodePath("../SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/Camera3D")
 
 [editable path="SubViewportContainer"]

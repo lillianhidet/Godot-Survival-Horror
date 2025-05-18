@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Oneria"
-run/main_scene="res://world1.tscn"
+run/main_scene="res://Scenes/Levels/world1.tscn"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -21,7 +22,7 @@ PlayerState="*res://Scripts/playerState.cs"
 PlayerInventory="*res://Scripts/Player/playerInventory.cs"
 ItemModelViewerManager="*res://Scenes/UI/Scripts/itemModelViewerManager.cs"
 TextWindowManager="*res://Scripts/textWindowManager.cs"
-TestInput="*res://TestInput.cs"
+TestInput="*res://Scripts/TestInput.cs"
 Menu="*res://Scenes/UI/menu.tscn"
 HUD="*res://Scenes/UI/HUD.tscn"
 
@@ -126,4 +127,3 @@ Close={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-shading/overrides/force_vertex_shading=true

@@ -13,7 +13,7 @@ public partial class EquipManager : Node3D{
 	static AnimationManager animManager;
 
 	static Node3D lanternParent;
-
+	static HingeJoint3D hinge;
 	static RigidBody3D handle;
 	static LanternTest light;
 	static RemoteTransform3D handRemote;
@@ -28,6 +28,7 @@ public partial class EquipManager : Node3D{
 
 		handle = GetNode<RigidBody3D>("%Handle");
 		light = GetNode<LanternTest>("%Light");
+		hinge = GetNode<HingeJoint3D>("%HingeJoint3D");
 
 		handRemote = GetNode<RemoteTransform3D>("%handRemote");
 		mountRemote = GetNode<RemoteTransform3D>("%mountRemote");
@@ -39,10 +40,17 @@ public partial class EquipManager : Node3D{
 	public static void equipLantern(heldItem lantern){
 		handRemote.RemotePath = handle.GetPath();
 		mountRemote.RemotePath = null;
-		animManager.startHoldLantern();
+		//animManager.startHoldLantern();
+		
+		AnimationManager.player.Set("parameters/LeftArmBlend/blend_amount", 1);
+
+		hinge.NodeB = light.GetPath();
+		
 		
 		handle.Visible = true;
 		light.Visible = true;
+		//light.Freeze = false;
+		light.attached = false;
 	
 		playerInventory.holdingLantern = true;
 	}

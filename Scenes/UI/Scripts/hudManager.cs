@@ -7,7 +7,7 @@ public partial class hudManager : Control{
 
 	public static hudManager Instance { get; private set;}
 
-	static RichTextLabel text;
+	static Label text;
 	static Timer timer;
 	static TextureRect ret;
 
@@ -28,7 +28,7 @@ public partial class hudManager : Control{
 		Instance = this;
 		ammoHeld = GetNode<Label>("CanvasLayer/ammo/inInv");
 		ammoLoaded = GetNode<Label>("CanvasLayer/ammo/inMag");
-        text = GetNode<RichTextLabel>("%HUDText");
+        text = GetNode<Label>("%HUDText");
 		timer = GetNode<Timer>("%Timer");
 		ret = GetNode<TextureRect>("CanvasLayer/ret");
 		//nearbyMarkerParent = GetNode<ItemMarkersManager>("CanvasLayer/nearbyMarkerManager");
@@ -43,7 +43,7 @@ public partial class hudManager : Control{
 
 
     public static void displayhudtext(string toAdd, int lifespan){
-		text.Text = "[center]" + toAdd + "[/center]";
+		text.Text = toAdd;
 		timer.WaitTime = lifespan;
 		timer.Start();
 	}

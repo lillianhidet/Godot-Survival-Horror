@@ -6,9 +6,9 @@ public partial class LanternTest : RigidBody3D
 {
 	[Export] Node3D handle;
 
+	bool reset = false;
 
-
-	public bool attached = false;
+	public bool attached = true;
 
     public override void _IntegrateForces(PhysicsDirectBodyState3D state){
 		//if(moving){
@@ -22,12 +22,13 @@ public partial class LanternTest : RigidBody3D
 		//}else{
 			if(!attached){
         	GlobalPosition = handle.GlobalPosition;
-			
 			AngularVelocity = state.AngularVelocity;
-			//GD.Print(AngularVelocity);
+	
 			ResetPhysicsInterpolation();
+			}else{
+				GlobalPosition = handle.GlobalPosition;
+				GlobalRotation = handle.GlobalRotation;
 			}
-
 		//}
 	
 		

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://dn4cqtvi267ca"]
 
-[ext_resource type="Shader" uid="uid://bvvpejlbr5x3i" path="res://test_cone.tres" id="1_doa1c"]
+[ext_resource type="Shader" uid="uid://0vwkrgcwoeg8" path="res://shaders/test_cone.tres" id="1_doa1c"]
 [ext_resource type="Texture2D" uid="uid://3nge6wi38x6x" path="res://textures/gradient.png" id="1_k7hio"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s1u3s"]

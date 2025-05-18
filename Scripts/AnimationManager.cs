@@ -4,7 +4,7 @@ using System;
 public partial class AnimationManager : Node{
 
 	private static AnimationManager instance;
-	static AnimationTree player;
+	public static AnimationTree player;
 
 	private static SkeletonIK3D leftArmIK;
 	private static SkeletonIK3D rightArmHalfIK;

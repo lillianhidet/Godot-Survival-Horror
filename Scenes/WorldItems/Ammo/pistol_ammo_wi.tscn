@@ -11,9 +11,6 @@
 [node name="CollisionShape3D" parent="Node3D/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0246547, -0.0118713)
 
-[node name="itemParticles" parent="Node3D/Area3D" index="1"]
-transform = Transform3D(6.03541, 0, 0, 0, 6.03541, 0, 0, 0, 6.03541, 0, 0, 0)
-
 [node name="PistolAmmo" parent="." instance=ExtResource("2_laedh")]
 capacity = 15
 

@@ -1,10 +1,7 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://5mxhpwxl1b7k"]
-
-[ext_resource type="Texture2D" uid="uid://b7s7msmrcx0m" path="res://Models/rock_rockTex.png" id="1_gbc5x"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://5mxhpwxl1b7k"]
 
 [resource]
 resource_name = "rock"
 cull_mode = 2
-albedo_texture = ExtResource("1_gbc5x")
 metallic_specular = 0.0
 texture_filter = 2

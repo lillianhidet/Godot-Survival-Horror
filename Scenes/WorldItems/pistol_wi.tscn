@@ -10,7 +10,6 @@ item = NodePath("testHandgun")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="testHandgun" parent="." index="1" instance=ExtResource("2_it3sa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 type = 3
 name = "Pistol"
 description = "Test Pistol"

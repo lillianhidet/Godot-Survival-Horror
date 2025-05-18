@@ -5,7 +5,7 @@ using System.Diagnostics;
 
 public partial class playerController : CharacterBody3D
 {
-	[Export] public float walkSpeed = 5.0f;
+	[Export] public float walkSpeed = 4.5f;
 	[Export] public float aimSpeed = 2.5f;
 
 	private static playerController instance;
@@ -68,11 +68,17 @@ public partial class playerController : CharacterBody3D
 		Node3D n = (Node3D)GetNode("MainCamRoot/horizontal");
 		float camRot = n.GlobalTransform.Basis.GetEuler().Y;
 
-		
-
-		//This sucks!
-		Vector3 turnDir =  new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, camRot).Normalized();
 		Vector3 facing = new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, armature.GlobalTransform.Basis.GetEuler().Y).Normalized();
+
+		Vector3 turnDir;
+		//This sucks!
+		if(playerState.staticCam){
+			turnDir =  new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, playerState.currentCamera.GlobalTransform.Basis.GetEuler().Y).Normalized();
+		}else{
+			turnDir =  new Vector3(inputDir.X, 0, inputDir.Y).Rotated(Vector3.Up, camRot).Normalized();
+		}
+		
+		
 
 
 			if(!playerState.IsAiming && playerState.canMove){

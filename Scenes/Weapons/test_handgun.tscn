@@ -16,7 +16,6 @@ texture_filter = 0
 [sub_resource type="QuadMesh" id="QuadMesh_3xrir"]
 
 [node name="testHandgun" type="Node3D" node_paths=PackedStringArray("flash", "raycast", "aimingAt", "anim")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648561, 0.15699, 0)
 script = ExtResource("1_8qu73")
 flash = NodePath("muzzleFlash")
 ammoCapacity = 8

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c75sfawmc2hu5"]
 
-[ext_resource type="Shader" uid="uid://bvvpejlbr5x3i" path="res://test_cone.tres" id="1_jxduo"]
+[ext_resource type="Shader" uid="uid://0vwkrgcwoeg8" path="res://shaders/test_cone.tres" id="1_jxduo"]
 [ext_resource type="Texture2D" uid="uid://bl5lsxui30muy" path="res://textures/circleGradient.png" id="2_qxnbt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dvp5v"]

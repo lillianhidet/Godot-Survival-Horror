@@ -12,6 +12,9 @@ public partial class playerState : Node{
 	public static bool IsAiming;
 	public static bool isTransitioning;
 
+	public static Camera3D currentCamera {get; set;}
+	public static bool staticCam {get; set;}
+
 
     public override void _Ready(){
 		Input.MouseMode = Input.MouseModeEnum.Captured;
@@ -20,6 +23,7 @@ public partial class playerState : Node{
 		IsAiming = false;
 		isTransitioning = false;
 		inMenu = false;
+		staticCam = false;
     }
     public static void openMenu(){
 		Input.MouseMode = Input.MouseModeEnum.Confined;

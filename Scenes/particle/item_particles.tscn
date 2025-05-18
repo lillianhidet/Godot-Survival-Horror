@@ -52,14 +52,14 @@ particles_anim_loop = false
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_i165v"]
 material = SubResource("StandardMaterial3D_whn15")
-size = Vector2(0.5, 0.5)
+size = Vector2(0.25, 0.25)
 orientation = 2
 
 [node name="itemParticles" type="Node3D"]
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-amount = 3
-lifetime = 5.0
+amount = 2
+lifetime = 4.0
 process_material = SubResource("ParticleProcessMaterial_vyxls")
 draw_pass_1 = SubResource("PlaneMesh_i165v")

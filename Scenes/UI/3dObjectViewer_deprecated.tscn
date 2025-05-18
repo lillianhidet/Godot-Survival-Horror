@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://xas3fq13fsj3"]
 
-[ext_resource type="Script" uid="uid://cmgshqodct0if" path="res://Scripts/Items (Inventory)/itemModelViewer.cs" id="1_4v6sb"]
+[ext_resource type="Script" uid="uid://cmgshqodct0if" path="res://Scenes/UI/Scripts/itemModelViewer.cs" id="1_7bgt3"]
 
 [sub_resource type="Environment" id="Environment_iae1k"]
 
 [node name="3dObjectViewer" type="Node3D" node_paths=PackedStringArray("viewport", "spawnpoint", "camera")]
-script = ExtResource("1_4v6sb")
+script = ExtResource("1_7bgt3")
 viewport = NodePath("ObjectViewerViewport")
 spawnpoint = NodePath("ObjectViewerViewport/Camera3D/ObjectPosition")
 camera = NodePath("ObjectViewerViewport/Camera3D")
