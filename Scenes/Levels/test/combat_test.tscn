@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bswuuil5xk2by" path="res://shaders/screenspaceshaders.tscn" id="1_xs10b"]
 [ext_resource type="Shader" uid="uid://cq373edy4s746" path="res://shaders/dither.gdshader" id="2_4yq5y"]
 [ext_resource type="PackedScene" uid="uid://djuanjbn21o8g" path="res://Scenes/WorldItems/pistol_wi.tscn" id="4_umdoy"]
-[ext_resource type="PackedScene" uid="uid://igdqxfxa2228" path="res://Scenes/lanternFirstPickup.tscn" id="6_tkr0e"]
+[ext_resource type="PackedScene" uid="uid://igdqxfxa2228" path="res://Scenes/WorldItems/lanternFirstPickup.tscn" id="6_tkr0e"]
 [ext_resource type="PackedScene" uid="uid://c8yf6aaa5g4io" path="res://Scenes/utilities/camera_transition.tscn" id="7_8aq73"]
 [ext_resource type="PackedScene" uid="uid://7aq0oqcjoi73" path="res://Scenes/WorldItems/smalloil_wi.tscn" id="9_iljb1"]
 

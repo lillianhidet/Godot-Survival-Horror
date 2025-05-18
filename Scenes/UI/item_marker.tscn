@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpgwfgsm6te1m"]
 
 [ext_resource type="Texture2D" uid="uid://bi4ua0e33650s" path="res://textures/sparkle.png" id="1_4ql5x"]
-[ext_resource type="Script" uid="uid://7o5se3hpy03v" path="res://Scenes/UI/Scripts/ItemMarker.cs" id="2_jtdgb"]
+[ext_resource type="Script" uid="uid://7o5se3hpy03v" path="res://Scripts/UI/ItemMarker.cs" id="2_jtdgb"]
 
 [node name="item_marker" type="TextureRect"]
 modulate = Color(1, 1, 1, 0)

@@ -14,15 +14,15 @@ config/name="Oneria"
 run/main_scene="res://Scenes/Levels/world1.tscn"
 config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 run/max_fps=60
-config/icon="res://icon.svg"
+config/icon="res://images/icon.svg"
 
 [autoload]
 
-PlayerState="*res://Scripts/playerState.cs"
+PlayerState="*res://Scripts/Player/playerState.cs"
 PlayerInventory="*res://Scripts/Player/playerInventory.cs"
-ItemModelViewerManager="*res://Scenes/UI/Scripts/itemModelViewerManager.cs"
-TextWindowManager="*res://Scripts/textWindowManager.cs"
-TestInput="*res://Scripts/TestInput.cs"
+ItemModelViewerManager="*res://Scripts/UI/itemModelViewerManager.cs"
+TextWindowManager="*res://Scripts/UI/textWindowManager.cs"
+TestInput="*res://Scripts/Player/TestInput.cs"
 Menu="*res://Scenes/UI/menu.tscn"
 HUD="*res://Scenes/UI/HUD.tscn"
 

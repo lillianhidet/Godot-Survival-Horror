@@ -2,23 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c272w4h6hp031"
-path="res://.godot/imported/doortest_doorTex.png-7352655e8bb6593d87cea25b19e93afc.ctex"
+uid="uid://sucvixmjfmhg"
+path.s3tc="res://.godot/imported/icon.svg-40d11009b022ae281956dc38e8f8d85e.s3tc.ctex"
 metadata={
-"vram_texture": false
-}
-generator_parameters={
-"md5": "e42ba8a2149b8202ce6f4ae0650732d2"
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://Models/doortest_doorTex.png"
-dest_files=["res://.godot/imported/doortest_doorTex.png-7352655e8bb6593d87cea25b19e93afc.ctex"]
+source_file="res://images/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-40d11009b022ae281956dc38e8f8d85e.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
@@ -35,3 +33,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

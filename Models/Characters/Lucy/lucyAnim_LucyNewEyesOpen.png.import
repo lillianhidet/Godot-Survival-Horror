@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c272w4h6hp031"
-path="res://.godot/imported/doortest_doorTex.png-7352655e8bb6593d87cea25b19e93afc.ctex"
+uid="uid://b1e5uljq088aw"
+path="res://.godot/imported/lucyAnim_LucyNewEyesOpen.png-b68a5200df7101db1611360b150f6e6f.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "e42ba8a2149b8202ce6f4ae0650732d2"
 }
 
 [deps]
 
-source_file="res://Models/doortest_doorTex.png"
-dest_files=["res://.godot/imported/doortest_doorTex.png-7352655e8bb6593d87cea25b19e93afc.ctex"]
+source_file="res://Models/Characters/Lucy/lucyAnim_LucyNewEyesOpen.png"
+dest_files=["res://.godot/imported/lucyAnim_LucyNewEyesOpen.png-b68a5200df7101db1611360b150f6e6f.ctex"]
 
 [params]
 

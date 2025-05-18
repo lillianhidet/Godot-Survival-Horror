@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqr3vs6vwe123"]
+
+[ext_resource type="PackedScene" uid="uid://c3ufy7uojfq5k" path="res://Models/skybox.glb" id="1_qnxb6"]
+[ext_resource type="Material" uid="uid://dt4u4af8secgf" path="res://Materials/Sky.tres" id="2_4tqvc"]
+[ext_resource type="Script" uid="uid://fcks1iwmcva" path="res://Scripts/World/textureScroll.cs" id="3_02315"]
+
+[node name="skybox" instance=ExtResource("1_qnxb6")]
+
+[node name="Grid" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_4tqvc")
+script = ExtResource("3_02315")

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cgh78gedw3ypf" path="res://textures/wallpaperProcess.png" id="1_nk7su"]
 [ext_resource type="Material" uid="uid://b4v1743shhgge" path="res://Materials/WallpaperBaseboard.tres" id="2_2t06f"]
 [ext_resource type="PackedScene" uid="uid://dkrym6n66fawu" path="res://Models/Generics/plane.glb" id="3_p23sf"]
-[ext_resource type="PackedScene" uid="uid://bhq2bp0duvprw" path="res://Scenes/office_door.tscn" id="4_7d2qv"]
+[ext_resource type="PackedScene" uid="uid://bhq2bp0duvprw" path="res://Scenes/Level_Parts/office_door.tscn" id="4_7d2qv"]
 [ext_resource type="PackedScene" uid="uid://cst70r7l7fyv3" path="res://Models/table.glb" id="5_n68m3"]
 [ext_resource type="PackedScene" uid="uid://dqsf7s2pcesv8" path="res://Models/painting.glb" id="6_3cjyk"]
 [ext_resource type="PackedScene" uid="uid://bc7x7xh1a3phc" path="res://Models/doorFrame.glb" id="7_o7663"]

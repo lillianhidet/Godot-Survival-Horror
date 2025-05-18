@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d1n0q3og6p7v5"]
 
-[ext_resource type="PackedScene" uid="uid://deu1v8j3uuuu4" path="res://Models/m1911.glb" id="1_rv7rl"]
+[ext_resource type="PackedScene" uid="uid://deu1v8j3uuuu4" path="res://Models/items/m1911.glb" id="1_rv7rl"]
 
 [node name="m1911displayScene" type="Node3D"]
 

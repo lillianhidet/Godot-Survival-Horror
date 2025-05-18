@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c75sfawmc2hu5"]
+
+[ext_resource type="Shader" uid="uid://0vwkrgcwoeg8" path="res://shaders/test_cone.tres" id="1_ts503"]
+[ext_resource type="Texture2D" uid="uid://bl5lsxui30muy" path="res://textures/circleGradient.png" id="2_x3moe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dvp5v"]
+render_priority = 0
+shader = ExtResource("1_ts503")
+shader_parameter/Color = Color(0.886275, 0.509804, 0, 1)
+shader_parameter/Gradient = ExtResource("2_x3moe")
+shader_parameter/Opacity = 0.5
+shader_parameter/Fresnel = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_11glg"]
+material = SubResource("ShaderMaterial_dvp5v")
+
+[node name="circleGradient" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_11glg")

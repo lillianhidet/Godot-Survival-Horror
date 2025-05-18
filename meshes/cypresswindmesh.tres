@@ -1,6 +1,6 @@
 [gd_resource type="ArrayMesh" load_steps=4 format=4 uid="uid://b3fj8hhcy1vtp"]
 
-[ext_resource type="Material" uid="uid://ci1irjgcg6bb8" path="res://Materials/cypressWind.tres" id="1_tgrjw"]
+[ext_resource type="Material" uid="uid://ci1irjgcg6bb8" path="res://Materials/cypressTree/cypressWind.tres" id="1_tgrjw"]
 [ext_resource type="Material" uid="uid://cmnedhnhv8jx0" path="res://Materials/cypressTree/Trunk.tres" id="2_2bhhq"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pfcqc"]

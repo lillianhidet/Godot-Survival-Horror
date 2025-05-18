@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpwth8xm4j8bw"]
-
-[ext_resource type="PackedScene" uid="uid://dg7n5o6jbaeoh" path="res://Models/lantern.glb" id="1_jlhak"]
-
-[node name="lanternNoLight" type="Node3D"]
-transform = Transform3D(0.588048, 0, 0, 0, 0.588048, 0, 0, 0, 0.588048, 0, -0.949126, -0.105216)
-
-[node name="lantern" parent="." instance=ExtResource("1_jlhak")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.124053, -0.111826, 0.227077)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://dogvwtldqm4ux"]
 
-[ext_resource type="PackedScene" uid="uid://dn4cqtvi267ca" path="res://Scenes/test_cone.tscn" id="1_itesn"]
-[ext_resource type="PackedScene" uid="uid://c75sfawmc2hu5" path="res://Scenes/circle_gradient.tscn" id="2_00say"]
+[ext_resource type="PackedScene" uid="uid://dn4cqtvi267ca" path="res://Scenes/Lights/test_cone.tscn" id="1_itesn"]
+[ext_resource type="PackedScene" uid="uid://c75sfawmc2hu5" path="res://Scenes/Lights/circle_gradient.tscn" id="2_00say"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v8j75"]
 resource_name = "Light"
