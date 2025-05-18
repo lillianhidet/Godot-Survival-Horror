@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://lk1oah54k2kh"]
+[gd_scene load_steps=3 format=3 uid="uid://bxc2rnhh8m4cn"]
 
 [ext_resource type="PackedScene" uid="uid://dl8mxcw81bu4k" path="res://Scenes/WorldItems/BaseScenes/worldItem.tscn" id="1_7f66g"]
 [ext_resource type="PackedScene" uid="uid://chu650mf8x30i" path="res://Scenes/Weapons/test_handgun.tscn" id="2_it3sa"]

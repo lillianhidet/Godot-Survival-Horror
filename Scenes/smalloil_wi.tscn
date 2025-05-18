@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bqru6s0gnvke0"]
+[gd_scene load_steps=5 format=3 uid="uid://dj1ltdh8lngy3"]
 
 [ext_resource type="PackedScene" uid="uid://dl8mxcw81bu4k" path="res://Scenes/WorldItems/BaseScenes/worldItem.tscn" id="1_u7lfj"]
 [ext_resource type="Script" uid="uid://bjf3msyc80x2s" path="res://Scripts/Items (Inventory)/consumable.cs" id="2_uy3i3"]
