@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dtrl84buavo11"]
 
-[ext_resource type="Texture2D" uid="uid://bpuc2at80p1t0" path="res://textures/LucyRemake_face.png" id="1_uy0eg"]
+[ext_resource type="Texture2D" uid="uid://bpuc2at80p1t0" path="res://Models/Characters/Lucy/LucyRemake_face.png" id="1_uy0eg"]
 
 [resource]
 resource_name = "Face"

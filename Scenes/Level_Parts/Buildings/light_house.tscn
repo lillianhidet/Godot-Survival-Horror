@@ -1,13 +1,13 @@
-[gd_scene load_steps=14 format=4 uid="uid://cim8im8sopvum"]
+[gd_scene load_steps=15 format=4 uid="uid://cim8im8sopvum"]
 
-[ext_resource type="Texture2D" uid="uid://cne012blv18tk" path="res://textures/cabin.png" id="1_l0lct"]
+[ext_resource type="Texture2D" uid="uid://cded2srdc1ciq" path="res://Models/Level Objects/lighthouse_cabin.png" id="1_r151u"]
 [ext_resource type="Texture2D" uid="uid://dwgnk08atxcsa" path="res://textures/woodpile_process.png" id="2_g830l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axue1"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
-albedo_texture = ExtResource("1_l0lct")
+albedo_texture = ExtResource("1_r151u")
 metallic_specular = 0.0
 texture_filter = 0
 
@@ -149,8 +149,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_nes1d")
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_duicq"]
+load_path = "res://.godot/imported/cabin.png-ce2445fd4fef1ef0e5ffd126ab8bb2d4.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m7qpj"]
-albedo_texture = ExtResource("1_l0lct")
+albedo_texture = SubResource("CompressedTexture2D_duicq")
 
 [node name="LightHouse" type="Node3D"]
 

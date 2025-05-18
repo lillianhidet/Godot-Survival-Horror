@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://dcgvcnq03rkf" path="res://shaders/newSway.gdshader" id="1_14f4n"]
 [ext_resource type="Texture2D" uid="uid://bjk4ntw28ekvl" path="res://shaders/windNoise.tres" id="2_gehwy"]
-[ext_resource type="Texture2D" uid="uid://kpvuf41a220j" path="res://Models/cypresstree_cypress.png" id="3_c7c82"]
+[ext_resource type="Texture2D" uid="uid://kpvuf41a220j" path="res://Models/Foliage/cypresstree_cypress.png" id="3_c7c82"]
 
 [resource]
 render_priority = 0

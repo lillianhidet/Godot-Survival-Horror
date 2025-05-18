@@ -1,10 +1,10 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ccy7xy4lw6ypf"]
 
-[ext_resource type="Texture2D" uid="uid://dbpgyrm77vx86" path="res://textures/doortest_doorTex.png" id="1_4moqm"]
+[ext_resource type="Texture2D" uid="uid://c272w4h6hp031" path="res://Models/Level Objects/doortest_doorTex.png" id="1_vygwr"]
 
 [resource]
 resource_name = "DoorMat"
 cull_mode = 2
-albedo_texture = ExtResource("1_4moqm")
+albedo_texture = ExtResource("1_vygwr")
 metallic_specular = 0.0
 texture_filter = 2

@@ -29,11 +29,11 @@
 [ext_resource type="PackedScene" uid="uid://8r2a3cdcxnef" path="res://Scenes/utilities/text_popup_volume.tscn" id="35_4w3ur"]
 [ext_resource type="PackedScene" uid="uid://cdu77jopkdx80" path="res://Scenes/WorldItems/Ammo/pistol_ammo_wi.tscn" id="36_7u6r6"]
 [ext_resource type="PackedScene" uid="uid://clmyprlto3jbr" path="res://Scenes/Level_Parts/land/coast_mid.tscn" id="37_iif0q"]
-[ext_resource type="PackedScene" uid="uid://dputih31o6wqm" path="res://Models/coastLeft.glb" id="38_v75d7"]
-[ext_resource type="PackedScene" uid="uid://bimivmhplnc7s" path="res://Models/lighthouseTower.glb" id="39_0oaxg"]
+[ext_resource type="PackedScene" uid="uid://dputih31o6wqm" path="res://Models/Geom/coastLeft.glb" id="38_v75d7"]
+[ext_resource type="PackedScene" uid="uid://bimivmhplnc7s" path="res://Models/Level Objects/lighthouseTower.glb" id="39_0oaxg"]
 [ext_resource type="PackedScene" uid="uid://c8yf6aaa5g4io" path="res://Scenes/utilities/camera_transition.tscn" id="39_kw3lv"]
-[ext_resource type="PackedScene" uid="uid://ddsjfvgi3jjm" path="res://Models/coastRight.glb" id="39_srkwu"]
-[ext_resource type="PackedScene" uid="uid://byh1vo4g7dbdl" path="res://Models/box.glb" id="40_s2gv7"]
+[ext_resource type="PackedScene" uid="uid://ddsjfvgi3jjm" path="res://Models/Geom/coastRight.glb" id="39_srkwu"]
+[ext_resource type="PackedScene" uid="uid://byh1vo4g7dbdl" path="res://Models/Generics/box.glb" id="40_s2gv7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_jeqtd"]
 shader = ExtResource("2_e177m")

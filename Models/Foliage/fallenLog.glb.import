@@ -1,0 +1,48 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://d07xm18hy06by"
+path="res://.godot/imported/fallenLog.glb-9d02fec5f7c2bb6394109729811a2325.scn"
+
+[deps]
+
+source_file="res://Models/Foliage/fallenLog.glb"
+dest_files=["res://.godot/imported/fallenLog.glb-9d02fec5f7c2bb6394109729811a2325.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"Bark_a": {
+"use_external/enabled": true,
+"use_external/path": "uid://b8rca337otxrb"
+},
+"Stump": {
+"use_external/enabled": true,
+"use_external/path": "uid://xm1b72s7k3kc"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=0

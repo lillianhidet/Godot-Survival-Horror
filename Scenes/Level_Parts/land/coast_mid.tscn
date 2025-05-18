@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://clmyprlto3jbr"]
 
-[ext_resource type="PackedScene" uid="uid://m4cq0dbufc05" path="res://Models/coastMid.glb" id="1_gt3mp"]
+[ext_resource type="PackedScene" uid="uid://m4cq0dbufc05" path="res://Models/Geom/coastMid.glb" id="1_gt3mp"]
 
 [node name="coastMid" instance=ExtResource("1_gt3mp")]
 

@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bjnpq3gqlnp53"]
 
-[ext_resource type="Texture2D" uid="uid://kpvuf41a220j" path="res://Models/cypresstree_cypress.png" id="1_ck685"]
+[ext_resource type="Texture2D" uid="uid://kpvuf41a220j" path="res://Models/Foliage/cypresstree_cypress.png" id="1_ck685"]
 
 [resource]
 resource_name = "Leaves"
