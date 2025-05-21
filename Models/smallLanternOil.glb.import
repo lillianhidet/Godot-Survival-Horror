@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://3epi71f2j8dk"
-path="res://.godot/imported/smallLanternOil.glb-f0a694b5f1f2ffb46e8f43aedbf2125f.scn"
+path="res://.godot/imported/smallLanternOil.glb-65666e7dd87b36dbd45c02473d100fd8.scn"
 
 [deps]
 
-source_file="res://Models/items/smallLanternOil.glb"
-dest_files=["res://.godot/imported/smallLanternOil.glb-f0a694b5f1f2ffb46e8f43aedbf2125f.scn"]
+source_file="res://Models/smallLanternOil.glb"
+dest_files=["res://.godot/imported/smallLanternOil.glb-65666e7dd87b36dbd45c02473d100fd8.scn"]
 
 [params]
 

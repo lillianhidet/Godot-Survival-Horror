@@ -12,6 +12,12 @@ public partial class worldItem: interactable{
     //[Export] keyItem keyItem;
 
     [Export] InventoryItem item;
+    [Export] String pickupText;
+    [Export] float displaySize = 1;
+
+    //Global colours reference?
+    [Export] Color yesCol;
+    [Export] Color noCol;
 
     //[Export] String description;
 
@@ -19,25 +25,30 @@ public partial class worldItem: interactable{
     //[Export] PackedScene DisplayScene;
 
     itemModelViewer viewer;
-    
-    
 
-    public override void interact(){
+
+
+    public override void interact()
+    {
 
         viewer = itemModelViewerManager.newViewer(item.DisplayScene);
         GetTree().Root.AddChild(viewer);
         viewer.setRotationMode(itemModelViewer.rotateMode.mouse);
 
-        
-        Node n = textWindowManager.loadScene();
+
+       
+
+        viewer.lerpSize(0, displaySize);
+
+        //formatDescription();
+        Node n = textWindowManager.loadObjScene();
         GetTree().Root.AddChild(n);
 
-        formatDescription();
-        
-        textWindowManager.loadText(true, item.description);
-        textWindowManager.addButton(take,"Take");
-        textWindowManager.addButton(close,"Exit");
+        textWindowManager.loadObj(pickupText);
+        textWindowManager.addButton(take, "Yes", yesCol);
+        textWindowManager.addButton(close, "No", noCol);
         textWindowManager.setViewportTexture(viewer.getViewport());
+        Visible = false;
     }
 
     //Todo refacto this, this should just store a generic Inventory Item - (Which can then identify its type)
@@ -85,9 +96,11 @@ public partial class worldItem: interactable{
         }
     }
 
-    public void close(){
+    public void close()
+    {
         textWindowManager.close();
         itemModelViewerManager.removeViewer(viewer);
+        Visible = true;
 
     }
 

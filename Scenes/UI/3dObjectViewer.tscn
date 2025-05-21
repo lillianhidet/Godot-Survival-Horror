@@ -23,4 +23,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.793155)
 light_color = Color(0.956863, 0.756863, 0.796078, 1)
 
 [node name="ObjectPosition" type="Node3D" parent="ObjectViewerViewport/Camera3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)

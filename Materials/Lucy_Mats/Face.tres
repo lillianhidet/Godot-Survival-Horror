@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dtrl84buavo11"]
 
-[ext_resource type="Texture2D" uid="uid://bpuc2at80p1t0" path="res://Models/Characters/Lucy/LucyRemake_face.png" id="1_uy0eg"]
+[ext_resource type="Texture2D" uid="uid://dqng4rc8dv0wn" path="res://Models/Characters/Lucy/lucyAnim_face.png" id="1_l0xyn"]
 
 [resource]
 resource_name = "Face"
@@ -8,7 +8,7 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
-albedo_texture = ExtResource("1_uy0eg")
+albedo_texture = ExtResource("1_l0xyn")
 metallic_specular = 0.0
 roughness = 0.5
 texture_filter = 2

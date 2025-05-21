@@ -9,6 +9,7 @@
 script = ExtResource("1_nkakw")
 text = "Placeholder"
 image = ExtResource("2_pq07c")
+buttonColour = Color(0.34902, 0.0627451, 0.145098, 1)
 
 [node name="Area3D" type="Area3D" parent="." groups=["Interactable"]]
 collision_layer = 4

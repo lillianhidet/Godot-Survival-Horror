@@ -5,6 +5,8 @@
 
 [node name="pistol_wi" node_paths=PackedStringArray("item") instance=ExtResource("1_7f66g")]
 item = NodePath("testHandgun")
+pickupText = "A weapon, cold and familar. Take it?"
+displaySize = 0.5
 
 [node name="CollisionShape3D" parent="Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)

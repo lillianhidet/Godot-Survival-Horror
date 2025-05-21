@@ -85,7 +85,7 @@ public partial class Inventory_UI : Control{
 			updateSelected(middle);
 			
 
-		}else{GD.Print("No items to display");}
+		}else{/*GD.Print("No items to display");*/}
 
 	}
 
@@ -226,6 +226,7 @@ public partial class Inventory_UI : Control{
 
 		//Create a modelviewer
 		itemModelViewer viewer = itemModelViewerManager.newViewer(inventoryItem.DisplayScene);
+		viewer.setItemSize(0.5f);
 		slotItem.AddChild(viewer);
 		//GetTree().Root.AddChild(viewer);
 		viewer.setRotationMode(itemModelViewer.rotateMode.none);

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://clwu1wvjc2bx5"]
 
-[ext_resource type="PackedScene" uid="uid://3epi71f2j8dk" path="res://Models/items/smallLanternOil.glb" id="1_byh0t"]
+[ext_resource type="PackedScene" uid="uid://3epi71f2j8dk" path="res://Models/smallLanternOil.glb" id="1_byh0t"]
 
 [node name="SmallOilDisplayScene" type="Node3D"]
 

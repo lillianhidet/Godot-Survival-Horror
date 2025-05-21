@@ -56,10 +56,7 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.494047, 0)
 shape = SubResource("BoxShape3D_dyp1u")
 
-[node name="lucy" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="1" instance=ExtResource("1_gc8ls")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.3419, -1.07206, 0.752734)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="2"]
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="1"]
 collision_layer = 0
 collision_mask = 0
 
@@ -68,23 +65,29 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 1.5)
 shape = SubResource("BoxShape3D_uxbi2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 4.1, 0, 0, 0, 3.9, 0, 0.5, 1.5)
+transform = Transform3D(1, 0, 0, 0, 4.1, 0, 0, 0, 3.9, 0, -0.695238, 1.5)
 mesh = SubResource("BoxMesh_cqqfa")
 
-[node name="pistol_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="3" instance=ExtResource("4_umdoy")]
-transform = Transform3D(0.148997, 0.78133, 0.0855798, -0.0469003, 0.0957864, -0.792859, -0.784602, 0.14265, 0.0636457, 0.0839109, 2.60162, 2.86463)
+[node name="pistol_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="2" instance=ExtResource("4_umdoy")]
+transform = Transform3D(0.0952752, 0.499617, 0.0547235, -0.0299901, 0.06125, -0.506989, -0.501709, 0.0912167, 0.0406979, 0.0839109, 1.42799, 2.86463)
+displaySize = 0.4
 
-[node name="small_oil_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="4" instance=ExtResource("9_iljb1")]
-transform = Transform3D(0.487322, 0.100122, 0.0499296, -0.105858, 0.48485, 0.0609452, -0.0362129, -0.0699708, 0.493754, 0.1, 2.5, 1)
+[node name="small_oil_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="3" instance=ExtResource("9_iljb1")]
+transform = Transform3D(0.487322, 0.100122, 0.0499296, -0.105858, 0.48485, 0.0609452, -0.0362129, -0.0699708, 0.493754, 0.1, 1.30476, 1)
+displaySize = 0.4
 
-[node name="lanternFirstPickup" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="5" instance=ExtResource("6_tkr0e")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 2.81928, 0.152972)
+[node name="lanternFirstPickup" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="4" instance=ExtResource("6_tkr0e")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.62404, 0.152972)
+displaySize = 0.4
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="6"]
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="5"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -9, 7, 9)
 
+[node name="lucy" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="6" instance=ExtResource("1_gc8ls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4092, -1.0962, 0)
+
 [node name="cameraTransition" parent="." node_paths=PackedStringArray("CameraB") instance=ExtResource("7_8aq73")]
-transform = Transform3D(1.536, 0, 0, 0, 5.376, 0, 0, 0, 6.528, -11, 1, 1)
+transform = Transform3D(1.536, 0, 0, 0, 5.376, 0, 0, 0, 6.528, -11, 1, 11.4099)
 AReturnToMain = true
 CameraB = NodePath("../SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/Camera3D")
 

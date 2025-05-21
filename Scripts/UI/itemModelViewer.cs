@@ -9,7 +9,7 @@ public partial class itemModelViewer : Node3D
 
 	[Export] public Node3D camera {get; private set;}
 
-	[Export] public float rotationSpeed = 2f;
+	[Export] public float rotationSpeed = 1f;
 	
 	private Vector2 lastMousePos;
 
@@ -26,6 +26,19 @@ public partial class itemModelViewer : Node3D
 	
 		Node model = item.Instantiate();
 		spawnpoint.AddChild(model);
+		
+	}
+
+	public void setItemSize(float size){
+
+		spawnpoint.Scale = new Vector3(size, size, size);
+		
+	}
+
+	public void lerpSize(float start, float end){
+
+		itemModelViewerLerper lerper = new itemModelViewerLerper(spawnpoint, start, end);
+		GetTree().Root.AddChild(lerper);
 		
 	}
 
@@ -66,10 +79,13 @@ public partial class itemModelViewer : Node3D
 
 		Vector2 newMousePos = GetViewport().GetMousePosition();
 
-        if(Input.IsActionPressed("Left Click")){
+		if (Input.IsActionPressed("Left Click"))
+		{
 			float dif = newMousePos.X - lastMousePos.X;
 
-			spawnpoint.Rotate(new Vector3(0,1,0), (dif * (float) delta)/2);
+			spawnpoint.Rotate(new Vector3(0, 1, 0), (dif * (float)delta) / 2);
+		}else{ 
+			spawnpoint.RotateY(rotationSpeed * (float) delta);
 		}
 
 		lastMousePos = newMousePos;

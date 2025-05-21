@@ -87,7 +87,7 @@ transform = Transform3D(1, -4.93038e-30, -9.31322e-09, 4.93038e-30, 1, -9.61115e
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Node3D"]
 transform = Transform3D(-4.37114e-08, 1.93158e-31, -1, -5.81785e-30, 1, 1.93159e-31, 1, 5.81785e-30, -4.37114e-08, 0.201905, 0.00402671, 0)
-light_color = Color(0.968627, 0.866667, 0.403922, 1)
+light_color = Color(0.748197, 0.577421, 0.153659, 1)
 light_energy = 10.0
 light_volumetric_fog_energy = 16.0
 light_specular = 0.0
