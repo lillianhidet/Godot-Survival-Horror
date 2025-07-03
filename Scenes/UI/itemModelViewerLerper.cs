@@ -31,17 +31,26 @@ public partial class itemModelViewerLerper : Node
 
             i = Math.Clamp(i, 0, 1);
 
-			//If theres a problem its here
-            float current = startSize * (1 - i) + targetSize * i;
+			if (!IsInstanceValid(node))
+			{
+				QueueFree();
+			} else {
 
-			node.Scale = new Vector3(current, current, current);
+                float current = startSize * (1 - i) + targetSize * i;
 
-			//hmm
-			if(i >= 1){
-				lerping = false;
-				//EmitSignal(SignalName.LerpFinished);
-				this.QueueFree();
-			}
+                node.Scale = new Vector3(current, current, current);
+
+                //hmm
+                if (i >= 1)
+                {
+                    lerping = false;
+                    //EmitSignal(SignalName.LerpFinished);
+                    this.QueueFree();
+                }
+
+            }
+
+			
 
 		}
 

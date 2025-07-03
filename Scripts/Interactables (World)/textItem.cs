@@ -1,22 +1,21 @@
 using Godot;
+using Godot.Collections;
 using System;
+using System.Collections;
 
 public partial class textItem : interactable{
-  //Refactor this to a general class that loads text windows
-    [Export] string text;
+    //Refactor this to a general class that loads text windows
+    [Export(PropertyHint.MultilineText)] Array<String> text;
     [Export] Texture2D image;
-  [Export] Color buttonColour;
+    [Export] Color buttonColour;
 
     
-    public override void interact()
-  {
+    public override void interact(){
 
-    Node n = textWindowManager.loadScene();
-    GetTree().Root.AddChild(n);
+        Node n = textWindowManager.loadTextScene(text, image);
+        GetTree().Root.AddChild(n);
 
-    textWindowManager.loadText(false, text);
-    textWindowManager.setImage(image);
-    textWindowManager.addButton(textWindowManager.close, "Exit", buttonColour);
+        textWindowManager.addButton(textWindowManager.close, "Back", buttonColour);
 
   }
 }

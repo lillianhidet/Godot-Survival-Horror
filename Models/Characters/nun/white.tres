@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dwgogyrgh0ju8"]
+
+[resource]
+resource_name = "white"
+cull_mode = 2
+albedo_color = Color(0.386072, 0.378345, 0.368423, 1)
+metallic_specular = 0.0

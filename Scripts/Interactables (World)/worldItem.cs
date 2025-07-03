@@ -12,7 +12,7 @@ public partial class worldItem: interactable{
     //[Export] keyItem keyItem;
 
     [Export] InventoryItem item;
-    [Export] String pickupText;
+    [Export(PropertyHint.MultilineText)] String pickupText;
     [Export] float displaySize = 1;
 
     //Global colours reference?
@@ -28,9 +28,8 @@ public partial class worldItem: interactable{
 
 
 
-    public override void interact()
-    {
-
+    public override void interact(){
+       
         viewer = itemModelViewerManager.newViewer(item.DisplayScene);
         GetTree().Root.AddChild(viewer);
         viewer.setRotationMode(itemModelViewer.rotateMode.mouse);
@@ -41,13 +40,12 @@ public partial class worldItem: interactable{
         viewer.lerpSize(0, displaySize);
 
         //formatDescription();
-        Node n = textWindowManager.loadObjScene();
+        Node n = textWindowManager.loadObjScene(viewer.getViewport(), pickupText);
         GetTree().Root.AddChild(n);
-
-        textWindowManager.loadObj(pickupText);
+     
         textWindowManager.addButton(take, "Yes", yesCol);
         textWindowManager.addButton(close, "No", noCol);
-        textWindowManager.setViewportTexture(viewer.getViewport());
+
         Visible = false;
     }
 
@@ -96,8 +94,7 @@ public partial class worldItem: interactable{
         }
     }
 
-    public void close()
-    {
+    public void close(){
         textWindowManager.close();
         itemModelViewerManager.removeViewer(viewer);
         Visible = true;

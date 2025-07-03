@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://k7jhsfcdoyqb"]
+
+[ext_resource type="Script" uid="uid://ce2ubncaol2ud" path="res://Scenes/dialogue/DialogueHandler.cs" id="1_7dl68"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l4bpc"]
+
+[node name="DialogueHandler" type="Node3D" groups=["Interactable"]]
+script = ExtResource("1_7dl68")
+
+[node name="Area3D" type="Area3D" parent="." groups=["Interactable"]]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" groups=["Interactable"]]
+shape = SubResource("BoxShape3D_l4bpc")

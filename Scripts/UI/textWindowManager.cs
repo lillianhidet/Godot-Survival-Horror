@@ -1,5 +1,7 @@
 using Godot;
+using Godot.Collections;
 using System;
+using static System.Net.Mime.MediaTypeNames;
 
 public partial class textWindowManager : Node
 {
@@ -7,11 +9,20 @@ public partial class textWindowManager : Node
 	static PackedScene objectDisplayScene;
 
 	static PackedScene button;
-	public static bool textLoaded;
+	//static bool textLoaded;
 	static Node loaded;
 	static RichTextLabel imgTextLbl;
 	static RichTextLabel objTextLbl;
 	static TextureRect imgLbl;
+
+	static Array<String> textA;
+	static Button LButton;
+	static Button RButton;
+	static int currentPage;
+
+	//to be stored in global vars
+	static float textSpeed = 10f;
+
 
     public override void _Ready(){
 
@@ -19,104 +30,88 @@ public partial class textWindowManager : Node
 		objectDisplayScene = GD.Load<PackedScene>("uid://c4e4cxpkf8wxs");
 
 		button = GD.Load<PackedScene>("uid://pkloy387l3nc");
-		textLoaded = false;
+		//textLoaded = false;
     }
 
-	public static Node loadScene(){
+	public static Node loadTextScene(Array<String> text, Texture2D img){
 		loaded = textDisplayScene.Instantiate();
 		imgTextLbl = (RichTextLabel)loaded.GetNode("%ImageText");
-		objTextLbl = (RichTextLabel)loaded.GetNode("%ObjectText");
 		imgLbl = (TextureRect)loaded.GetNode("%TextImage");
+		LButton = (Button)loaded.GetNode("%LButton");
+		RButton = (Button)loaded.GetNode("%RButton");
 
-		//Button b = (Button) loaded.GetNode("%ExitBtn");
-		//b.Pressed += close;
+		LButton.Pressed += textLeft;
+		RButton.Pressed += textRight;
+		textA = text;
 
-		playerState.openMenu();
+		LButton.Visible = false;
+		if(textA.Count == 1){ RButton.Visible = false; }
+    
+        imgLbl.Texture = img;
+		currentPage = 0;
+        Helpers.tweenText(textA[currentPage], imgTextLbl, textSpeed);
+
+        playerState.openMenu();
 		//Do we need to return?
 		return loaded;
 	}
 
-	public static Node loadObjScene(){
+	public static void textLeft(){
+		if (currentPage != 0){
+            RButton.Visible = true;
+            currentPage--;
+            Helpers.tweenText(textA[currentPage], imgTextLbl, textSpeed);
+        } 
+		
+		if (currentPage == 0) {
+            LButton.Visible = false;
+        }
+
+	}
+
+	public static void textRight(){
+		if (currentPage < textA.Count - 1){
+			
+            LButton.Visible = true;
+            currentPage++;
+            Helpers.tweenText(textA[currentPage], imgTextLbl, textSpeed);
+		}
+
+		if (currentPage == textA.Count - 1) { 
+			RButton.Visible = false;
+		}
+    }
+
+	public static Node loadObjScene(Viewport v, String t){
 
 		loaded = objectDisplayScene.Instantiate();
 		objTextLbl = (RichTextLabel)loaded.GetNode("%ObjectText");
 		imgLbl = (TextureRect)loaded.GetNode("%TextImage");
 
-		playerState.openMenu();
+        imgLbl.Texture = v.GetTexture();
+
+        Helpers.tweenText(t, objTextLbl,textSpeed);
+
+        playerState.openMenu();
 
 		return loaded;
 
 	}
 
-	//Simplify
-	public static void loadText(bool obj, String text){
-		if (loaded != null){
 
-			if (text != ""){
-				if (!obj){
-					imgTextLbl.Text = text;
-					objTextLbl.Visible = false;
-				}
-				else{
-					objTextLbl.Text = "[center]" + text + "[/center]";
-					imgTextLbl.Visible = false;
+	// Todo - Make accessible from anywhere
+	/*static void tweenText(string text, RichTextLabel label){
+        float duration = text.Length / textSpeed;
+		label.Text = text;
+		label.VisibleCharacters = 0;
 
+		Tween t = label.CreateTween();
 
-				}
+		t.TweenProperty(label, "visible_characters", text.Length, duration);
 
-			}else { GD.PushWarning("Unnassigned Text"); }
-
-
-		}else { GD.PushWarning("Load text scene before assigning text"); }
-		
-	}
-
-	public static void loadObj(String text){
-
-		if (loaded != null){
-
-			if (text != ""){
-
-				objTextLbl.Text = text;
-				
-			}
-			else { GD.PushWarning("Unnassigned Text"); }
-
-
-		}
-		else { GD.PushWarning("Load text scene before assigning text"); }
-		
-		
-	}
+    }*/
 	
 
-	public static void setImage(Texture2D image)
-	{
-		if (loaded != null)
-		{
-
-			if (image != null)
-			{
-
-				imgLbl.Texture = image;
-
-			}
-			else { GD.PushWarning("Unassigned Image"); }
-
-
-		}
-		else { GD.PushWarning("Load text scene before assigning an image"); }
-
-	}
-
-	public static void setViewportTexture(Viewport v){
-	
-	
-       // ViewportTexture t = new ViewportTexture{ViewportPath = v.GetPath()};
-
-		imgLbl.Texture = v.GetTexture();
-
-	}
 	
 	public static void addButton(Action action, string text, Color col){
 

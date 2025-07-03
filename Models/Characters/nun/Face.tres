@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://7g53a8t4xd8s"]
+
+[ext_resource type="Texture2D" uid="uid://d4k5kn8urm3e7" path="res://Models/Characters/nun/nun_nun_face.png" id="1_xj0v3"]
+
+[resource]
+resource_name = "Face"
+transparency = 4
+cull_mode = 2
+albedo_texture = ExtResource("1_xj0v3")
+metallic_specular = 0.0
+texture_filter = 2
+texture_repeat = false

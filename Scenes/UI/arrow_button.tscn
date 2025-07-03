@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://cramtmh64x87s"]
+
+[ext_resource type="Texture2D" uid="uid://h6ggs576ad8l" path="res://Scenes/UI/Images/ui_pointer_select.png" id="1_qw7n0"]
+[ext_resource type="Texture2D" uid="uid://wxp5hwle0dvi" path="res://Scenes/UI/Images/ui_pointer_hover.png" id="2_ss0dq"]
+[ext_resource type="Texture2D" uid="uid://dge8d1jin80m8" path="res://Scenes/UI/Images/ui_pointer.png" id="3_yrphb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qw7n0"]
+texture = ExtResource("1_qw7n0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6eyi0"]
+texture = ExtResource("1_qw7n0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sc6qi"]
+texture = ExtResource("2_ss0dq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wpywn"]
+texture = ExtResource("1_qw7n0")
+
+[node name="RButton" type="Button"]
+offset_left = -37.0
+offset_right = 53.0
+offset_bottom = 90.0
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxTexture_qw7n0")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_6eyi0")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sc6qi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wpywn")
+icon = ExtResource("3_yrphb")
+icon_alignment = 1
+expand_icon = true

@@ -22,7 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.12542, 0.122247, 0.0995323, 0.772549)
+color = Color(0.12549, 0.121569, 0.113725, 0.678431)
 
 [node name="ImageCont" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -48,14 +48,17 @@ expand_mode = 2
 [node name="ObjectTextCont" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0.290196)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -280.0
-offset_bottom = -239.0
+anchors_preset = -1
+anchor_left = 0.274
+anchor_top = 0.766
+anchor_right = 0.749
+anchor_bottom = 0.823
+offset_left = 0.919983
+offset_top = -0.279968
+offset_right = -303.4
+offset_bottom = -20.84
 grow_horizontal = 2
-grow_vertical = 0
+scale = Vector2(1.5, 1.5)
 theme = ExtResource("1_s4axl")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6niu7")
 
@@ -68,23 +71,22 @@ bbcode_enabled = true
 text = "Test"
 fit_content = true
 horizontal_alignment = 1
-visible_characters = 2
-visible_ratio = 0.5
 
 [node name="ButtonsCont" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -15.5
-offset_bottom = 15.5
+offset_left = -540.0
+offset_top = 99.0
+offset_right = -540.0
+offset_bottom = 99.0
 grow_horizontal = 0
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 
 [node name="ButtonCont" type="VBoxContainer" parent="ButtonsCont"]
 unique_name_in_owner = true

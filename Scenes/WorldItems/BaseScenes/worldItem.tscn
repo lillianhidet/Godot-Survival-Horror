@@ -7,8 +7,8 @@
 
 [node name="wordItem" type="Node3D" groups=["Interactable"]]
 script = ExtResource("1_gi2dx")
-yesCol = Color(0.368627, 0.458824, 0.176471, 1)
-noCol = Color(0.34902, 0.0627451, 0.145098, 1)
+yesCol = Color(0.16255, 0.201264, 0.075018, 1)
+noCol = Color(0.244177, 0.06532, 0.103697, 1)
 
 [node name="Area3D" type="Area3D" parent="." groups=["Interactable"]]
 collision_layer = 4

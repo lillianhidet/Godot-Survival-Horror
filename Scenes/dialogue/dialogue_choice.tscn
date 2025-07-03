@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cpf3ofe37en3k"]
+
+[node name="dialogueChoice" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Hiiiiiiiii"
+flat = true
+alignment = 0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://biqxqmaaftq2x"]
+[gd_scene load_steps=5 format=3 uid="uid://biqxqmaaftq2x"]
 
 [ext_resource type="Theme" uid="uid://dtgdfjqb3uf0" path="res://Fonts/textDisplayScene.tres" id="1_vieuc"]
 [ext_resource type="FontFile" uid="uid://dnt7jbcoc38sl" path="res://Fonts/PlayfairDisplay-VariableFont_wght.ttf" id="2_65uln"]
+[ext_resource type="PackedScene" uid="uid://cramtmh64x87s" path="res://Scenes/UI/arrow_button.tscn" id="3_2qvxj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6niu7"]
 
@@ -15,15 +16,6 @@ grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("1_vieuc")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.12542, 0.122247, 0.0995323, 0.772549)
-
 [node name="ImageCont" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
@@ -32,10 +24,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -400.0
-offset_right = 400.0
-offset_bottom = 400.0
+offset_left = -300.0
+offset_top = -300.0
+offset_right = 300.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(400, 400)
@@ -45,40 +37,29 @@ unique_name_in_owner = true
 layout_mode = 2
 expand_mode = 2
 
-[node name="ObjectTextCont" type="PanelContainer" parent="."]
-self_modulate = Color(1, 1, 1, 0.290196)
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -481.0
-offset_bottom = -194.0
 grow_horizontal = 2
-grow_vertical = 0
-theme = ExtResource("1_vieuc")
-theme_override_styles/panel = SubResource("StyleBoxEmpty_6niu7")
-
-[node name="ObjectText" type="RichTextLabel" parent="ObjectTextCont"]
-unique_name_in_owner = true
-layout_mode = 2
-theme = ExtResource("1_vieuc")
-theme_override_fonts/normal_font = ExtResource("2_65uln")
-bbcode_enabled = true
-text = "[center]You are a worm though time. The thunder song distorts you. Happiness comes. White pearls, but yellow and red in the eye. Through a mirror, inverted is made right. Leave your insides by the door. Push the fingers through the surface into the wet. You’ve always been the new you. You want this to be true. We stand around while you dream. You can almost hear our words but you forget. This happens more and more now. You gave us the permission in your regulations. We wait in the stains. The word that describes this is redacted. Repeat the word. The name of the sound. It resonates in your house. After the song, time for applause. We build you till nothing remains. The egg cracks and the truth will emerge out of you. You are home. You remind us of home. You’ve taken your boss with your boss with you. All hair must be eaten. Under the conceptual reality behind this reality you must want these waves to drag you away.  [/center]"
-fit_content = true
+grow_vertical = 2
+color = Color(0.12549, 0.121569, 0.113725, 0.678431)
 
 [node name="ImageTextCont" type="PanelContainer" parent="."]
 self_modulate = Color(1, 1, 1, 0.290196)
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 562.0
-offset_top = -979.0
-offset_right = -566.0
-offset_bottom = -129.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -350.0
+offset_right = 350.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_vieuc")
 theme_override_styles/panel = SubResource("StyleBoxEmpty_6niu7")
 
@@ -112,3 +93,30 @@ self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 alignment = 1
+
+[node name="leftButton" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 425.0
+offset_top = 443.0
+offset_right = 425.0
+offset_bottom = 443.0
+
+[node name="LButton" parent="leftButton" instance=ExtResource("3_2qvxj")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 101.0
+offset_right = 191.0
+scale = Vector2(-1, 1)
+
+[node name="rightButton" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 1395.0
+offset_top = 443.0
+offset_right = 1395.0
+offset_bottom = 443.0
+
+[node name="RButton" parent="rightButton" instance=ExtResource("3_2qvxj")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 0.0
+offset_right = 90.0

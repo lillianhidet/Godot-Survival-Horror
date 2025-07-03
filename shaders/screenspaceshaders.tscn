@@ -12,7 +12,7 @@ shader_parameter/dither_size = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s0jcl"]
 shader = ExtResource("2_y1suc")
-shader_parameter/amount = 1200
+shader_parameter/amount = 2400
 
 [node name="Shaders" type="SubViewportContainer"]
 material = SubResource("ShaderMaterial_qlpub")

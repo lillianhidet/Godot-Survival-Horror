@@ -5,9 +5,9 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ayf2i"]
 
-[node name="Interactable" type="Node3D" groups=["Interactable"]]
+[node name="TextItem" type="Node3D" groups=["Interactable"]]
 script = ExtResource("1_nkakw")
-text = "Placeholder"
+text = Array[String](["Placeholder", "Placeholder2", "Placeholder3"])
 image = ExtResource("2_pq07c")
 buttonColour = Color(0.34902, 0.0627451, 0.145098, 1)
 
