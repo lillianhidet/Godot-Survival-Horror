@@ -1,8 +1,13 @@
-[gd_scene format=3 uid="uid://cpf3ofe37en3k"]
+[gd_scene load_steps=2 format=3 uid="uid://cpf3ofe37en3k"]
+
+[ext_resource type="FontFile" uid="uid://dnt7jbcoc38sl" path="res://Fonts/PlayfairDisplay-VariableFont_wght.ttf" id="1_um3o0"]
 
 [node name="dialogueChoice" type="Button"]
-offset_right = 8.0
-offset_bottom = 8.0
+modulate = Color(1, 1, 1, 0)
+offset_right = 59.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("1_um3o0")
+theme_override_font_sizes/font_size = 15
 text = "Hiiiiiiiii"
 flat = true
 alignment = 0

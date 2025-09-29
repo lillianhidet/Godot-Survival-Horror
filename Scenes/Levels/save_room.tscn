@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://7703xvq01ux6"]
+
+[ext_resource type="PackedScene" uid="uid://c8gv7amejyqgm" path="res://Models/save_room.glb" id="1_y2omn"]
+
+[node name="save_room" instance=ExtResource("1_y2omn")]
+
+[node name="room" parent="." index="0"]
+layers = 3
+
+[node name="StaticBody3D" parent="room" index="0"]
+collision_layer = 3
+
+[node name="doorframe" parent="." index="1"]
+layers = 3
+
+[node name="Cube_004" parent="." index="2"]
+layers = 3
+
+[node name="Cube_003" parent="." index="3"]
+layers = 3
+
+[node name="pillow_a" parent="." index="4"]
+layers = 3
+
+[node name="pillow_a_001" parent="." index="5"]
+layers = 3

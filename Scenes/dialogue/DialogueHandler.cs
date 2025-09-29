@@ -17,9 +17,10 @@ public partial class DialogueHandler : interactable{
 	RichTextLabel text;
 	RichTextLabel name;
 	Control buttonParent;
-	CanvasLayer canvas;
+	Control holder;
+
 	//make a global for settings
-    static float textSpeed = 10f;
+    static float textSpeed = 12f;
 
 	Callable c;
 
@@ -28,24 +29,32 @@ public partial class DialogueHandler : interactable{
         //GD.Print(s);
 		story = new Story(storyJson);
 		ui = DialogueUI.Instance;
+		ui.current = this;
 
 		text = ui.GetNode<RichTextLabel>("%MainDialogue");
 		name = ui.GetNode<RichTextLabel>("%NameField");
 		buttonParent = ui.GetNode<Control>("%ButtonHolder");
-		canvas = ui.GetNode<CanvasLayer>("%Canvas");
+		holder = ui.GetNode<Control>("%Holder");
+
+		
 
 		c = new Callable(this, "addChoices");
 		
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+	public void close(){
+		playerState.closeMenu();
+	
 	}
 
     public override void interact() {
         //make this a fade in
-        canvas.Visible = true;
+        ui.Visible = true;
+
+        Tween tween = GetTree().CreateTween();
+        tween.TweenProperty(holder, "modulate:a", 1, 0.5);
+
         advanceDialoge();
 		playerState.openMenu();
 	
@@ -62,14 +71,6 @@ public partial class DialogueHandler : interactable{
 				name.Text = story.currentTags[0];
 			}
 			
-
-			if(story.currentChoices.Count > 0){ 
-				
-
-					//addChoices();
-				
-
-			}
 		}
 	}
 
@@ -86,9 +87,12 @@ public partial class DialogueHandler : interactable{
 			string text = c.text;
 
 			Button b = (Button)ui.choiceButton.Instantiate();
-			b.Text = (index + ". " + text);
+			b.Text = ((index+1) + ". " + text);
 			b.Pressed += () => makeChoice(index);
 			buttonParent.AddChild(b);
+			Tween tween = GetTree().CreateTween();
+			tween.TweenProperty(b,"modulate:a", 1, 0.5);
+			
 		}
 	}
 

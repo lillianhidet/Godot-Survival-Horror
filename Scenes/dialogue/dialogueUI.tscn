@@ -1,54 +1,97 @@
-[gd_scene load_steps=3 format=3 uid="uid://begwduhvlykxl"]
+[gd_scene load_steps=6 format=3 uid="uid://begwduhvlykxl"]
 
 [ext_resource type="Script" uid="uid://c4koylovf45eo" path="res://Scenes/dialogue/DialogueUI.cs" id="1_qfvp8"]
 [ext_resource type="PackedScene" uid="uid://cpf3ofe37en3k" path="res://Scenes/dialogue/dialogue_choice.tscn" id="1_t2rwh"]
+[ext_resource type="Texture2D" uid="uid://cps23i7lxt14s" path="res://textures/dialoguebox.png" id="3_7sfj2"]
+[ext_resource type="FontFile" uid="uid://dnt7jbcoc38sl" path="res://Fonts/PlayfairDisplay-VariableFont_wght.ttf" id="3_f6vga"]
+[ext_resource type="Texture2D" uid="uid://b7o3hervy74oi" path="res://textures/seperator.png" id="5_fcmgv"]
 
-[node name="DialogueUI" type="Control"]
+[node name="Canvas" type="CanvasLayer"]
+script = ExtResource("1_qfvp8")
+choiceButton = ExtResource("1_t2rwh")
+
+[node name="Holder" type="Control" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_qfvp8")
-choiceButton = ExtResource("1_t2rwh")
 
-[node name="Canvas" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
+[node name="TextureRect" type="TextureRect" parent="Holder"]
+layout_mode = 1
+offset_left = 501.0
+offset_top = 779.0
+offset_right = 1397.0
+offset_bottom = 1025.0
+texture = ExtResource("3_7sfj2")
 
-[node name="MainDialogue" type="RichTextLabel" parent="Canvas"]
+[node name="MainDialogue" type="RichTextLabel" parent="Holder"]
 unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.732
 anchor_right = 0.5
 anchor_bottom = 0.905
-offset_left = -430.0
-offset_top = 0.439941
-offset_right = 430.0
-offset_bottom = -0.400024
+offset_left = -431.0
+offset_top = 8.44
+offset_right = -10.0
+offset_bottom = -90.4
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 30
+scale = Vector2(2, 2)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_f6vga")
+theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
-text = "yayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
+text = "yayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
 fit_content = true
 scroll_active = false
 
-[node name="NameField" type="RichTextLabel" parent="Canvas"]
+[node name="NameField" type="RichTextLabel" parent="Holder"]
 unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.054
-offset_left = 532.0
-offset_top = 764.0
-offset_right = 572.0
-offset_bottom = 804.0
-theme_override_font_sizes/normal_font_size = 29
+offset_left = 520.0
+offset_top = 722.0
+offset_right = 568.32
+offset_bottom = 748.0
+scale = Vector2(2, 2)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_f6vga")
+theme_override_font_sizes/normal_font_size = 20
 text = "Name"
+scroll_active = false
 
-[node name="ButtonHolder" type="VBoxContainer" parent="Canvas"]
+[node name="ButtonHolder" type="VBoxContainer" parent="Holder"]
 unique_name_in_owner = true
-offset_left = 538.0
-offset_top = 939.0
-offset_right = 578.0
-offset_bottom = 979.0
+layout_mode = 0
+offset_left = 532.0
+offset_top = 902.0
+offset_right = 544.0
+offset_bottom = 914.0
+scale = Vector2(1.5, 1.5)
+
+[node name="TextureRect2" type="TextureRect" parent="Holder"]
+layout_mode = 0
+offset_left = 509.0
+offset_top = 768.0
+offset_right = 642.0
+offset_bottom = 798.0
+texture = ExtResource("5_fcmgv")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="Holder"]
+layout_mode = 0
+offset_left = 606.0
+offset_top = 768.0
+offset_right = 739.0
+offset_bottom = 798.0
+texture = ExtResource("5_fcmgv")
+expand_mode = 1

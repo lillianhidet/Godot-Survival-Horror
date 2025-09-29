@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dcsy6qe67vcjv"]
+
+[ext_resource type="Texture2D" uid="uid://nn7hxbs2nnt2" path="res://Models/save_room_wallpaperBaseboardProcess_new.png" id="1_ih7p7"]
+
+[resource]
+resource_name = "baseboard"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_ih7p7")
+metallic_specular = 0.0
+texture_filter = 2

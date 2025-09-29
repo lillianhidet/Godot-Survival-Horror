@@ -1,0 +1,88 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c8gv7amejyqgm"
+path="res://.godot/imported/save_room.glb-8fec8d4879b2cbc9dfb96090259facab.scn"
+
+[deps]
+
+source_file="res://Models/save_room.glb"
+dest_files=["res://.godot/imported/save_room.glb-8fec8d4879b2cbc9dfb96090259facab.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+_subresources={
+"materials": {
+"DoorMat": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/DoorMat.tres"
+},
+"Material": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/Material.tres"
+},
+"PaintingTex": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/PaintingTex.tres"
+},
+"baseboard": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/baseboard.tres"
+},
+"curtains": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/curtains.tres"
+},
+"fabric": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/fabric.tres"
+},
+"floor": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/floor.tres"
+},
+"pillow_a": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/pillow_a.tres"
+},
+"pillow_b": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/pillow_b.tres"
+},
+"stained_glass": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/stained_glass.tres"
+},
+"wallpaper transitiion": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/wallpaper transitiion.tres"
+},
+"window": {
+"use_external/enabled": true,
+"use_external/path": "res://Materials/save_room/window.tres"
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

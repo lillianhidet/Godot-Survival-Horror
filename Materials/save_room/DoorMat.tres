@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dfj1k3d78mjgo"]
+
+[ext_resource type="Texture2D" uid="uid://cblx3udhkdxu2" path="res://Models/save_room_doorTex.png" id="1_lroh5"]
+
+[resource]
+resource_name = "DoorMat"
+cull_mode = 2
+albedo_texture = ExtResource("1_lroh5")
+metallic_specular = 0.0
+texture_filter = 2
