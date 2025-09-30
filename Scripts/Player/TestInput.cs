@@ -22,10 +22,6 @@ public partial class TestInput : Node
 	//Create a file that stores all "settings" values like this
 	public float aimSens = .01f;
 
-    public override void _Ready()
-    {
-        
-    }
 
 	private void setFields(){
 		ui = GetNode<Inventory_UI>("../Menu");

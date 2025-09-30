@@ -58,15 +58,12 @@ sky = SubResource("Sky_0jigd")
 ambient_light_source = 3
 ambient_light_color = Color(0.129558, 0.129559, 0.129558, 1)
 tonemap_mode = 2
-tonemap_exposure = 2.0
 ssr_enabled = true
 ssao_enabled = true
 ssil_enabled = true
 glow_normalized = true
 fog_enabled = true
-fog_light_color = Color(0.0741287, 0.0673252, 0.0639234, 1)
-fog_light_energy = 3.0
-fog_height_density = 0.3
+fog_light_color = Color(0.0995546, 0.112246, 0.132199, 1)
 volumetric_fog_density = 0.025
 volumetric_fog_albedo = Color(0.34902, 0.34902, 0.341176, 1)
 volumetric_fog_emission = Color(0.662745, 0.662745, 0.662745, 1)
@@ -22939,7 +22936,7 @@ toDisplay = "What rough beast, its time come at last..."
 lifespan = 5
 
 [node name="lucy" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="13" instance=ExtResource("5_v1n1f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4697, -0.10877, 17.1539)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4697, -0.10877, 2.1539)
 
 [node name="Rain" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/lucy" instance=ExtResource("24_28hto")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.2783, 0)
@@ -23023,6 +23020,9 @@ transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 6.06218,
 light_color = Color(0.502881, 0.385067, 0.109824, 1)
 light_energy = 10.0
 omni_range = 20.0
+
+[node name="lanternFirstPickup" parent="." instance=ExtResource("29_sk76s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 1, 3)
 
 [editable path="SubViewportContainer"]
 [editable path="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/PistolWI"]

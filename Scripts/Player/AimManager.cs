@@ -22,10 +22,6 @@ public partial class AimManager : Node3D{
 
 	private List<lookatLerper> lookatLerpers = new List<lookatLerper>();
 
-	float t = 0;
-
-	Vector3 spineCurrent;
-	Vector3 armCurrent;
 
 
     public override void _Ready(){
@@ -47,9 +43,8 @@ public partial class AimManager : Node3D{
 			if(@event is InputEventMouseMotion){
 				InputEventMouseMotion m = (InputEventMouseMotion) @event;
 
-				
-
 				clearLerpers();
+
 
 
 				float SrotY = Math.Clamp(spineTarget.RotationDegrees.Y + -(m.Relative.X * 0.12f), -SyRotLimit, SyRotLimit);
@@ -70,42 +65,38 @@ public partial class AimManager : Node3D{
 	}
 
 	public void setAim(){
-
+		
 		clearLerpers();
 
 
-		lookatLerper a = new lookatLerper(spineTarget, camPos, 3.0f, SxRotLimit, SyRotLimit);
+		lookatLerper a = new lookatLerper(spineTarget, camPos.GlobalPosition, 3.0f, SxRotLimit, SyRotLimit);
 		lookatLerpers.Add(a);
 		AddChild(a);
 
-		lookatLerper c = new lookatLerper(armTargets, camPos, 3.0f, xMoveLimit, yMoveLimit);
+		lookatLerper c = new lookatLerper(armTargets, camPos.GlobalPosition, 3.0f, xMoveLimit, yMoveLimit);
 		lookatLerpers.Add(c);
 		AddChild(c);
 
 	}
 
 	public void stopAim(){
-		spineCurrent = spineTarget.RotationDegrees;
-		armCurrent = armTargets.RotationDegrees;
-		t = 0;
-	}
 
-
-	public override void _Process(double delta){
-
-		if(!playerState.IsAiming && (t < 1) && (spineTarget.RotationDegrees != Vector3.Zero)){
-
-			clearLerpers();
-
-			spineTarget.RotationDegrees = spineCurrent.Lerp(Vector3.Zero, t);
-			armTargets.RotationDegrees = armCurrent.Lerp(Vector3.Zero, t);
-			
-			t += (float)delta * 3f;
-
-		}
+        clearLerpers();
 
 		
-	}
+		lookatLerper a = new lookatLerper(spineTarget, Vector3.Zero, 3.0f, SxRotLimit, SyRotLimit);
+		lookatLerpers.Add(a);
+		AddChild(a);
+
+		lookatLerper c = new lookatLerper(armTargets, Vector3.Zero, 3.0f, xMoveLimit, yMoveLimit);
+		lookatLerpers.Add(c);
+		AddChild(c);
+		
+
+
+    }
+
+
 	
 	void clearLerpers(){
 		//This prevents enum errors

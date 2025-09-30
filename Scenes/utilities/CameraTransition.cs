@@ -12,17 +12,25 @@ public partial class CameraTransition : Node3D
 
 	Area3D areaA;
 	Area3D areaB;
+
+	bool EnteredA = false; 
+	bool EnteredB = false;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
 		areaA = GetNode<Area3D>("%A");
 		areaB = GetNode<Area3D>("%B");
+
 		areaA.BodyEntered += AEntered;
 		areaB.BodyEntered += BEntered;
+
+		areaA.BodyExited += AExited;
+		areaB.BodyExited += BExited;
 	}
 
 	public void AEntered(Node3D body){
-		if(body.IsInGroup("player")){
+		if(body.IsInGroup("player") && !EnteredB){
+			EnteredA = true;
 
 			if(AReturnToMain){
 
@@ -35,10 +43,17 @@ public partial class CameraTransition : Node3D
 		}
 	}
 
-	public void BEntered(Node3D body){
-		if(body.IsInGroup("player")){
+	public void AExited(Node3D body) {
+        if (body.IsInGroup("player")) {
+			EnteredB = false;
+        }
+	}
 
-			if(BReturnToMain){
+
+    public void BEntered(Node3D body){
+		if(body.IsInGroup("player") && !EnteredA){
+            EnteredB = true;
+            if (BReturnToMain){
 
 				returnToMain();
 				
@@ -49,7 +64,13 @@ public partial class CameraTransition : Node3D
 		}
 	}
 
-	private void changeCamera(Camera3D target){
+    public void BExited(Node3D body) {
+        if (body.IsInGroup("player")) {
+			EnteredA = false;
+        }
+    }
+
+    private void changeCamera(Camera3D target){
 
 		if(playerState.currentCamera != target){
 

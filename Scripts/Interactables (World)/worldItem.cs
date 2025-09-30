@@ -15,9 +15,8 @@ public partial class worldItem: interactable{
     [Export(PropertyHint.MultilineText)] String pickupText;
     [Export] float displaySize = 1;
 
-    //Global colours reference?
-    [Export] Color yesCol;
-    [Export] Color noCol;
+    Color yesCol;
+    Color noCol;
 
     //[Export] String description;
 
@@ -26,7 +25,13 @@ public partial class worldItem: interactable{
 
     itemModelViewer viewer;
 
-
+    public override void _Ready() {
+        yesCol = ColourManager.instance.worlditem_yesCol;
+        noCol = ColourManager.instance.worlditem_noCol;
+        if(pickupText == "" || pickupText==null){
+            pickupText = "Placeholder";
+        }
+    }
 
     public override void interact(){
        

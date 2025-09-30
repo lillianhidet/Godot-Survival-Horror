@@ -40,10 +40,10 @@ material = SubResource("StandardMaterial3D_tkr0e")
 [node name="SubViewportContainer" parent="." instance=ExtResource("1_xs10b")]
 material = SubResource("ShaderMaterial_vsojh")
 
-[node name="cameraTransition" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="0" node_paths=PackedStringArray("CameraB") instance=ExtResource("7_8aq73")]
-transform = Transform3D(1.536, 0, 0, 0, 5.376, 0, 0, 0, 6.528, -11, 11.2187, 1.5007)
-AReturnToMain = true
-CameraB = NodePath("../Camera3D")
+[node name="cameraTransition" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="0" node_paths=PackedStringArray("CameraA") instance=ExtResource("7_8aq73")]
+transform = Transform3D(1.536, 0, 0, 0, 5.376, 0, 0, 0, 6.528, -11, 0.98372, 1.5007)
+CameraA = NodePath("../Camera3D")
+BReturnToMain = true
 
 [node name="Interactable" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="1" instance=ExtResource("8_heynk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.416, 0.869913, 3.49878)
@@ -81,18 +81,16 @@ mesh = SubResource("BoxMesh_cqqfa")
 
 [node name="pistol_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="5" instance=ExtResource("4_umdoy")]
 transform = Transform3D(0.0952752, 0.499617, 0.0547235, -0.0299901, 0.06125, -0.506989, -0.501709, 0.0912167, 0.0406979, 0.0812244, 1.42799, 2.86463)
-pickupText = " A [u][color=#862e41]weapon[/color][/u], cold and familiar. 
-Oh [u][color=#862e41]Lucy[/color][/u], Could you ever bring yourself to use such a thing? "
 displaySize = 0.4
-yesCol = Color(0.466667, 0.403922, 0.0705882, 1)
-noCol = Color(0.524116, 0.182263, 0.254606, 1)
 
 [node name="small_oil_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="6" instance=ExtResource("9_iljb1")]
 transform = Transform3D(0.487322, 0.100122, 0.0499296, -0.105858, 0.48485, 0.0609452, -0.0362129, -0.0699708, 0.493754, 0.1, 1.30476, 1)
+pickupText = "Healing"
 displaySize = 0.4
 
 [node name="lanternFirstPickup" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="7" instance=ExtResource("6_tkr0e")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.62404, 0.152972)
+pickupText = "Lantern"
 displaySize = 0.4
 
 [node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="8"]

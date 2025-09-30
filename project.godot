@@ -18,8 +18,8 @@ config/icon="res://images/icon.svg"
 
 [autoload]
 
-PlayerState="*res://Scripts/Player/playerState.cs"
 PlayerInventory="*res://Scripts/Player/playerInventory.cs"
+PlayerState="*res://Scripts/Player/playerState.cs"
 ItemModelViewerManager="*res://Scripts/UI/itemModelViewerManager.cs"
 TextWindowManager="*res://Scripts/UI/textWindowManager.cs"
 TestInput="*res://Scripts/Player/TestInput.cs"
@@ -27,6 +27,7 @@ Menu="*res://Scenes/UI/menu.tscn"
 HUD="*res://Scenes/UI/HUD.tscn"
 DialogueUI="*res://Scenes/dialogue/dialogueUI.tscn"
 Helpers="*res://Scenes/autoloads/helpers.tscn"
+ColourManager="*res://Scenes/autoloads/colour_manager.tscn"
 
 [display]
 

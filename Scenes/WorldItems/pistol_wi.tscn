@@ -5,7 +5,8 @@
 
 [node name="pistol_wi" node_paths=PackedStringArray("item") instance=ExtResource("1_7f66g")]
 item = NodePath("testHandgun")
-pickupText = "A weapon, cold and familar. Take it?"
+pickupText = " A [u][color=#862e41]weapon[/color][/u], cold and familiar. 
+Oh [u][color=#862e41]Lucy[/color][/u], Could you ever bring yourself to use such a thing? "
 displaySize = 0.5
 
 [node name="CollisionShape3D" parent="Area3D" index="0"]

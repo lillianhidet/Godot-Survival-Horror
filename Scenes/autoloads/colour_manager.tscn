@@ -1,3 +1,8 @@
-[gd_scene format=3 uid="uid://bt3xrrw24inhq"]
+[gd_scene load_steps=2 format=3 uid="uid://bt3xrrw24inhq"]
+
+[ext_resource type="Script" uid="uid://bm53yk2gyk1so" path="res://Scenes/autoloads/ColourManager.cs" id="1_8i72d"]
 
 [node name="colourManager" type="Node"]
+script = ExtResource("1_8i72d")
+worlditem_yesCol = Color(0.16255, 0.201264, 0.075018, 1)
+worlditem_noCol = Color(0.244177, 0.06532, 0.103697, 1)

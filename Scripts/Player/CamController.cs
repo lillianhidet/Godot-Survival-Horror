@@ -13,17 +13,20 @@ public partial class CamController : Node3D{
 	private float camrot_v = 0f;
 
 	private float lerpVal = 0;
-	[Export] public float transitionSpeed = 2f;
+	[Export] public float transitionSpeed = 3f;
 	[Export] public float mainSens = .1f;
 	[Export] public int maxRot = 15;
 	[Export] public int minRot = -10;
+
+	[Export] public float mainFOV = 75;
+	[Export] public float aimFOV = 50;
 
  
 	private float sens;
 
 	Node3D Mhorizontal;
 	Node3D Mvertical;
-	Camera3D mainCam;
+	[Export] Camera3D mainCam;
 
 	[Export] Node3D rightAimTarget;
 	[Export] Node3D leftAimTarget;
@@ -45,6 +48,7 @@ public partial class CamController : Node3D{
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
+		mainCam.Fov = mainFOV;
 		Mhorizontal = (Node3D) GetNode("horizontal");
 		Mvertical = (Node3D) GetNode("horizontal/vertical");
 
@@ -123,6 +127,7 @@ public partial class CamController : Node3D{
 			if(lerpVal < 1){
 				
 				springArm.GlobalPosition = mainCamCurrent.Lerp(targetNode.GlobalPosition, lerpVal);
+				mainCam.Fov = Mathf.Lerp(mainCam.Fov, aimFOV, lerpVal);
 
 			}else{
 				atDestination = true;
@@ -136,8 +141,9 @@ public partial class CamController : Node3D{
 				if(lerpVal < 1){
 
 					springArm.GlobalPosition = mainCamCurrent.Lerp(mainTarget.GlobalPosition, lerpVal);
+                    mainCam.Fov = Mathf.Lerp(mainCam.Fov, mainFOV, lerpVal);
 
-				}else{
+                } else{
 					atDestination = true;
 					
 				}
