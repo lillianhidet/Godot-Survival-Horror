@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://yhhpyweia4cb"]
+
+[ext_resource type="PackedScene" uid="uid://dl8mxcw81bu4k" path="res://Scenes/WorldItems/BaseScenes/worldItem.tscn" id="1_s6tf3"]
+[ext_resource type="PackedScene" uid="uid://daoclgx8eybqr" path="res://Scenes/WorldItems/InventoryItems/pistolAmmo.tscn" id="2_emnqd"]
+[ext_resource type="PackedScene" uid="uid://cwprawoeym6e3" path="res://Scenes/WorldItems/Ammo/pistolAmmoModel.tscn" id="3_hs8gr"]
+
+[node name="pistolAmmo" node_paths=PackedStringArray("item") instance=ExtResource("1_s6tf3")]
+item = NodePath("PistolAmmo")
+
+[node name="PistolAmmo" parent="." index="2" instance=ExtResource("2_emnqd")]
+capacity = 15
+type = 1
+name = "Pistol Ammo"
+DisplayScene = ExtResource("3_hs8gr")
+
+[node name="MeshInstance3D" parent="." index="3" instance=ExtResource("3_hs8gr")]

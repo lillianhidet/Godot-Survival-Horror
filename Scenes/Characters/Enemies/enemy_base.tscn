@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv4euo823w2k1"]
+
+[ext_resource type="Script" uid="uid://bknw1uqax8csb" path="res://Scripts/Enemies/States/StateMachine.cs" id="1_jroqy"]
+[ext_resource type="Script" uid="uid://cec43gibc2fsd" path="res://Scenes/Characters/Enemies/EnemyBase.cs" id="1_k81rg"]
+[ext_resource type="Script" uid="uid://crdre8a2hf8cs" path="res://Scripts/Enemies/States/idle.cs" id="2_c0t5b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0t5b"]
+albedo_color = Color(0.431072, 0.112513, 0.211282, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_k81rg"]
+material = SubResource("StandardMaterial3D_c0t5b")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iccno"]
+
+[node name="enemy_base" type="CharacterBody3D"]
+script = ExtResource("1_k81rg")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00577, 0)
+mesh = SubResource("CapsuleMesh_k81rg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00577, 0)
+shape = SubResource("CapsuleShape3D_iccno")
+
+[node name="status" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11923, 0)
+text = "Test"
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial", "debug")]
+script = ExtResource("1_jroqy")
+initial = NodePath("idle")
+debug = NodePath("../status")
+
+[node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("agent", "body")]
+script = ExtResource("2_c0t5b")
+agent = NodePath("../../NavigationAgent3D")
+body = NodePath("../..")

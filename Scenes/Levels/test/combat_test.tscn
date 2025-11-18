@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bushh12sfm1wg"]
+[gd_scene load_steps=22 format=3 uid="uid://bushh12sfm1wg"]
 
 [ext_resource type="PackedScene" uid="uid://c1cw0ff85ubh5" path="res://Scenes/Characters/lucy_player.tscn" id="1_gc8ls"]
 [ext_resource type="PackedScene" uid="uid://bswuuil5xk2by" path="res://shaders/screenspaceshaders.tscn" id="1_xs10b"]
@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://djuanjbn21o8g" path="res://Scenes/WorldItems/pistol_wi.tscn" id="4_umdoy"]
 [ext_resource type="PackedScene" uid="uid://igdqxfxa2228" path="res://Scenes/WorldItems/lanternFirstPickup.tscn" id="6_tkr0e"]
 [ext_resource type="PackedScene" uid="uid://c8yf6aaa5g4io" path="res://Scenes/utilities/camera_transition.tscn" id="7_8aq73"]
+[ext_resource type="PackedScene" uid="uid://yhhpyweia4cb" path="res://Scenes/WorldItems/Ammo/pistol_ammo_wi_n.tscn" id="7_67v3p"]
 [ext_resource type="PackedScene" uid="uid://bop2nk81l1ojs" path="res://Scenes/WorldItems/BaseScenes/textItem.tscn" id="8_heynk"]
 [ext_resource type="PackedScene" uid="uid://hfln4l32kxxd" path="res://Models/Characters/nun/nun.glb" id="9_3n2cg"]
 [ext_resource type="PackedScene" uid="uid://7aq0oqcjoi73" path="res://Scenes/WorldItems/smalloil_wi.tscn" id="9_iljb1"]
 [ext_resource type="PackedScene" uid="uid://k7jhsfcdoyqb" path="res://Scenes/dialogue/dialogue_handler.tscn" id="10_ai765"]
 [ext_resource type="JSON" path="res://Scenes/dialogue/text_files/test_story.json" id="11_rge1v"]
+[ext_resource type="PackedScene" uid="uid://dv4euo823w2k1" path="res://Scenes/Characters/Enemies/enemy_base.tscn" id="13_3s7hv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vsojh"]
 shader = ExtResource("2_4yq5y")
@@ -18,6 +20,11 @@ shader_parameter/enabled = true
 shader_parameter/dithering = true
 shader_parameter/colors = 32
 shader_parameter/dither_size = 2
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_3s7hv"]
+vertices = PackedVector3Array(-32.205, -0.982052, -0.75, -31.205, -0.982052, -1, -31.205, -0.982052, -80.5, -175.705, -1.02205, -80.5, -175.705, -1.02205, 1.5, -115.528, -1.02205, 0.55645, -110.899, -0.982052, 0.483871, -110.447, -0.982052, -80.5, -115.108, -1.02205, -80.5, -111.729, -0.982052, -1.51598, -113.187, -1.02205, -4.48649, -111.702, -0.982052, -4.4755, -113.182, -1.02205, -37.4912, -111.697, -0.982052, -37.4802, -113.214, -1.02205, -1.47697, -111.726, -0.982052, -61.5064, -113.211, -1.02205, -61.5174, -111.704, -0.982052, -71.9897, -113.222, -1.02205, -76.515, -111.698, -0.982052, -78.0088, -113.195, -1.02205, -79.5245, -111.709, -0.982052, -79.5135, -32.205, -0.982052, 1.5, -115.528, -1.02205, 1.5, -110.899, -0.982052, 1.5, -29.955, -0.982052, -0.75, -29.955, -0.982052, 0.75, 47.295, -0.982052, 0.5, 47.295, -0.982052, -80.5, -29.955, -0.982052, 2.25, 47.295, -0.982052, 2.5, -31.205, -0.982052, 78.5, -31.205, -0.982052, 4, -32.205, -0.982052, 3.75, -175.705, -1.02205, 78.5, -115.108, -1.02205, 78.5, -110.447, -0.982052, 78.5, -110.899, -0.982052, 2.51613, -115.528, -1.02205, 2.44355, -111.715, -0.982052, 75.0019, -113.2, -1.02205, 74.9909, -113.199, -1.02205, 4.52213, -111.704, -0.982052, 76.5067, -113.189, -1.02205, 76.4957, -111.714, -0.982052, 4.48311, -29.955, -0.982052, 3.75, 47.295, -0.982052, 78.5)
+polygons = [PackedInt32Array(3, 12, 4), PackedInt32Array(4, 10, 5), PackedInt32Array(5, 14, 6), PackedInt32Array(6, 11, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(2, 17, 7), PackedInt32Array(7, 20, 8), PackedInt32Array(8, 16, 3), PackedInt32Array(12, 10, 4), PackedInt32Array(3, 16, 12), PackedInt32Array(10, 14, 5), PackedInt32Array(14, 9, 6), PackedInt32Array(11, 13, 0), PackedInt32Array(6, 9, 11), PackedInt32Array(0, 13, 2), PackedInt32Array(17, 19, 7), PackedInt32Array(2, 15, 17), PackedInt32Array(20, 18, 8), PackedInt32Array(7, 21, 20), PackedInt32Array(8, 18, 16), PackedInt32Array(12, 13, 10), PackedInt32Array(16, 15, 12), PackedInt32Array(10, 9, 14), PackedInt32Array(11, 10, 13), PackedInt32Array(9, 10, 11), PackedInt32Array(13, 15, 2), PackedInt32Array(19, 21, 7), PackedInt32Array(17, 18, 19), PackedInt32Array(15, 16, 17), PackedInt32Array(20, 19, 18), PackedInt32Array(21, 19, 20), PackedInt32Array(18, 17, 16), PackedInt32Array(12, 15, 13), PackedInt32Array(4, 5, 23), PackedInt32Array(23, 5, 24), PackedInt32Array(24, 5, 6), PackedInt32Array(24, 6, 22), PackedInt32Array(22, 6, 0), PackedInt32Array(27, 26, 25), PackedInt32Array(25, 1, 27), PackedInt32Array(27, 1, 2), PackedInt32Array(27, 2, 28), PackedInt32Array(26, 27, 29), PackedInt32Array(29, 27, 30), PackedInt32Array(4, 40, 34), PackedInt32Array(34, 40, 35), PackedInt32Array(35, 43, 36), PackedInt32Array(36, 39, 31), PackedInt32Array(31, 33, 32), PackedInt32Array(33, 44, 37), PackedInt32Array(37, 41, 38), PackedInt32Array(38, 41, 4), PackedInt32Array(4, 41, 40), PackedInt32Array(40, 43, 35), PackedInt32Array(43, 42, 36), PackedInt32Array(39, 33, 31), PackedInt32Array(36, 42, 39), PackedInt32Array(44, 41, 37), PackedInt32Array(33, 39, 44), PackedInt32Array(41, 44, 40), PackedInt32Array(40, 39, 43), PackedInt32Array(43, 39, 42), PackedInt32Array(39, 40, 44), PackedInt32Array(4, 23, 38), PackedInt32Array(38, 23, 24), PackedInt32Array(38, 24, 37), PackedInt32Array(37, 24, 22), PackedInt32Array(37, 22, 33), PackedInt32Array(32, 45, 31), PackedInt32Array(31, 45, 46), PackedInt32Array(46, 45, 30), PackedInt32Array(45, 29, 30)]
+cell_height = 0.01
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_cct57"]
 
@@ -40,71 +47,88 @@ material = SubResource("StandardMaterial3D_tkr0e")
 [node name="SubViewportContainer" parent="." instance=ExtResource("1_xs10b")]
 material = SubResource("ShaderMaterial_vsojh")
 
-[node name="cameraTransition" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="0" node_paths=PackedStringArray("CameraA") instance=ExtResource("7_8aq73")]
-transform = Transform3D(1.536, 0, 0, 0, 5.376, 0, 0, 0, 6.528, -11, 0.98372, 1.5007)
+[node name="enemy_base" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="0" instance=ExtResource("13_3s7hv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.5088, -0.854714, 0.53255)
+
+[node name="cameraTransition" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="1" node_paths=PackedStringArray("CameraA") instance=ExtResource("7_8aq73")]
+transform = Transform3D(1.536, 0, 0, 0, 5.376, 0, 0, 0, 6.528, -11, 10.9837, 1.5007)
 CameraA = NodePath("../Camera3D")
 BReturnToMain = true
 
-[node name="Interactable" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="1" instance=ExtResource("8_heynk")]
+[node name="Interactable" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="2" instance=ExtResource("8_heynk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.416, 0.869913, 3.49878)
 
-[node name="nun" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="2" instance=ExtResource("9_3n2cg")]
+[node name="nun" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="3" instance=ExtResource("9_3n2cg")]
 transform = Transform3D(-0.393736, 0, -0.0198149, 0, 0.394234, 0, 0.0198149, 0, -0.393736, -18.1803, 2.5498, 8.45444)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="3"]
-transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, -1, -1, -1)
-layers = 3
-mesh = SubResource("PlaneMesh_cct57")
-skeleton = NodePath("../../../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_llthh")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/MeshInstance3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/MeshInstance3D/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.494047, 0)
-shape = SubResource("BoxShape3D_dyp1u")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="4"]
-collision_layer = 0
-collision_mask = 0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.182775, 1.5)
-shape = SubResource("BoxShape3D_uxbi2")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 4.1, 0, 0, 0, 3.9, 0, -0.695238, 1.5)
-mesh = SubResource("BoxMesh_cqqfa")
-
-[node name="pistol_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="5" instance=ExtResource("4_umdoy")]
+[node name="pistol_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="4" instance=ExtResource("4_umdoy")]
 transform = Transform3D(0.0952752, 0.499617, 0.0547235, -0.0299901, 0.06125, -0.506989, -0.501709, 0.0912167, 0.0406979, 0.0812244, 1.42799, 2.86463)
 displaySize = 0.4
 
-[node name="small_oil_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="6" instance=ExtResource("9_iljb1")]
+[node name="pistolAmmo" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="5" instance=ExtResource("7_67v3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.35008, -0.781734, 4.44819)
+
+[node name="pistolAmmo2" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="6" instance=ExtResource("7_67v3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03036, -0.781734, 4.44819)
+
+[node name="pistolAmmo3" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="7" instance=ExtResource("7_67v3p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75983, -0.781734, 4.44819)
+
+[node name="small_oil_wi" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="8" instance=ExtResource("9_iljb1")]
 transform = Transform3D(0.487322, 0.100122, 0.0499296, -0.105858, 0.48485, 0.0609452, -0.0362129, -0.0699708, 0.493754, 0.1, 1.30476, 1)
 pickupText = "Healing"
 displaySize = 0.4
 
-[node name="lanternFirstPickup" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="7" instance=ExtResource("6_tkr0e")]
+[node name="lanternFirstPickup" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="9" instance=ExtResource("6_tkr0e")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1.62404, 0.152972)
 pickupText = "Lantern"
 displaySize = 0.4
 
-[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="8"]
+[node name="Camera3D" type="Camera3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="10"]
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, -9, 7, 9)
 
-[node name="lucy" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="9" instance=ExtResource("1_gc8ls")]
+[node name="lucy" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="11" instance=ExtResource("1_gc8ls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4092, -1.0962, 0)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="10"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="12"]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="DialogueHandler" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="11" instance=ExtResource("10_ai765")]
+[node name="DialogueHandler" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="13" instance=ExtResource("10_ai765")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.1539, 1.87922, 8.56752)
 storyJson = ExtResource("11_rge1v")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.205, 0, 0)
+navigation_mesh = SubResource("NavigationMesh_3s7hv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/NavigationRegion3D"]
+transform = Transform3D(80, 0, 0, 0, 80, 0, 0, 0, 80, -32.205, -1, -1)
+layers = 3
+mesh = SubResource("PlaneMesh_cct57")
+skeleton = NodePath("../../../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_llthh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/NavigationRegion3D/MeshInstance3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/NavigationRegion3D/MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -0.494047, 0)
+shape = SubResource("BoxShape3D_dyp1u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/NavigationRegion3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.205, 0, 0)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.182775, 1.5)
+shape = SubResource("BoxShape3D_uxbi2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport2/SubViewportContainer2/SubViewport/NavigationRegion3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 4.1, 0, 0, 0, 3.9, 0, -0.695238, 1.5)
+mesh = SubResource("BoxMesh_cqqfa")
 
 [editable path="SubViewportContainer"]

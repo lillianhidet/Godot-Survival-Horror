@@ -29,6 +29,10 @@ DialogueUI="*res://Scenes/dialogue/dialogueUI.tscn"
 Helpers="*res://Scenes/autoloads/helpers.tscn"
 ColourManager="*res://Scenes/autoloads/colour_manager.tscn"
 
+[debug_draw_3d]
+
+settings/addon_root_folder="res://addons/debug_draw_3d"
+
 [display]
 
 window/size/viewport_width=1920
