@@ -8,7 +8,7 @@
 [ext_resource type="Theme" uid="uid://dtgdfjqb3uf0" path="res://Fonts/textDisplayScene.tres" id="5_4606b"]
 [ext_resource type="Texture2D" uid="uid://sucvixmjfmhg" path="res://images/icon.svg" id="7_n1s1q"]
 
-[node name="Menu" type="Control" node_paths=PackedStringArray("itemName", "itemDesc", "wepButton", "consumButton", "keyButton", "slots")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("itemName", "itemDesc", "wepButton", "consumButton", "keyButton", "ammoButton", "slots")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +21,7 @@ itemDesc = NodePath("canvas/Control/TabContainer/Status/ItemDisplay/itemDescLbl"
 wepButton = NodePath("canvas/Control/TabContainer/Status/VBoxContainer/wepButton")
 consumButton = NodePath("canvas/Control/TabContainer/Status/VBoxContainer/consumButton")
 keyButton = NodePath("canvas/Control/TabContainer/Status/VBoxContainer/keyButton")
+ammoButton = NodePath("canvas/Control/TabContainer/Status/VBoxContainer/ammoButton")
 inv_item = ExtResource("2_4wbqk")
 slots = [NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot0"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot1"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot2"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot3"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot4"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot5"), NodePath("canvas/Control/TabContainer/Status/ItemDisplay/slots/slot6")]
 
@@ -218,6 +219,10 @@ scale = Vector2(1.97108, 1.97108)
 layout_mode = 2
 action_mode = 0
 text = "Weapons"
+
+[node name="ammoButton" type="Button" parent="canvas/Control/TabContainer/Status/VBoxContainer"]
+layout_mode = 2
+text = "Ammo"
 
 [node name="consumButton" type="Button" parent="canvas/Control/TabContainer/Status/VBoxContainer"]
 layout_mode = 2

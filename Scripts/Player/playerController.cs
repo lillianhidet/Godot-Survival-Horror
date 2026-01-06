@@ -8,6 +8,8 @@ public partial class playerController : CharacterBody3D
 	[Export] public float walkSpeed = 4.5f;
 	[Export] public float aimSpeed = 2.5f;
 
+	[Export] public float gravity = 9.8f;
+
 	private static playerController instance;
 	public const float lerpVal = .15f;
 
@@ -32,7 +34,7 @@ public partial class playerController : CharacterBody3D
 	}
 
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
-	public float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
+	
 
     public override void _Ready(){
 		leftHandPos = (Node3D) GetNode("%LeftHandPos");

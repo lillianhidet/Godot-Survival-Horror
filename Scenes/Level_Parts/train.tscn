@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://8g61xb041to6"]
+
+[ext_resource type="PackedScene" uid="uid://bnfbodvylsu2n" path="res://Models/Level Objects/train.glb" id="1_gl60o"]
+[ext_resource type="PackedScene" uid="uid://dn4cqtvi267ca" path="res://Scenes/Lights/test_cone.tscn" id="2_hn1b7"]
+
+[node name="train" type="Node3D"]
+
+[node name="train" parent="." instance=ExtResource("1_gl60o")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="TestCone" parent="train/car" index="0" instance=ExtResource("2_hn1b7")]
+transform = Transform3D(6.9600005, 0, 0, 0, -2.1417884e-06, -6.4959993, 0, 48.99841, -2.8394913e-07, 0, 2.33316, -8)
+
+[editable path="train"]

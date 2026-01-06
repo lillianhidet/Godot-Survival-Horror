@@ -1,21 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2a7oft8jee20"]
+[gd_scene load_steps=5 format=4 uid="uid://c2a7oft8jee20"]
 
 [ext_resource type="PackedScene" uid="uid://o80vltsotqvb" path="res://Models/lightCone.glb" id="1_kuaxi"]
+[ext_resource type="Texture2D" uid="uid://3nge6wi38x6x" path="res://textures/gradient.png" id="2_553p7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ywbx5"]
+transparency = 4
+albedo_color = Color(0.9020791, 0.89068735, 0, 1)
+albedo_texture = ExtResource("2_553p7")
+metallic_specular = 0.0
+emission_enabled = true
+emission = Color(0.9195736, 0.7764731, 0.25452545, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_1w6pt"]
+resource_name = "lightCone_Cone"
+_surfaces = [{
+"aabb": AABB(-1.2553806, -2.4399135, -1.2553806, 2.5107613, 2.4399128, 2.5107613),
+"attribute_data": PackedByteArray("FIecA/uwYvzjjZwDHMdi/PiYYvwqlJwD/3+cA4HaYvz/f2L8qpmcA+p4nAMcx2L8Bmdi/CqUnAMbcpwD+7Bi/ANPYvzjjZwD1GucA/iYYvziOGL8VGacA30lYvwUh5wD/39i/P9/nAMGZ2L86nicAwNPYvwbcpwD4jhi/NRrnAN9JWL8VGacAxSHnAP/f2L8/3+cAwZnYvz4mGL86nicA+ONnAMDT2L8+7Bi/BtynAMqlJwD4jhi/BzHYvyqmZwDgdpi/NRrnAN9JWL8VGacA+I4YvzUa5wDA09i/BtynAMGZ2L86nicA/9/Yvz/f5wD+Jhi/BSHnAP7sGL8442cAxzHYvwqlJwDgdpi/KqZnAM="),
+"format": 34896613399,
+"index_count": 192,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAAAEAAEAAgADAAUABgAEAAAABQADAAcABgAIAAQABQAHAAkACgAIAAYACQAHAAsACgAMAAgACQALAA0ADgAMAAoADQALAA8ADgAQAAwADQAPABEAEgAQAA4AEQAPABMAEgAUABAAFQAUABIAFQAWABQAEQATABcAFwATABgAFwAYABkAGQAYABoAGQAaABsAGwAaABwAGwAcAB0AHQAcAB4AHQAeAB8AHwAeACAAHwAgACEAIgAjACQAJAAjACUAIgAmACMAJAAlACcAKAAmACIAJwAlACkAKAAqACYAJwApACsALAAqACgAKwApAC0ALAAuACoALwAuACwALwAwAC4AKwAtADEAMQAtADIAMQAyADMAMwAyADQAMwA0ADUANQA0ADYANQA2ADcANwA2ADgANwA4ADkAOQA4ADoAOQA6ADsAOwA6ADwAOwA8AD0APQA8AD4APQA+AD8APwA+AEAAPwBAAEEAQQBAAEIAQQBCAEMA"),
+"material": SubResource("StandardMaterial3D_ywbx5"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 68,
+"vertex_data": PackedByteArray("FIf//2VcUQ77sAAAvgkbDuON//91XhsOHMcAAJIVww34mAAAdQJRDiqU///QYcMN/3///7JbYw6B2gAAfSVI4P9/AAAAAGMOqpn//1RmSODqeP//ZVxRDmzqAADiOKzYBmcAAHUCUQ4unv//1Gus2Bty//91XhsOQPYAAANP19ADTwAAvgkbDomh//8bctfQ1Gv//9Bhww2J/QAABmcIyeI4AACSFcMNVGb//1Rmzw19JQAAfSXPDZmj///qeAjJ//8AAP9/QcFMpP///39BwYn9AAD4mIa5maP//xSHhrlA9gAA+7DcsYmh///jjdyxbOoAABzHTqounv//KpROqoHaAACB2i2jqpn//6qZLaMUh///maNwkP9/AAD//2KO/3///0ykYo4GZwAAif1wkPiYAACJ/XCQ6nj//5mjcJDjjf//iaF0lQNPAABA9nSV+7AAAED2dJUbcv//iaF0lSqU//8unt+b4jgAAGzq35scxwAAbOrfm6qZ//+qmbuigdoAAIHau6LUa///Lp7fm30lAACB2r8GVGb//6qZvwaSFQAAHMfBBtBh//8qlMEGvgkAAPuw9wd1Xv//4433B3UCAAD4mBkJZVz//xSHGQkAAAAA/38lCrJb////fyUKdQIAAAZnGQtlXP//6ngZC74JAAADT/ELdV7//xty8QuSFQAA4jisDNBh///Ua6wMfSUAAH0lwAxUZv//VGbADK/yA4Kw562DsOetg0reGoWv8gOCSt4ahf///3+fmjoJ////f5+aOgn7/a9ygpuVCfv9r3KCm5UJUPyxZ1udwgtQ/LFnW53CC+T6Sl5inyUO5PpKXgr7OVcK+zlXYp8lDqmh1RCpodUQTKTvE0yk7xNxp6UXcaelF1urQRxbq0EcZ7FHIGexRyAw1Y1N////f/7//3+Mzc6qMNWNTYzNzqpTwlI3UbervVPCUjdRt6u9i7eeKp2qc8iLt54qd69TJHevUySdqnPILfKlIS3ypSGp8vAnqfLwJ6DzUC6g81AukvSLNJL0izSD9cE6g/XBOnf2EUF39hFBdfecR3X3nEeB+IhOgfiITkX41VRF+NVU")
+}]
 
 [node name="lightCone" instance=ExtResource("1_kuaxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62882, 0)
 
 [node name="Cone" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.111952, 0)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0.130482, 0)
-light_color = Color(0.764706, 0.760784, 0, 1)
-light_energy = 16.0
-light_indirect_energy = 16.0
-light_volumetric_fog_energy = 16.0
-light_size = 1.0
-distance_fade_begin = 4096.0
-distance_fade_length = 4096.0
-spot_range = 5.28921
-spot_angle = 69.8456
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("ArrayMesh_1w6pt")

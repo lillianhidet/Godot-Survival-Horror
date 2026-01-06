@@ -40,7 +40,7 @@ shader_type canvas_item;
 
 render_mode unshaded;
 
-#define MAXCOLORS 64
+#define MAXCOLORS 128
 
 uniform bool enabled = true;
 uniform bool dithering = true;

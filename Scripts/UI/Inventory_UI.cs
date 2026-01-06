@@ -13,7 +13,8 @@ public partial class Inventory_UI : Control{
 	[Export] Button wepButton;
 	[Export] Button consumButton;
 	[Export] Button keyButton;
-	public bool isOpen {get; set;}
+    [Export] Button ammoButton;
+    public bool isOpen {get; set;}
 	[Export] PackedScene inv_item;
 
 	List<InventoryItem> itemsDisplaying;
@@ -31,10 +32,11 @@ public partial class Inventory_UI : Control{
 		wepButton.Pressed += displayWeapons;
 		consumButton.Pressed += displayConsumables;
 		keyButton.Pressed += displayKeyItems;
+        ammoButton.Pressed += displayAmmo;
 		
 	}
 
-	public void open(List<InventoryItem> itemsToDisplay){
+    public void open(List<InventoryItem> itemsToDisplay){
 		itemsDisplaying = itemsToDisplay;
 
 		isOpen = true;
@@ -91,14 +93,16 @@ public partial class Inventory_UI : Control{
 
 		
 	public void reset(){
-		selected = null;
+        itemModelViewerManager.clearViewers();
+        selected = null;
 		foreach(invSlot c in slots){
 			c.inSlot = null;
 			foreach(Node n in c.GetChildren()){
 				n.QueueFree();
 			}
 		}
-	}
+        
+    }
 
 
 	public void exit(){
@@ -269,6 +273,11 @@ public partial class Inventory_UI : Control{
 		reset();
 		open(playerInventory.keyItems.ToList<InventoryItem>());
 
+	}
+
+	public void displayAmmo(){
+		reset();
+		open(playerInventory.ammo.ToList<InventoryItem>());
 	}
 
 	

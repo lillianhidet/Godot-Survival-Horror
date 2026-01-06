@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://5gok7bduk50o"]
+
+[ext_resource type="PackedScene" uid="uid://clecfn8eeq2ad" path="res://Models/Geom/coast.glb" id="1_talhv"]
+
+[node name="coast" instance=ExtResource("1_talhv")]
+
+[node name="StaticBody3D" parent="coast" index="0"]
+collision_layer = 7

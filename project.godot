@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Oneria"
 run/main_scene="res://Scenes/Levels/world1.tscn"
-config/features=PackedStringArray("4.4", "C#", "Forward Plus")
+config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 run/max_fps=60
 config/icon="res://images/icon.svg"
 
@@ -28,6 +28,10 @@ HUD="*res://Scenes/UI/HUD.tscn"
 DialogueUI="*res://Scenes/dialogue/dialogueUI.tscn"
 Helpers="*res://Scenes/autoloads/helpers.tscn"
 ColourManager="*res://Scenes/autoloads/colour_manager.tscn"
+
+[debug_draw_3d]
+
+settings/addon_root_folder="res://addons/debug_draw_3d"
 
 [display]
 
@@ -139,3 +143,7 @@ Close={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+anti_aliasing/quality/msaa_2d=1
+anti_aliasing/quality/msaa_3d=1
+anti_aliasing/quality/screen_space_aa=1
+anti_aliasing/quality/use_debanding=true

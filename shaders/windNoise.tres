@@ -4,6 +4,6 @@
 fractal_octaves = 1
 
 [resource]
+noise = SubResource("FastNoiseLite_cls6g")
 seamless = true
 seamless_blend_skirt = 1.0
-noise = SubResource("FastNoiseLite_cls6g")

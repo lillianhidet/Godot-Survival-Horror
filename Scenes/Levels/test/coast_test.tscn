@@ -1,0 +1,136 @@
+[gd_scene load_steps=18 format=3 uid="uid://kvstwhxrje2m"]
+
+[ext_resource type="Shader" uid="uid://cq373edy4s746" path="res://shaders/dither.gdshader" id="1_3sb4m"]
+[ext_resource type="Shader" uid="uid://c45olmstx1sgr" path="res://shaders/pixelate.gdshader" id="1_jw6nq"]
+[ext_resource type="PackedScene" uid="uid://c1cw0ff85ubh5" path="res://Scenes/Characters/lucy_player.tscn" id="2_im1kl"]
+[ext_resource type="PackedScene" uid="uid://diftgyfgpjux4" path="res://Scenes/particle/rain.tscn" id="3_2a5tj"]
+[ext_resource type="PackedScene" uid="uid://5gok7bduk50o" path="res://Scenes/Levels/coast.tscn" id="5_3rwva"]
+[ext_resource type="PackedScene" uid="uid://b11vd4u11qhb5" path="res://Scenes/Level_Parts/sky.tscn" id="6_ifhq6"]
+[ext_resource type="PackedScene" uid="uid://yq6gvxewqtfk" path="res://Scenes/Level_Parts/sea.tscn" id="7_3sb4m"]
+[ext_resource type="Script" uid="uid://bjeha307nujxm" path="res://Scenes/Levels/test/TrainSpawner.cs" id="8_ifhq6"]
+[ext_resource type="PackedScene" uid="uid://8g61xb041to6" path="res://Scenes/Level_Parts/train.tscn" id="9_nlrjy"]
+[ext_resource type="PackedScene" uid="uid://bimivmhplnc7s" path="res://Models/Level Objects/lighthouseTower.glb" id="10_q7cr2"]
+[ext_resource type="PackedScene" uid="uid://c2a7oft8jee20" path="res://Scenes/Lights/light_cone.tscn" id="11_bp8nt"]
+[ext_resource type="Script" uid="uid://b1dn16pjbyq5r" path="res://Scripts/World/lighthouseSpin.cs" id="12_jw5se"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_im1kl"]
+
+[sub_resource type="Sky" id="Sky_0jigd"]
+sky_material = SubResource("PhysicalSkyMaterial_im1kl")
+
+[sub_resource type="Environment" id="Environment_2a5tj"]
+background_mode = 2
+sky = SubResource("Sky_0jigd")
+ambient_light_source = 3
+ambient_light_color = Color(0.446777, 0.44677705, 0.44677705, 1)
+tonemap_mode = 2
+ssao_enabled = true
+ssil_enabled = true
+glow_normalized = true
+fog_enabled = true
+fog_light_color = Color(0.31328306, 0.3432429, 0.386512, 1)
+fog_density = 0.009
+fog_aerial_perspective = 0.3
+volumetric_fog_density = 0.025
+volumetric_fog_albedo = Color(0.34902, 0.34902, 0.341176, 1)
+volumetric_fog_emission = Color(0.662745, 0.662745, 0.662745, 1)
+volumetric_fog_emission_energy = 0.0
+volumetric_fog_gi_inject = 16.0
+volumetric_fog_length = 20.0
+adjustment_saturation = 1.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ifhq6"]
+shader = ExtResource("1_3sb4m")
+shader_parameter/enabled = true
+shader_parameter/dithering = true
+shader_parameter/colors = 128
+shader_parameter/dither_size = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s0jcl"]
+shader = ExtResource("1_jw6nq")
+shader_parameter/amount = 2400
+
+[node name="coast test" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2a5tj")
+
+[node name="Shaders" type="SubViewportContainer" parent="."]
+material = SubResource("ShaderMaterial_ifhq6")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport2" type="SubViewport" parent="Shaders"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="Shaders/SubViewport2"]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_s0jcl")
+custom_minimum_size = Vector2(1920, 1080)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="Shaders/SubViewport2/SubViewportContainer2"]
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="lucy" parent="Shaders/SubViewport2/SubViewportContainer2/SubViewport" instance=ExtResource("2_im1kl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 11.782827, -36)
+
+[node name="Rain" parent="Shaders/SubViewport2/SubViewportContainer2/SubViewport/lucy" instance=ExtResource("3_2a5tj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.2783, 0)
+
+[node name="SkyLight" type="DirectionalLight3D" parent="Shaders/SubViewport2/SubViewportContainer2/SubViewport"]
+transform = Transform3D(0.6689537, -0.743266, 0.0075304867, 0.07394696, 0.056466024, -0.99566233, 0.73961663, 0.66660887, 0.09273541, -195.47101, -180.5066, 58.955017)
+visible = false
+light_color = Color(0.52906674, 0.5290667, 0.5290667, 1)
+light_bake_mode = 1
+shadow_bias = 10.0
+shadow_normal_bias = 3.965
+shadow_reverse_cull_face = true
+directional_shadow_mode = 1
+sky_mode = 1
+
+[node name="GroundLight" type="DirectionalLight3D" parent="Shaders/SubViewport2/SubViewportContainer2/SubViewport"]
+transform = Transform3D(0.8660254, -2.1855694e-08, 0.5, -0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, 33.52899, 12.493399, 58.955017)
+light_color = Color(0.52906674, 0.52906674, 0.52906656, 1)
+light_energy = 0.4
+light_bake_mode = 1
+shadow_bias = 10.0
+shadow_normal_bias = 3.965
+shadow_reverse_cull_face = true
+directional_shadow_mode = 1
+sky_mode = 1
+
+[node name="sky" parent="Shaders/SubViewport2/SubViewportContainer2/SubViewport" instance=ExtResource("6_ifhq6")]
+transform = Transform3D(2.6796002, 0, 0, 0, 2.6796005, 0, 0, 0, 2.6796002, 59.851944, 57.64231, 64.1436)
+
+[node name="sea" parent="Shaders/SubViewport2/SubViewportContainer2/SubViewport" instance=ExtResource("7_3sb4m")]
+transform = Transform3D(1.20087, 0, 0, 0, 1.20087, 0, 0, 0, 1.57411, 384, -70.784996, -148.155)
+
+[node name="coast2" parent="Shaders/SubViewport2/SubViewportContainer2/SubViewport" instance=ExtResource("5_3rwva")]
+
+[node name="train_spawner" type="Node3D" parent="Shaders/SubViewport2/SubViewportContainer2/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247, 13.4, 351)
+script = ExtResource("8_ifhq6")
+trainSpeed = 1.2
+train = ExtResource("9_nlrjy")
+
+[node name="lighthouseTower" parent="Shaders/SubViewport2/SubViewportContainer2/SubViewport" instance=ExtResource("10_q7cr2")]
+transform = Transform3D(4.2050004, 0, 0, 0, 4.452, 0, 0, 0, 3.8425002, 2, 10, -10)
+
+[node name="lightCone" parent="Shaders/SubViewport2/SubViewportContainer2/SubViewport/lighthouseTower" instance=ExtResource("11_bp8nt")]
+transform = Transform3D(0.9999989, 0, 0, 0, -5.3502663e-07, 0.99999887, 0, -12.240001, -4.3711434e-08, -2.1403086, 8.591976, 2.6024725)
+script = ExtResource("12_jw5se")

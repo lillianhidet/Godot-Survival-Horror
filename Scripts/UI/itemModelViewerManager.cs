@@ -16,7 +16,6 @@ public partial class itemModelViewerManager : Node
     }
 
     public static itemModelViewer newViewer(PackedScene obj){
-
 		itemModelViewer v = (itemModelViewer) viewerScene.Instantiate();
 		v.getCamera().Position = new Vector3(3000 * (viewers.Count+1), 3000 * (viewers.Count+1), 3000 * (viewers.Count + 1));
 		v.spawnItem(obj);
@@ -32,5 +31,14 @@ public partial class itemModelViewerManager : Node
 			viewers.Remove(viewer);
 		}
 
+	}
+
+	public static void clearViewers(){ 
+	/*if(viewers.Count > 0 ){
+		foreach(itemModelViewer v in viewers) {
+				v.QueueFree();
+			}*/
+		viewers.Clear();
+		//}
 	}
 }

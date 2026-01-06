@@ -3,7 +3,6 @@ using Ink.Runtime;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text.Json;
 using Json = Godot.Json;
 
 
@@ -42,7 +41,6 @@ public partial class DialogueHandler : interactable{
 		
     }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public void close(){
 		playerState.closeMenu();
 	

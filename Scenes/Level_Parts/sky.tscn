@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://b11vd4u11qhb5"]
+[gd_scene load_steps=6 format=4 uid="uid://b11vd4u11qhb5"]
 
-[ext_resource type="Texture2D" uid="uid://c7yjorlpybnfm" path="res://textures/clouds.png" id="1_xq330"]
+[ext_resource type="Material" uid="uid://dt4u4af8secgf" path="res://Materials/Sky.tres" id="1_6a2xo"]
 [ext_resource type="Script" uid="uid://fcks1iwmcva" path="res://Scripts/World/textureScroll.cs" id="2_xi73u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tjhqg"]
@@ -37,12 +37,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_olytn")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_65g44"]
-albedo_texture = ExtResource("1_xq330")
-emission = Color(0.0588235, 0.0588235, 0.0588235, 1)
-emission_energy_multiplier = 2.0
-uv1_scale = Vector3(2, 2, 2)
-
 [node name="sky" type="Node3D"]
 
 [node name="cloud" type="Node3D" parent="."]
@@ -51,6 +45,6 @@ transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 108.63
 [node name="Grid" type="MeshInstance3D" parent="cloud"]
 mesh = SubResource("ArrayMesh_aufxx")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_65g44")
+surface_material_override/0 = ExtResource("1_6a2xo")
 script = ExtResource("2_xi73u")
 x = -2
